@@ -173,3 +173,7 @@ footer {
     color: #c2a46d; /* نفس لون شريط الأخبار العاجلة */
     text-align: center;
 }
+
+body {
+    background-color: red !important;
+}
