@@ -82,18 +82,18 @@ body {
 }
 
 .site-logo {
-  width: 48px;          /* أصغر وأكثر رقيًا */
+  width: 112px;          /* أصغر وأكثر رقيًا */
   height: auto;
 }
 
 .logo-text h1 {
   margin: 0;
-  font-size: 28px;
+  font-size: 36px;
   color: #ffffff;
   line-height: 1.1;
 }
 
 .logo-text span {
-  font-size: 13px;
+  font-size: 16px;
   color: #d6c4a3;
 }
