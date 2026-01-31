@@ -112,18 +112,30 @@ main {
 
 .author-box {
   display: flex;
-  gap: 15px;
+  align-items: center;
+  gap: 18px;
   margin-top: 40px;
   padding-top: 20px;
   border-top: 1px solid #ddd;
 }
 
 .author-avatar {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #8b6b4a; /* ذهبي نحاسي */
 }
 
-.author-articles ul {
-  padding-right: 20px;
+.author-info h3 {
+  margin: 0 0 5px 0;
+  color: #0b1c2d;
 }
+
+.author-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
