@@ -6,13 +6,13 @@ body {
 }
 
 header {
-  background-color: #1F2F45;
+  background-color: #000080;
   padding: 20px;
 }
 
 header h1 {
   margin: 0;
-  color: #EAC117; /* ذهبي داكن مائل للنحاسي */
+  color: #FBB917; /* ذهبي داكن مائل للنحاسي */
 }
 
 nav {
