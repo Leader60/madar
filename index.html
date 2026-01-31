@@ -3,74 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <title>مدار | صحيفة رأي وتحليل</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="custom.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
 
-<header>
-  <h1>مدار</h1>
-  <nav>
-    <a href="index.html">الرئيسية</a>
-    <a href="news.html">الأخبار</a>
-    <a href="opinion.html">الرأي</a>
-    <a href="analysis.html">التحليل</a>
-    <a href="culture.html">الثقافة</a>
-    <a href="writers.html">الكتّاب</a>
-    <a href="ai.html">الذكاء الاصطناعي</a>
-    <a href="contact.html">تواصل</a>
-  </nav>
+<header class="site-header">
+  <div class="logo">
+    <h1>مدار</h1>
+    <span>صحيفة رأي وتحليل</span>
+  </div>
 </header>
+
+<!-- شريط الأخبار العاجلة -->
 <div class="breaking-news">
-  <span class="label">عاجل</span>
-  <marquee>
-    مصدر موثوق: تطورات دولية متسارعة | بيان اقتصادي جديد | ملف ثقافي خاص قيد النشر
-  </marquee>
+  <strong>عاجل:</strong>
+  <marquee>تحديثات سياسية إقليمية | تطورات دولية | قراءات تحليلية معمقة</marquee>
 </div>
 
 <main class="home-layout">
 
+  <!-- المحتوى الرئيسي -->
   <section class="main-content">
-    <h2>الخبر الرئيسي</h2>
-    <p>هنا يوضع الخبر الأهم لليوم مع مقدمة مختصرة.</p>
 
-    <h3>أحدث التحليلات</h3>
-    <ul>
-      <li>قراءة تحليلية في المشهد الإقليمي</li>
-      <li>ما وراء الأرقام الاقتصادية</li>
-      <li>تحولات الخطاب السياسي</li>
-    </ul>
+    <article class="featured">
+      <h2>عنوان المقال الرئيسي المميز</h2>
+      <p>ملخص تحليلي قصير يقود القارئ إلى عمق النص دون إطالة.</p>
+      <a href="article.html">اقرأ المزيد</a>
+    </article>
+
+    <article>
+      <h3>مقال رأي</h3>
+      <p>قراءة نقدية هادئة لأحد الملفات الراهنة.</p>
+      <a href="article.html">اقرأ المقال</a>
+    </article>
+
+    <article>
+      <h3>تحليل سياسي</h3>
+      <p>تفكيك للمشهد بلغة عقلانية.</p>
+      <a href="article.html">اقرأ التحليل</a>
+    </article>
+
   </section>
 
+  <!-- الشريط الجانبي -->
   <aside class="sidebar">
-    <h3>مقالات مميزة</h3>
-    <ul>
-      <li>بين وهم الحياد والحقيقة</li>
-      <li>الثقافة كقوة ناعمة</li>
-      <li>الإعلام وسؤال المصداقية</li>
-    </ul>
 
     <h3>الأكثر قراءة</h3>
     <ul>
-      <li>لماذا تفشل النخب؟</li>
-      <li>تحولات الرأي العام</li>
-      <li>قراءة في المشهد العالمي</li>
+      <li><a href="article.html">مقال تحليلي لافت</a></li>
+      <li><a href="article.html">رأي الأسبوع</a></li>
+      <li><a href="article.html">قراءة ثقافية</a></li>
     </ul>
 
     <div class="ai-box">
-      <strong>اسأل مدار</strong>
+      <h3>اسأل مدار</h3>
       <p>مساحة معرفية مدعومة بالذكاء الاصطناعي.</p>
+      <input type="text" placeholder="اكتب سؤالك هنا…">
     </div>
+
   </aside>
 
 </main>
+
+<!-- مساحة الفيديو -->
 <section class="video-section">
-  <h2>فيديو خاص</h2>
   <div class="video-frame">
-    <p>سيتم عرض فيديوهات الأحداث المهمة هنا.</p>
+    مساحة مخصصة لعرض فيديو حدث أو تقرير خاص
   </div>
 </section>
 
 </body>
 </html>
-
