@@ -64,3 +64,25 @@ body {
   padding: 40px;
   text-align: center;
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.site-logo {
+  width: 60px;      /* يمكن تكبيره أو تصغيره */
+  height: auto;
+}
+
+.logo-text h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 34px;
+}
+
+.logo-text span {
+  color: #d6c4a3;
+  font-size: 14px;
+}
