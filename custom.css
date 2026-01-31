@@ -10,9 +10,9 @@ body {
 
 /* رأس الصفحة */
 .site-header {
-  background-color: #191970; /* كحلي */
+  background-color: #151B8D; /* كحلي */
   padding: 25px;
-  border-bottom: 2px solid #8b6b4a; /* ذهبي نحاسي */
+  border-bottom: 2px solid #EAC117; /* ذهبي نحاسي */
 }
 
 .site-header h1 {
