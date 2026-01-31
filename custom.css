@@ -65,24 +65,35 @@ body {
   text-align: center;
 }
 
+/* ===== رأس الصفحة (نسخة صحفية أنيقة) ===== */
+
+.site-header {
+  background-color: #0b1c2d;
+  padding: 12px 25px;   /* شريط أنحف */
+  border-bottom: 2px solid #8b6b4a;
+}
+
 .logo {
   display: flex;
   align-items: center;
-  gap: 15px;
+  justify-content: flex-start; /* RTL: من اليمين */
+  direction: rtl;
+  gap: 12px;
 }
 
 .site-logo {
-  width: 60px;      /* يمكن تكبيره أو تصغيره */
+  width: 48px;          /* أصغر وأكثر رقيًا */
   height: auto;
 }
 
 .logo-text h1 {
   margin: 0;
+  font-size: 28px;
   color: #ffffff;
-  font-size: 34px;
+  line-height: 1.1;
 }
 
 .logo-text span {
+  font-size: 13px;
   color: #d6c4a3;
-  font-size: 14px;
 }
