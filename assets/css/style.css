@@ -139,3 +139,49 @@ main {
   line-height: 1.6;
 }
 
+.site-header {
+  background: #0b1c2d;
+  color: #fff;
+  padding: 25px;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.breaking-news {
+  background: #8b6b4a;
+  color: #fff;
+  padding: 8px 15px;
+}
+
+.home-layout {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.main-content article {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.sidebar {
+  width: 300px;
+  background: #fff;
+  padding: 20px;
+}
+
+.video-section {
+  max-width: 1000px;
+  margin: 60px auto;
+}
+
+.video-frame {
+  border: 2px solid #8b6b4a;
+  padding: 40px;
+  text-align: center;
+}
