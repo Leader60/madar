@@ -36,7 +36,7 @@ main {
   margin: auto;
 }
 .breaking-news {
-  background-color: #8b6b4a;
+  background-color: #FBB917;
   color: #ffffff;
   padding: 8px 15px;
   font-size: 14px;
@@ -66,7 +66,7 @@ main {
   margin-top: 20px;
   padding: 10px;
   border: 1px solid #8b6b4a;
-  background-color: #fdfbf8;
+  background-color: #FBB917;
 }
 .video-section {
   max-width: 900px;
@@ -74,7 +74,7 @@ main {
 }
 
 .video-frame {
-  border: 2px solid #1F2F45;
+  border: 2px solid #FBB917;
   padding: 40px;
   text-align: center;
   background-color: #000;
@@ -124,7 +124,7 @@ main {
   height: 90px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #EAC117; /* ذهبي نحاسي */
+  border: 2px solid #FBB917; /* ذهبي نحاسي */
 }
 
 .author-info h3 {
@@ -139,9 +139,13 @@ main {
   line-height: 1.6;
 }
 
-
 .video-frame {
-  border: 2px solid #8b6b4a;
+  border: 2px solid #FBB917;
   padding: 40px;
   text-align: center;
+}
+
+header,
+footer {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
