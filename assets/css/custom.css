@@ -23,6 +23,33 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 }
+/* الطريقة الثانية: لجعل body بالكامل بهذا العرض */
+body {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+/* الطريقة الثالثة: باستخدام main wrapper */
+.wrapper {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+/* لضمان أن جميع العناصر الداخلية ترث box-sizing */
+* {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
 
 .page-wrapper {
     width: 100%;
@@ -1126,33 +1153,6 @@ body:not([class*="home"]) {
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
-    box-sizing: border-box;
-}
-
-/* الطريقة الثانية: لجعل body بالكامل بهذا العرض */
-body {
-    max-width: 1100px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 15px;
-    box-sizing: border-box;
-}
-
-/* الطريقة الثالثة: باستخدام main wrapper */
-.wrapper {
-    max-width: 1100px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 15px;
-    box-sizing: border-box;
-}
-
-/* لضمان أن جميع العناصر الداخلية ترث box-sizing */
-* {
-    box-sizing: inherit;
-}
-
-html {
     box-sizing: border-box;
 }
 
