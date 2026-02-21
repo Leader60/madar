@@ -1,30 +1,231 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <title>مدار</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+/* متغيرات الألوان */
+:root {
+    --navy: #0a2f44;      /* كحلي عميق */
+    --gold: #c5a028;       /* ذهبي ملكي غير لامع */
+    --white: #ffffff;
+    --black: #222222;
+    --border-gold: #b38f1f; /* ذهبي أغمق قليلاً للإطار */
+}
 
-<header>
-  <h1>مدار</h1>
-  <nav>
-    <a href="index.html">الرئيسية</a>
-    <a href="news.html">الأخبار</a>
-    <a href="opinion.html">الرأي</a>
-    <a href="analysis.html">التحليل</a>
-    <a href="culture.html">الثقافة</a>
-    <a href="writers.html">الكتّاب</a>
-    <a href="ai.html">الذكاء الاصطناعي</a>
-    <a href="contact.html">تواصل</a>
-  </nav>
-</header>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-<main>
-  <h2>هذه صفحة تجريبية</h2>
-  <p>سيتم استبدال هذا المحتوى لاحقًا.</p>
-</main>
+body {
+    background-color: var(--navy);
+    font-family: 'Amiri', serif;
+    line-height: 1.6;
+    direction: rtl;
+    text-align: right;
+    padding: 20px 0;
+}
 
-</body>
-</html>
+/* الحاوية الرئيسية */
+.main-container {
+    width: 1200px;
+    margin: 0 auto;
+    border: 6px solid var(--border-gold);
+    background-color: var(--navy);
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+/* الهيدر */
+.header {
+    background-color: var(--white);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 2px solid var(--gold);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-image: url('madar.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 3px solid var(--navy);
+    box-shadow: 0 0 0 3px var(--gold);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.logo-circle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 4px var(--gold), 0 10px 15px -5px rgba(0,0,0,0.5);
+}
+
+.newspaper-name h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+.newspaper-name .arabic {
+    color: var(--gold);
+    display: block;
+}
+
+.newspaper-name .english {
+    color: var(--navy);
+    font-size: 1.8rem;
+    display: block;
+}
+
+.lang-switch {
+    background-color: var(--navy);
+    color: var(--white);
+    border: 2px solid var(--gold);
+    padding: 8px 20px;
+    font-family: 'Amiri', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.3s;
+}
+
+.lang-switch:hover {
+    background-color: var(--gold);
+    color: var(--navy);
+    border-color: var(--navy);
+}
+
+/* القائمة الثابتة */
+.sticky-nav {
+    background-color: var(--navy);
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 5px 0;
+}
+
+.nav-menu li {
+    margin: 5px 10px;
+}
+
+.nav-menu a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.3rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-menu a:hover {
+    background-color: var(--gold);
+    color: var(--navy);
+}
+
+/* المحتوى الرئيسي */
+main {
+    background-color: var(--white);
+    color: var(--black);
+    min-height: 400px;
+    padding: 30px;
+}
+
+main h1, main h2, main h3 {
+    color: var(--gold);
+    border-right: 5px solid var(--navy);
+    padding-right: 15px;
+    margin-bottom: 20px;
+}
+
+/* التذييل */
+footer {
+    background-color: var(--navy);
+    color: var(--white);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: 2px solid var(--gold);
+    font-size: 1.1rem;
+}
+
+.footer-links a {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+    text-decoration: underline;
+}
+
+/* أنماط للغة الإنجليزية (LTR) */
+html[dir="ltr"] body {
+    text-align: left;
+}
+
+html[dir="ltr"] .header {
+    flex-direction: row-reverse;
+}
+
+html[dir="ltr"] .logo-area {
+    flex-direction: row-reverse;
+}
+
+html[dir="ltr"] main h1, 
+html[dir="ltr"] main h2, 
+html[dir="ltr"] main h3 {
+    border-right: none;
+    border-left: 5px solid var(--navy);
+    padding-right: 0;
+    padding-left: 15px;
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 1240px) {
+    .main-container {
+        width: 100%;
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .logo-area {
+        flex-direction: column;
+        text-align: center;
+    }
+    .newspaper-name h1 {
+        font-size: 2rem;
+    }
+    .nav-menu {
+        flex-direction: column;
+    }
+    footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
