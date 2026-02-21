@@ -14,7 +14,7 @@
 }
 
 body {
-    background-color: var(--navy);
+    background-color: #e0e0e0;
     font-family: 'Amiri', serif;
     line-height: 1.6;
     direction: rtl;
