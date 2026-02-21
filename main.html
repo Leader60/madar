@@ -1,30 +1,65 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html dir="rtl" lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>مدار</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدار - Madar</title>
+    <!-- خط Amiri من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <!-- ربط ملف CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="main-container">
+        <!-- الهيدر -->
+        <header class="header">
+            <div class="logo-area">
+                <div class="logo-circle" role="img" aria-label="شعار الصحيفة"></div>
+                <div class="newspaper-name">
+                    <h1>
+                        <span class="arabic">مدار</span>
+                        <span class="english">Madar</span>
+                    </h1>
+                </div>
+            </div>
+            <button class="lang-switch" id="langToggle">English</button>
+        </header>
 
-<header>
-  <h1>مدار</h1>
-  <nav>
-    <a href="index.html">الرئيسية</a>
-    <a href="news.html">الأخبار</a>
-    <a href="opinion.html">الرأي</a>
-    <a href="analysis.html">التحليل</a>
-    <a href="culture.html">الثقافة</a>
-    <a href="writers.html">الكتّاب</a>
-    <a href="ai.html">الذكاء الاصطناعي</a>
-    <a href="contact.html">تواصل</a>
-  </nav>
-</header>
+        <!-- القائمة الثابتة -->
+        <nav class="sticky-nav">
+            <ul class="nav-menu">
+                <li><a href="main.html">الرئيسية</a></li>
+                <li><a href="politic.html">سياسة</a></li>
+                <li><a href="economy.html">اقتصاد</a></li>
+                <li><a href="community.html">مجتمع</a></li>
+                <li><a href="technology.html">تكنولوجيا</a></li>
+                <li><a href="misll.html">متفرقات</a></li>
+                <li><a href="about.html">المدار</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+            </ul>
+        </nav>
 
-<main>
-  <h2>هذه صفحة تجريبية</h2>
-  <p>سيتم استبدال هذا المحتوى لاحقًا.</p>
-</main>
+        <!-- المحتوى الخاص بالصفحة -->
+        <main>
+            <h1>مرحباً بكم في صحيفة مدار</h1>
+            <p>هذه مساحة حرة للحريات العامة والنقاش العام. المحتوى سيتم تحديثه لاحقاً حسب كل صفحة.</p>
+        </main>
 
+        <!-- التذييل -->
+        <footer>
+            <div class="copyright">
+                © 2026 مدار - Madar. جميع الحقوق محفوظة.
+            </div>
+            <div class="footer-links">
+                <a href="#">سياسة الخصوصية</a>
+                <a href="#">شروط الخدمة</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ربط ملف JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
