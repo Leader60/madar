@@ -19,59 +19,93 @@
                 <div class="logo-circle" role="img" aria-label="شعار الصحيفة"></div>
                 <div class="newspaper-name">
                     <h1>
-                        <span class="arabic">مــدار</span>
+                        <span class="arabic">مدار</span>
                         <span class="english">Madar</span>
                     </h1>
                 </div>
             </div>
-            <button class="lang-switch" id="langToggle">
-    <span class="lang-icon">🌍</span>
-    <span class="lang-text">English</span>
-</button>
+            <!-- قائمة ترجمة جوجل - وضعتها مكان زر اللغة القديم -->
+            <div id="google_translate_element" class="google-translate"></div>
         </header>
 
         <!-- القائمة الثابتة -->
         <nav class="sticky-nav">
-           <div class="nav-container">
-            <ul class="nav-menu">
-                <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="politic.html">سـياسـة</a></li>
-                <li><a href="economy.html">اقتصاد</a></li>
-                <li><a href="community.html">مجتمع</a></li>
-                <li><a href="technology.html">تكنولـوجيا</a></li>
-                <li><a href="misll.html">متفرقات</a></li>
-                <li><a href="about.html">المـدار</a></li>
-                <li><a href="contact.html">تواصل معنا</a></li>
-            </ul>
-           <div class="nav-brand" id="navBrand">مدار - Madar</div>
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="politic.html">سـياسـة</a></li>
+                    <li><a href="economy.html">اقتصاد</a></li>
+                    <li><a href="community.html">مجتمع</a></li>
+                    <li><a href="technology.html">تكنولـوجيا</a></li>
+                    <li><a href="misc.html">متفرقات</a></li>
+                    <li><a href="about.html">المـدار</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                </ul>
+                <div class="nav-brand">مـدار - Madar</div>
             </div>
         </nav>
 
-        <!-- المحتوى الخاص بالصفحة -->
+        <!-- المحتوى الرئيسي -->
         <main>
             <h1>مرحباً بكم في صحيفة مدار</h1>
             <p>هذه مساحة حرة للحريات العامة والنقاش العام. المحتوى سيتم تحديثه لاحقاً حسب كل صفحة.</p>
+            
+            <!-- أقسام إضافية للصفحة الرئيسية -->
+            <section class="featured-articles">
+                <h2>أبرز المقالات</h2>
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <h3>الحريات العامة في الوطن العربي</h3>
+                        <p>مقالة تناقش واقع الحريات العامة والتحديات التي تواجهها في المنطقة العربية.</p>
+                        <a href="#">اقرأ المزيد</a>
+                    </article>
+                    <article class="article-card">
+                        <h3>مستقبل الإعلام الرقمي</h3>
+                        <p>كيف غيّرت التكنولوجيا شكل الإعلام وأثرت على حرية التعبير.</p>
+                        <a href="#">اقرأ المزيد</a>
+                    </article>
+                    <article class="article-card">
+                        <h3>دور المجتمع المدني</h3>
+                        <p>منظمات المجتمع المدني ودورها في تعزيز الديمقراطية وحقوق الإنسان.</p>
+                        <a href="#">اقرأ المزيد</a>
+                    </article>
+                </div>
+            </section>
+            
+            <section class="opinion-section">
+                <h2>رأي الحرية</h2>
+                <div class="opinion-content">
+                    <p>نؤمن بأن حرية الرأي والتعبير هي أساس المجتمعات المتقدمة. منصتنا مفتوحة للجميع للمساهمة بأفكارهم وآرائهم بشرط احترام الاختلافات والتنوع.</p>
+                </div>
+            </section>
         </main>
 
         <!-- التذييل -->
         <footer>
-            <div class="copyright">
-                © 2026 مــدار - Madar. جميع الحقوق محفوظة.
-            </div>
+            <div class="copyright">© 2026 مدار - Madar. جميع الحقوق محفوظة.</div>
             <div class="footer-links">
-                <a href="#">سـياسـة الخصوصية</a>
-                <a href="#">شـروط الخدمـة</a>
+                <a href="#">سياسة الخصوصية</a>
+                <a href="#">شروط الخدمة</a>
             </div>
         </footer>
     </div>
 
-    <!-- ربط ملف JavaScript -->
+    <!-- أكواد Google Translate -->
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'ar',
+            includedLanguages: 'ar,en,fr,de,es,tr,fa,ur', // اللغات المتاحة
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true
+        }, 'google_translate_element');
+    }
+    </script>
+    
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <!-- ملف JavaScript (فارغ الآن) -->
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
