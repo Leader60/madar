@@ -60,7 +60,7 @@ body::before {
     background-image: url('madar.jpg');
     background-size: cover;
     background-position: center;
-    border: 3px solid var(--navy);
+    border: 1px solid var(--navy);
     box-shadow: 0 0 0 3px var(--gold);
     transition: transform 0.3s, box-shadow 0.3s;
 }
