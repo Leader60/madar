@@ -222,6 +222,21 @@ html[dir="ltr"] .logo-area {
     flex-direction: row-reverse;
 }
 
+html[dir="ltr"] .nav-container {
+    flex-direction: row-reverse;
+}
+
+html[dir="ltr"] .nav-menu {
+    justify-content: flex-end;  /* القائمة تبدأ من اليمين في الإنجليزية */
+}
+
+html[dir="ltr"] .nav-brand {
+    border-right: none;
+    border-left: 2px solid var(--gold);  /* الحدود تصبح على اليسار */
+    margin-right: 0;
+    margin-left: auto;
+}
+
 html[dir="ltr"] main h1, 
 html[dir="ltr"] main h2, 
 html[dir="ltr"] main h3 {
