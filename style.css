@@ -260,3 +260,67 @@ html[dir="ltr"] main h3 {
         text-align: center;
     }
 }
+
+
+ /* تعديل شريط القوائم لاستخدام flex لعرض العناصر */
+.sticky-nav {
+    background-color: var(--navy);
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px 20px;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: flex-start;  /* ستتغير هذه القيمة حسب اللغة */
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 5px;
+}
+
+.nav-menu li {
+    margin: 0;
+}
+
+.nav-menu a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap;
+}
+
+.nav-menu a:hover {
+    background-color: var(--gold);
+    color: var(--navy);
+}
+
+/* تنسيق العلامة التجارية في القائمة */
+.nav-brand {
+    color: var(--gold);
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-right: 2px solid var(--gold);  /* للعربية */
+    border-left: none;
+    white-space: nowrap;
+    font-family: 'Amiri', serif;
+    letter-spacing: 1px;
+}
+
