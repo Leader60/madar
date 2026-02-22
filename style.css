@@ -13,14 +13,7 @@
     box-sizing: border-box;
 }
 
-body {
-    background: liner-gradient(145deg, #d4d4d4;
-    font-family: 'Amiri', serif;
-    line-height: 1.6;
-    direction: rtl;
-    text-align: right;
-    padding: 20px 0;
-}
+
 
 /* إضافة لمسة جمالية للخلفية */
 body::before {
