@@ -7,12 +7,6 @@ const newsFeeds = [
         url: 'https://www.alarabiya.net/.mrss/ar.xml',
         icon: '📺'
     },
-    {
-        name: 'الجزيرة',
-        url: 'https://www.aljazeera.net/aljazeerarss/a7d1c5c4-0d8a-4b4b-9b7b-5a3c9b3c9b3c/',
-        icon: '🌊'
-    }
-];
 
 // دالة جلب الأخبار - تعمل 100% على GitHub Pages
 async function fetchNews() {
@@ -40,24 +34,6 @@ async function fetchNews() {
             console.log('العربية: تأخر في التحميل');
         }
         
-        // جلب من الجزيرة
-        try {
-            const response2 = await fetch(proxyUrl + encodeURIComponent(newsFeeds[1].url));
-            const data2 = await response2.json();
-            
-            if (data2.status === 'ok' && data2.items) {
-                const jazeeraNews = data2.items.slice(0, 10).map(item => ({
-                    title: item.title,
-                    source: newsFeeds[1].name,
-                    icon: newsFeeds[1].icon,
-                    link: item.link
-                }));
-                allNews = [...allNews, ...jazeeraNews];
-            }
-        } catch (e) {
-            console.log('الجزيرة: تأخر في التحميل');
-        }
-        
         // خلط الأخبار
         return allNews.sort(() => Math.random() - 0.5);
         
@@ -82,7 +58,7 @@ async function updateNewsTicker() {
     const ticker = document.getElementById('newsTicker');
     if (!ticker) return;
     
-    ticker.innerHTML = '<span class="news-item">جاري تحميل الأخبار...</span>';
+    ticker.innerHTML = '<span class="news-item">جاري تحميل الأخبار...🔊🎵🎤🌎</span>';
     
     const news = await fetchNews();
     
