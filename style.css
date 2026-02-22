@@ -452,7 +452,7 @@ footer {
 
 /* تعديل اتجاه الحركة للغة الإنجليزية */
 html[dir="ltr"] .news-ticker {
-    animation: ticker-ltr 30s linear infinite;
+    animation: ticker-ltr 80s linear infinite;
 }
 
 @keyframes ticker-ltr {
