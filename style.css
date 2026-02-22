@@ -107,13 +107,11 @@ body::before {
     white-space: nowrap;    /* منع النص من الالتفاف */
 }
 
-.lang-switch:hover .lang-icon {
-    animation: spin 0.5s ease;
- }
 .lang-switch:hover {
     background-color: var(--gold);
     color: var(--navy);
     border-color: var(--navy);
+    animation: spin 0.5s ease;
 }
 
 @keyframes spin {
