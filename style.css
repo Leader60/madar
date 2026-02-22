@@ -94,7 +94,7 @@ body {
 .goog-te-gadget-simple {
     background-color: var(--navy) !important;
     border: 2px solid var(--gold) !important;
-    border-radius: 30px !important;
+    border-radius: 10px !important;
     padding: 8px 15px !important;
     font-family: 'Amiri', serif !important;
     width: 100% !important;
