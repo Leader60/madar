@@ -90,14 +90,14 @@ body::before {
     background-color: var(--navy);
     color: var(--white);
     border: 2px solid var(--gold);
-    width: 110px;           /* عرض ثابت (أوسع قليلاً ليتسع للرمز) */
+    width: 150px;           /* عرض ثابت (أوسع قليلاً ليتسع للرمز) */
     height: 50px;           /* ارتفاع ثابت */
     padding: 0;             /* إلغاء padding المتغير */
     font-family: 'Amiri', serif;
     font-size: 1.1rem;
     font-weight: normal;
     cursor: pointer;
-    border-radius: 30px;
+    border-radius: 15px;
     transition: all 0.3s;
     display: flex;          /* استخدام flex لتوسيط العناصر */
     align-items: center;
@@ -111,7 +111,7 @@ body::before {
     background-color: var(--gold);
     color: var(--navy);
     border-color: var(--navy);
-    animation: spin 0.5s ease;
+    animation: spin 0.8s ease;
 }
 
 @keyframes spin {
