@@ -28,7 +28,7 @@ body::before {
 
 /* الحاوية الرئيسية */
 .main-container {
-    width: 1200px;
+    width: 900px;
     margin: 0 auto;
     border: 6px solid var(--border-gold);
     background-color: var(--navy);
