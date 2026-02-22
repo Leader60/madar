@@ -447,26 +447,22 @@ footer {
 
 @keyframes ticker {
     0% { transform: translateX(100%); }      /* يبدأ من اليمين */
-    100% { transform: translateX(-400%); }   /* يتحرك لليسار مسافة كبيرة */
+    100% { transform: translateX(-500%); }   /* يتحرك لليسار مسافة كبيرة */
 }
 
 .news-ticker {
-    animation: ticker 120s linear infinite;  /* 120 ثانية = حركة بطيئة جداً */
+    animation: ticker 240s linear infinite;  /* 120 ثانية = حركة بطيئة جداً */
     width: max-content;                       /* العرض حسب المحتوى */
 }
 
 /* تعديل اتجاه الحركة للغة الإنجليزية */
-html[dir="ltr"] .news-ticker {
-    animation: ticker-ltr 120s linear infinite;
-}
-
 @keyframes ticker-ltr {
-    0% { transform: translateX(-100%); }      /* يبدأ من اليسار */
-    100% { transform: translateX(400%); }     /* يتحرك لليمين */
+    0% { transform: translateX(100%); }      /* يبدأ من اليسار */
+    100% { transform: translateX(-500%); }     /* يتحرك لليمين */
 }
 
 html[dir="ltr"] .news-ticker {
-    animation: ticker-ltr 120s linear infinite;
+    animation: ticker-ltr 240s linear infinite;
 }
 
 /* استجابة للشاشات الصغيرة */
