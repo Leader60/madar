@@ -162,14 +162,14 @@ main h1, main h2, main h3 {
 /* التذييل */
 footer {
     background-color: var(--navy);
-    color: var(--white);
+    color: var(--gold);
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     border-top: 2px solid var(--gold);
-    font-size: 1.1rem;
+    font-size: 0.8rem;
 }
 
 .footer-links a {
