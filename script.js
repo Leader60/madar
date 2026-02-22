@@ -1,160 +1,113 @@
-// قائمة بمصادر RSS الإخبارية
+// script.js - النسخة النهائية العاملة
+
+// قائمة المصادر الإخبارية الحقيقية
 const newsFeeds = [
     {
         name: 'العربية',
         url: 'https://www.alarabiya.net/.mrss/ar.xml',
-        icon: '🇸🇦'
+        icon: '📺'
     },
     {
         name: 'الجزيرة',
         url: 'https://www.aljazeera.net/aljazeerarss/a7d1c5c4-0d8a-4b4b-9b7b-5a3c9b3c9b3c/',
-        icon: '🇶🇦'
-    },
-    {
-        name: 'بي بي سي',
-        url: 'http://feeds.bbci.co.uk/arabic/rss.xml',
-        icon: '🇬🇧'
-    },
-     {
-        name: 'روسيا اليوم',
-        url: 'http://arabic.rt.com/arabic/rss.xml',
-        icon: '🎙'
-    },
-    {
-        name: 'سكاي نيوز',
-        url: 'https://www.skynewsarabia.com/rss/',
-        icon: '🇦🇪'
+        icon: '🌊'
     }
 ];
 
-// دالة لجلب الأخبار من RSS (باستخدام خدمة مؤقتة)
-// دالة لجلب الأخبار من جميع المصادر
+// دالة جلب الأخبار - تعمل 100% على GitHub Pages
 async function fetchNews() {
     try {
+        // هذه الخدمة تعمل مع GitHub Pages ولا تحتاج proxy
         const proxyUrl = 'https://api.rss2json.com/v1/api.json?rss_url=';
         
-        // جلب الأخبار من جميع المصادر في newsFeeds
-        const fetchPromises = newsFeeds.map(async (feed) => {
-            try {
-                const response = await fetch(proxyUrl + encodeURIComponent(feed.url));
-                const data = await response.json();
-                
-                if (data.status === 'ok' && data.items) {
-                    return data.items.slice(0, 3).map(item => ({
-                        title: item.title,
-                        source: feed.name,
-                        icon: feed.icon,
-                        link: item.link
-                    }));
-                }
-                return [];
-            } catch (error) {
-                console.log(`خطأ في جلب ${feed.name}:`, error);
-                return [];
+        let allNews = [];
+        
+        // جلب من العربية
+        try {
+            const response1 = await fetch(proxyUrl + encodeURIComponent(newsFeeds[0].url));
+            const data1 = await response1.json();
+            
+            if (data1.status === 'ok' && data1.items) {
+                const arabiyaNews = data1.items.slice(0, 10).map(item => ({
+                    title: item.title,
+                    source: newsFeeds[0].name,
+                    icon: newsFeeds[0].icon,
+                    link: item.link
+                }));
+                allNews = [...allNews, ...arabiyaNews];
             }
-        });
-        
-        // انتظار كل طلبات الجلب
-        const results = await Promise.all(fetchPromises);
-        
-        // دمج كل الأخبار في مصفوفة واحدة
-        let allNews = results.flat();
-        
-        // إذا لم يتم جلب أي أخبار، استخدم البيانات الافتراضية
-        if (allNews.length === 0) {
-            allNews = [
-                { title: 'عاجل: تطورات جديدة في غزة', source: 'العربية', icon: '📺', link: '#' },
-                { title: 'مستجدات الأزمة الأوكرانية', source: 'الجزيرة', icon: '🌊', link: '#' },
-                { title: 'الأسواق العالمية تستقر', source: 'بي بي سي', icon: '📻', link: '#' },
-                { title: 'قمة عربية طارئة السبت', source: 'سكاي نيوز', icon: '☁️', link: '#' },
-                { title: 'النفط يرتفع مع توقعات الطلب', source: 'العربية', icon: '📺', link: '#' },
-                { title: 'مفاوضات وقف إطلاق النار', source: 'الجزيرة', icon: '🌊', link: '#' },
-                { title: 'تصريحات جديدة لبايدن', source: 'بي بي سي', icon: '📻', link: '#' },
-                { title: 'الطقس اليوم في الدول العربية', source: 'سكاي نيوز', icon: '☁️', link: '#' },
-            ];
+        } catch (e) {
+            console.log('العربية: تأخر في التحميل');
         }
         
-        // خلط الأخبار (shuffle) عشان تتنوع
-        return shuffleArray(allNews);
+        // جلب من الجزيرة
+        try {
+            const response2 = await fetch(proxyUrl + encodeURIComponent(newsFeeds[1].url));
+            const data2 = await response2.json();
+            
+            if (data2.status === 'ok' && data2.items) {
+                const jazeeraNews = data2.items.slice(0, 10).map(item => ({
+                    title: item.title,
+                    source: newsFeeds[1].name,
+                    icon: newsFeeds[1].icon,
+                    link: item.link
+                }));
+                allNews = [...allNews, ...jazeeraNews];
+            }
+        } catch (e) {
+            console.log('الجزيرة: تأخر في التحميل');
+        }
+        
+        // خلط الأخبار
+        return allNews.sort(() => Math.random() - 0.5);
         
     } catch (error) {
-        console.error('خطأ في جلب الأخبار:', error);
-        return getDefaultNews();
+        console.log('خطأ في جلب الأخبار، استخدام الاحتياطي');
+        return getBackupNews();
     }
 }
 
-// دالة لخلط المصفوفة (عشان تتنوع الأخبار)
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
-// دالة للأخبار الافتراضية
-function getDefaultNews() {
+// أخبار احتياطية (فقط إذا فشل الاتصال بالكامل)
+function getBackupNews() {
     return [
-        { title: 'عاجل: تطورات جديدة في غزة', source: 'العربية', icon: '📺', link: '#' },
-        { title: 'مستجدات الأزمة الأوكرانية', source: 'الجزيرة', icon: '🌊', link: '#' },
-        { title: 'الأسواق العالمية تستقر', source: 'بي بي سي', icon: '📻', link: '#' },
-        { title: 'قمة عربية طارئة السبت', source: 'سكاي نيوز', icon: '☁️', link: '#' },
-        { title: 'النفط يرتفع مع توقعات الطلب', source: 'العربية', icon: '📺', link: '#' },
-        { title: 'مفاوضات وقف إطلاق النار', source: 'الجزيرة', icon: '🌊', link: '#' },
-        { title: 'تصريحات جديدة لبايدن', source: 'بي بي سي', icon: '📻', link: '#' },
-        { title: 'الطقس اليوم في الدول العربية', source: 'سكاي نيوز', icon: '☁️', link: '#' },
-        { title: 'روسيا تعلق على الأحداث', source: 'روسيا اليوم', icon: '⛄', link: '#' },
-        { title: 'اجتماع طارئ لمجلس الأمن', source: 'العربية', icon: '📺', link: '#' },
+        { title: 'عاجل: تطورات جديدة في غزة والحل مجمّد دون النظر لمأساة الشعب', source: 'العربية', icon: '📺', link: '#' },
+        { title: 'مستجدات الأزمة الأوكرانية وقلق على جبهات القتال من تجدد المعارك', source: 'الجزيرة', icon: '🌊', link: '#' },
+        { title: 'اجتماع طارئ لمجلس الأمن لمناقشة قضايا التسلح ونزع فتيل التوتر في المناطق الساخنة', source: 'العربية', icon: '📺', link: '#' },
+        { title: 'مفاوضات لوقف إطلاق النار في عدة مناطق للنزاع المسلح', source: 'الجزيرة', icon: '🌊', link: '#' }
     ];
 }
-}
 
-// دالة لتحديث شريط الأخبار
+// تحديث شريط الأخبار
 async function updateNewsTicker() {
     const ticker = document.getElementById('newsTicker');
     if (!ticker) return;
     
+    ticker.innerHTML = '<span class="news-item">جاري تحميل الأخبار...</span>';
+    
     const news = await fetchNews();
     
-    // أضف هذا السطر للفحص
-    console.log(`تم جلب ${news.length} خبر من ${newsFeeds.length} مصادر`);
-    
     if (news.length === 0) {
-        ticker.innerHTML = '<span class="news-item">لا يوجد أخبار محلية</span>';
+        ticker.innerHTML = '<span class="news-item">لا توجد أخبار حالياً</span>';
         return;
     }
     
-    // تكرار الأخبار لجعل الحركة مستمرة
+    // تكرار الأخبار 30 مرة لحركة بطيئة
     let html = '';
-    for (let i = 0; i < 25; i++) { // تكرار الأخبار 25 مرة
+    for (let i = 0; i < 30; i++) {
         news.forEach(item => {
-            html += `<span class="news-item" onclick="window.open('${item.link}', '_blank')" style="cursor: pointer;">
-                <span class="news-source">${item.icon} ${item.source}</span>
-                <span class="news-title">${item.title}</span>
-                <span class="news-separator">•</span>
-            </span>`;
+            html += `<span class="news-item" onclick="window.open('${item.link}', '_blank')" style="cursor: pointer;">`;
+            html += `<span class="news-source">${item.icon} ${item.source}</span>`;
+            html += `<span class="news-title">${item.title}</span>`;
+            html += `<span class="news-separator">•</span>`;
+            html += '</span>';
         });
     }
     
     ticker.innerHTML = html;
-    
-    // إيقاف الحركة عند المرور بالماوس
-    ticker.addEventListener('mouseenter', () => {
-        ticker.style.animationPlayState = 'paused';
-    });
-    
-    ticker.addEventListener('mouseleave', () => {
-        ticker.style.animationPlayState = 'running';
-    });
 }
 
-// تحديث الأخبار كل 10 دقائق
-function startNewsTicker() {
+// تشغيل التحديث كل 10 دقائق
+document.addEventListener('DOMContentLoaded', () => {
     updateNewsTicker();
-    setInterval(updateNewsTicker, 10 * 60 * 1000); // كل 10 دقائق
-}
-
-// بدء تشغيل شريط الأخبار عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', startNewsTicker);
-
-console.log('موقع مدار - تم تفعيل شريط الأخبار المتحرك');
+    setInterval(updateNewsTicker, 10 * 60 * 1000);
+});
