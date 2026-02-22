@@ -13,8 +13,6 @@
     box-sizing: border-box;
 }
 
-
-
 /* إضافة لمسة جمالية للخلفية */
 body::before {
     content: "";
