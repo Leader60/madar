@@ -361,3 +361,11 @@ footer {
         margin: 0 auto;
     }
 }
+
+
+/* لا تترجم أسم الصحيفة */
+.notranslate {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
