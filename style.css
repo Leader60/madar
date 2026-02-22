@@ -167,7 +167,7 @@ footer {
     align-items: center;
     flex-wrap: wrap;
     border-top: 2px solid var(--gold);
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 .footer-links a {
