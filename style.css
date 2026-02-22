@@ -411,7 +411,7 @@ footer {
     align-items: center;
     white-space: nowrap;
     position: absolute;
-    animation: ticker 30s linear infinite;
+    animation: ticker 18s linear infinite;
     height: 100%;
 }
 
@@ -447,7 +447,7 @@ footer {
 
 @keyframes ticker {
     0% { transform: translateX(100%); }      /* يبدأ من اليمين */
-    100% { transform: translateX(-500%); }   /* يتحرك لليسار مسافة كبيرة */
+    100% { transform: translateX(-3000%); }   /* يتحرك لليسار مسافة كبيرة */
 }
 
 .news-ticker {
