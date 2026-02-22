@@ -54,13 +54,13 @@ body::before {
 }
 
 .logo-circle {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background-image: url('madar.jpg');
     background-size: cover;
     background-position: center;
-    border: 1px solid var(--navy);
+    border: 0.2px solid var(--navy);
     box-shadow: 0 0 0 3px var(--gold);
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -158,9 +158,9 @@ body::before {
 .nav-menu a {
     color: var(--white);
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     padding: 5px 10px;
-    border-radius: 20px;
+    border-radius: 12px;
     transition: background-color 0.3s, color 0.3s;
 }
 
