@@ -97,7 +97,7 @@ async function updateNewsTicker() {
     
     // تكرار الأخبار لجعل الحركة مستمرة
     let html = '';
-    for (let i = 0; i < 15; i++) { // تكرار الأخبار 3 مرات
+    for (let i = 0; i < 100; i++) { // تكرار الأخبار 3 مرات
         news.forEach(item => {
             html += `<span class="news-item" onclick="window.open('${item.link}', '_blank')" style="cursor: pointer;">
                 <span class="news-source">${item.icon} ${item.source}</span>
