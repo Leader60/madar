@@ -230,6 +230,12 @@ html[dir="ltr"] .nav-menu {
     justify-content: flex-end;  /* القائمة تبدأ من اليمين في الإنجليزية */
 }
 
+/* تحسين مظهر القائمة في الإنجليزية */
+html[dir="ltr"] .nav-menu a {
+    font-size: 1rem;  /* تصغير الخط قليلاً إذا لزم الأمر */
+    padding: 5px 8px;   /* تقليل المسافات */
+}
+
 html[dir="ltr"] .nav-brand {
     border-right: none;
     border-left: 2px solid var(--gold);  /* الحدود تصبح على اليسار */
