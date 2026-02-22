@@ -451,7 +451,7 @@ footer {
 }
 
 .news-ticker {
-    animation: ticker 50s linear infinite;  /* 50 ثانية = حركة بطيئة جداً */
+    animation: ticker 25s linear infinite;  /* 25 ثانية = حركة بطيئة جداً */
     width: max-content;                       /* العرض حسب المحتوى */
 }
 
@@ -462,7 +462,7 @@ footer {
 }
 
 html[dir="ltr"] .news-ticker {
-    animation: ticker-ltr 50s linear infinite;
+    animation: ticker-ltr 25s linear infinite;
 }
 
 /* استجابة للشاشات الصغيرة */
