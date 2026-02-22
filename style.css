@@ -109,6 +109,11 @@ body::before {
 
 .lang-switch:hover .lang-icon {
     animation: spin 0.5s ease;
+ }
+.lang-switch:hover {
+    background-color: var(--gold);
+    color: var(--navy);
+    border-color: var(--navy);
 }
 
 @keyframes spin {
