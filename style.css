@@ -414,8 +414,8 @@ footer {
     white-space: nowrap;
     position: absolute;
     height: 100%;
-     /* جرب 15s للسرعة العالية أو 25s للسرعة المتوسطة */
-    animation: ticker-move-rtl 20s linear infinite; 
+     /* جرب 15 للسرعة العالية أو 25 للسرعة المتوسطة */
+    animation: ticker-move-rtl 10s linear infinite; 
     right: 0; /* لضمان البدء من اليمين في RTL */
 }
 
