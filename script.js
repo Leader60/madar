@@ -24,5 +24,14 @@ async function fetchNews() {
     }
 }
 
+function getBackupNews() {
+    return [
+        { title: 'عاجل: تطورات جديدة في غزة', source: 'العربية', icon: '📺', link: '#' },
+        { title: 'مستجدات الأزمة الأوكرانية', source: 'الجزيرة', icon: '🌊', link: '#' },
+        { title: 'اجتماع طارئ لمجلس الأمن', source: 'العربية', icon: '📺', link: '#' },
+        { title: 'مفاوضات وقف إطلاق النار', source: 'الجزيرة', icon: '🌊', link: '#' }
+    ];
+}
+
 // تشغيل الوظيفة عند تحميل الصفحة
 window.onload = fetchNews;
