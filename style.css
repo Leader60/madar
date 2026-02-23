@@ -414,7 +414,9 @@ footer {
     white-space: nowrap;
     position: absolute;
     height: 100%;
-    animation: ticker-move-rtl 20s linear infinite; /* سرعة تحريك الخبر */
+     /* جرب 15s للسرعة العالية أو 25s للسرعة المتوسطة */
+    animation: ticker-move-rtl 20s linear infinite; 
+    right: 0; /* لضمان البدء من اليمين في RTL */
 }
 
 .news-ticker:hover {
@@ -429,6 +431,7 @@ footer {
     display: inline-flex;
     align-items: center;
     cursor: pointer;
+     transition: color 0.3s ease; /* تنعيم تغيير اللون */
 }
 
 .news-separator {
@@ -439,7 +442,7 @@ footer {
 
 /* --- أنيميشن الحركة الصحيحة للغة العربية --- */
 @keyframes ticker-move-rtl {
-    0% { transform: translateX(100%); } /* يبدأ من اليمين */
+    0% { transform: translateX(0%); } /* يبدأ من اليمين */
     100% { transform: translateX(-100%); } /* ينتهي في اليسار */
 }
 
@@ -449,4 +452,8 @@ footer {
         max-width: 100%;
         margin: 5px 0;
     }
+}
+
+.news-item:hover {
+    color: #c5a059 !important; /* تغيير لون الخط من الأسود إلى الذهبي مع مرور الماوس */
 }
