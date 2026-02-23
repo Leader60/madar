@@ -52,10 +52,10 @@ async function updateNewsTicker() {
     
     // تكرار الأخبار لضمان تدفق مستمر دون فراغات في الشريط (Infinite Effect)
     let html = '';
-    const repeatCount = 10; // تكرار المصفوفة لملء عرض الشاشة
+    const repeatCount = 25; // تكرار المصفوفة لملء عرض الشاشة
     
-    for (let i = 0; i < repeatCount; i++) {
-        news.forEach(item => {
+    for (let i = 0; i < 5; i++) { 
+    itemsToDisplay.forEach(item => {
             html += `
                 <div class="news-item" onclick="window.open('${item.link}', '_blank')" style="cursor: pointer;">
                     <span class="news-source">${item.icon} ${item.source}:</span>
@@ -72,6 +72,6 @@ async function updateNewsTicker() {
 document.addEventListener('DOMContentLoaded', () => {
     updateNewsTicker();
     
-    // تحديث المحتوى تلقائياً من المصدر كل 15 دقيقة
-    setInterval(updateNewsTicker, 15 * 60 * 1000); 
+    // تحديث المحتوى تلقائياً من المصدر كل 10 دقيقة
+    setInterval(updateNewsTicker, 10* 60 * 1000); 
 });
