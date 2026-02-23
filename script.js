@@ -1,35 +1,28 @@
-// استبدل 'YOUR_API_KEY' بالمفتاح الذي حصلت عليه
-const apiKey = '2b6c165e0ad14ce682cc33f026267af9';
-const url = `https://newsapi.org{apiKey}`;
+// رابط يحول أخبار الجزيرة إلى تنسيق JSON ليعمل مباشرة
+const newsUrl = 'https://api.rss2json.com';
 
-async function fetchNews() {
+async function loadNews() {
     try {
-        const response = await fetch(url);
+        const response = await fetch(newsUrl);
         const data = await response.json();
         
+        // ربط المعرف الموجود في الـ HTML الخاص بك
+        const ticker = document.getElementById('news-ticker'); 
+
         if (data.status === 'ok') {
-            const newsTicker = document.getElementById('news-ticker');
-            // مسح أي محتوى قديم
-            newsTicker.innerHTML = ''; 
+            ticker.innerHTML = ''; // مسح جملة "جاري التحميل"
             
-            // تحميل العناوين وعرضها
-            data.articles.forEach(article => {
-                const span = document.createElement('span');
-                span.innerHTML = ` ⚡ ${article.title} &nbsp;&nbsp;&nbsp; `;
-                newsTicker.appendChild(span);
+            data.items.forEach(item => {
+                const newsItem = document.createElement('span');
+                newsItem.className = 'news-item';
+                // عرض العنوان مع أيقونة جذابة
+                newsItem.innerHTML = ` ⚡ ${item.title} &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp; `;
+                ticker.appendChild(newsItem);
             });
         }
     } catch (error) {
-        console.error('حدث خطأ أثناء جلب الأخبار:', error);
-    }
-}
-
-
-        return allNews.sort(() => Math.random() - 0.5);
-        
-    } catch (error) {
-        console.log('خطأ في تحميل الأخبار، استخدام الاحتياطي');
-        return getBackupNews();
+        console.error("تعذر جلب الأخبار:", error);
+        document.getElementById('news-ticker').innerText = "حدث خطأ أثناء تحميل الأخبار.";
     }
 }
 
@@ -42,5 +35,9 @@ function getBackupNews() {
     ];
 }
 
-// تشغيل الوظيفة عند تحميل الصفحة
-window.onload = fetchNews;
+// تشغيل الوظيفة فور تحميل الصفحة
+document.addEventListener('DOMContentLoaded', loadNews);
+
+
+
+
