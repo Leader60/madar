@@ -445,32 +445,34 @@ footer {
     margin: 0 10px;
 }
 
-@keyframes ticker {
-    0% { transform: translateX(100%); }      /* يبدأ من اليمين */
-    100% { transform: translateX(600%); }   /* يتحرك لليسار مسافة كبيرة */
+/* 1. إعدادات الحركة للغة الإنجليزية (من اليسار لليمين) كما في الصورة */
+@keyframes ticker-1tr {
+    0% { transform: translateX(100%); }   /* يبدأ من اليمين خارج الشاشة */
+    100% { transform: translateX(-600%); } /* يتحرك لليسار */
 }
 
-.news-ticker {
-    animation: ticker 30s linear infinite;  /* 30 ثانية = حركة بطيئة جداً */
-    width: max-content;                       /* العرض حسب المحتوى */
-}
-
-/* تعديل اتجاه الحركة للغة الإنجليزية */
-@keyframes ticker-ltr {
-    0% { transform: translateX(100%); }      /* يبدأ من اليسار */
-    100% { transform: translateX(-600%); }     /* يتحرك لليمين */
-}
-
+/* تطبيق الحركة على حاوية الأخبار */
 html[dir="ltr"] .news-ticker {
-    animation: ticker-ltr 30s linear infinite;
+    animation: ticker-1tr 30s linear infinite;
+    display: flex;
+    white-space: nowrap;
 }
 
-/* استجابة للشاشات الصغيرة */
+/* 2. حاوية الشريط الأساسية */
+.news-ticker-container {
+    width: 100%;
+    overflow: hidden;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* 3. استجابة للشاشات المتوسطة (Tablets) */
 @media (max-width: 992px) {
     .header {
         flex-wrap: wrap;
     }
-    
     .news-ticker-container {
         order: 3;
         max-width: 100%;
@@ -479,17 +481,25 @@ html[dir="ltr"] .news-ticker {
     }
 }
 
+/* 4. استجابة للشاشات الصغيرة (Mobile) */
 @media (max-width: 768px) {
     .news-ticker-container {
         height: 45px;
     }
-    
     .news-ticker-label {
         font-size: 0.9rem;
         padding: 0 10px;
     }
-    
     .news-item {
         font-size: 0.85rem;
     }
+}
+
+/* تنسيق إضافي للعناصر الداخلية لضمان الوضوح */
+.news-item {
+    padding: 0 20px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
