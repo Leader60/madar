@@ -12,7 +12,7 @@ async function fetchNews() {
             // مسح أي محتوى قديم
             newsTicker.innerHTML = ''; 
             
-            // جلب العناوين وعرضها
+            // تحميل العناوين وعرضها
             data.articles.forEach(article => {
                 const span = document.createElement('span');
                 span.innerHTML = ` ⚡ ${article.title} &nbsp;&nbsp;&nbsp; `;
@@ -21,6 +21,15 @@ async function fetchNews() {
         }
     } catch (error) {
         console.error('حدث خطأ أثناء جلب الأخبار:', error);
+    }
+}
+
+
+        return allNews.sort(() => Math.random() - 0.5);
+        
+    } catch (error) {
+        console.log('خطأ في تحميل الأخبار، استخدام الاحتياطي');
+        return getBackupNews();
     }
 }
 
