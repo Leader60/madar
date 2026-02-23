@@ -1,89 +1,77 @@
 // script.js - النسخة النهائية العاملة
+// script.js - النسخة المتوافقة مع تصميم index.html والصورة
 
-// قائمة المصادر الإخبارية الحقيقية
 const newsFeeds = [
     {
         name: 'العربية',
-        url: 'https://www.alarabiya.net/.mrss/ar.xml',
+        url: 'https://www.alarabiya.net',
         icon: '📺'
-    },
+    }
+];
 
-// دالة جلب الأخبار - تعمل 100% على GitHub Pages
 async function fetchNews() {
     try {
-        // هذه الخدمة تعمل مع GitHub Pages ولا تحتاج proxy
-        const proxyUrl = 'https://api.rss2json.com/v1/api.json?rss_url=';
+        // خدمة تحويل RSS إلى JSON لتجاوز قيود المتصفح (CORS)
+        const proxyUrl = 'https://api.rss2json.com';
+        const source = newsFeeds[0]; 
         
-        let allNews = [];
+        const response = await fetch(proxyUrl + encodeURIComponent(source.url));
+        const data = await response.json();
         
-        // جلب من العربية
-        try {
-            const response1 = await fetch(proxyUrl + encodeURIComponent(newsFeeds[0].url));
-            const data1 = await response1.json();
-            
-            if (data1.status === 'ok' && data1.items) {
-                const arabiyaNews = data1.items.slice(0, 10).map(item => ({
-                    title: item.title,
-                    source: newsFeeds[0].name,
-                    icon: newsFeeds[0].icon,
-                    link: item.link
-                }));
-                allNews = [...allNews, ...arabiyaNews];
-            }
-        } catch (e) {
-            console.log('العربية: تأخر في التحميل');
+        if (data.status === 'ok' && data.items) {
+            return data.items.slice(0, 10).map(item => ({
+                title: item.title,
+                source: source.name,
+                icon: source.icon,
+                link: item.link
+            }));
         }
-        
-        // خلط الأخبار
-        return allNews.sort(() => Math.random() - 0.5);
-        
+        throw new Error('فشل جلب البيانات');
     } catch (error) {
-        console.log('خطأ في جلب الأخبار، استخدام الاحتياطي');
+        console.warn('استخدام الأخبار الاحتياطية بسبب خطأ في الاتصال');
         return getBackupNews();
     }
 }
 
-// أخبار احتياطية (فقط إذا فشل الاتصال بالكامل)
 function getBackupNews() {
     return [
-        { title: 'عاجل: تطورات جديدة في غزة والحل مجمّد دون النظر لمأساة الشعب', source: 'العربية', icon: '📺', link: '#' },
-        { title: 'مستجدات الأزمة الأوكرانية وقلق على جبهات القتال من تجدد المعارك', source: 'الجزيرة', icon: '🌊', link: '#' },
-        { title: 'اجتماع طارئ لمجلس الأمن لمناقشة قضايا التسلح ونزع فتيل التوتر في المناطق الساخنة', source: 'العربية', icon: '📺', link: '#' },
-        { title: 'مفاوضات لوقف إطلاق النار في عدة مناطق للنزاع المسلح', source: 'الجزيرة', icon: '🌊', link: '#' }
+        { title: 'عاجل: متابعة مستمرة لآخر التطورات الميدانية والسياسية في المنطقة', source: 'نشرة الأخبار', icon: '🌍', link: '#' },
+        { title: 'توقعات باستقرار الحالة الجوية ونشاط في الحركة التجارية اليوم', source: 'نشرة الأخبار', icon: '📊', link: '#' }
     ];
 }
 
-// تحديث شريط الأخبار
 async function updateNewsTicker() {
+    // استهداف العنصر الموجود في ملف index.html الخاص بك
     const ticker = document.getElementById('newsTicker');
     if (!ticker) return;
     
-    ticker.innerHTML = '<span class="news-item">جاري تحميل الأخبار...🔊🎵🎤🌎</span>';
+    // إظهار رسالة تحميل مؤقتة
+    ticker.innerHTML = '<span class="news-item">جاري تحميل الأخبار... 📡</span>';
     
     const news = await fetchNews();
     
-    if (news.length === 0) {
-        ticker.innerHTML = '<span class="news-item">لا توجد أخبار حالياً</span>';
-        return;
-    }
-    
-    // تكرار الأخبار 30 مرة لحركة بطيئة
+    // تكرار الأخبار لضمان تدفق مستمر دون فراغات في الشريط (Infinite Effect)
     let html = '';
-    for (let i = 0; i < 30; i++) {
+    const repeatCount = 10; // تكرار المصفوفة لملء عرض الشاشة
+    
+    for (let i = 0; i < repeatCount; i++) {
         news.forEach(item => {
-            html += `<span class="news-item" onclick="window.open('${item.link}', '_blank')" style="cursor: pointer;">`;
-            html += `<span class="news-source">${item.icon} ${item.source}</span>`;
-            html += `<span class="news-title">${item.title}</span>`;
-            html += `<span class="news-separator">•</span>`;
-            html += '</span>';
+            html += `
+                <div class="news-item" onclick="window.open('${item.link}', '_blank')" style="cursor: pointer;">
+                    <span class="news-source">${item.icon} ${item.source}:</span>
+                    <span class="news-title">${item.title}</span>
+                    <span class="news-separator"> | </span>
+                </div>`;
         });
     }
     
     ticker.innerHTML = html;
 }
 
-// تشغيل التحديث كل 10 دقائق
+// تشغيل السكريبت عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', () => {
     updateNewsTicker();
-    setInterval(updateNewsTicker, 10 * 60 * 1000);
+    
+    // تحديث المحتوى تلقائياً من المصدر كل 15 دقيقة
+    setInterval(updateNewsTicker, 15 * 60 * 1000); 
 });
