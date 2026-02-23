@@ -414,7 +414,7 @@ footer {
     white-space: nowrap;
     position: absolute;
     height: 100%;
-    animation: ticker-move-rtl 60s linear infinite; /* تحريك الخبر */
+    animation: ticker-move-rtl 40s linear infinite; /* سرعة تحريك الخبر */
 }
 
 .news-ticker:hover {
