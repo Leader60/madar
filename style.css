@@ -177,7 +177,6 @@ body {
 .nav-menu a:hover {
     background-color: var(--gold);
     color: var(--navy);
-    border-radius: 10px;
 }
 
 .nav-brand {
