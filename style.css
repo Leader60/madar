@@ -280,6 +280,94 @@ main h1, main h2, main h3 {
     font-style: italic;
 }
 
+/* --- التنسيق النهائي المعتمد لشريط الأخبار --- */
+.news-ticker-container {
+    flex: 1;
+    max-width: 600px;
+    margin: 0 15px;
+    background-color: #ffffff; /* خلفية بيضاء كما في الصورة */
+    border: 2px solid #c5a059; /* لون ذهبي */
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    direction: rtl; /* اتجاه عربي */
+    position: relative;
+}
+
+.news-ticker-label {
+    background-color: #c5a059; /* ذهبي */
+    color: #001f3f; /* كحلي */
+    font-weight: bold;
+    padding: 0 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    z-index: 5;
+    border-left: 2px solid #001f3f;
+}
+
+.news-ticker-wrapper {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
+.news-ticker {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    position: absolute;
+    height: 100%;
+     /* جرب 15 للسرعة العالية أو 25 للسرعة المتوسطة */
+    animation: ticker-move-rtl 20s linear infinite; 
+    right: 0; /* لضمان البدء من اليمين في RTL */
+}
+
+.news-ticker:hover {
+    animation-play-state: paused;
+}
+
+.news-item {
+    padding: 0 20px;
+    color: #000000 !important; /* نص أسود حصرياً ليظهر بوضوح */
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+     transition: color 0.3s ease; /* تنعيم تغيير اللون */
+}
+
+.news-separator {
+    color: #c5a059;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+/* --- أنيميشن الحركة الصحيحة للغة العربية --- */
+@keyframes ticker-move-rtl {
+    0% { transform: translateX(0%); } /* يبدأ من اليمين */
+    100% { transform: translateX(-100%); } /* ينتهي في اليسار */
+}
+
+/* التجاوب مع الجوال */
+@media (max-width: 768px) {
+    .news-ticker-container {
+        max-width: 100%;
+        margin: 5px 0;
+    }
+}
+
+.news-item:hover {
+    color: #c5a059 !important; /* تغيير لون الخط من الأسود إلى الذهبي مع مرور الماوس */
+}
+
 /* تنسيق صفحة تواصل معنا - نسخ من تطبيف آخر */
 .contact-wrapper {
     display: grid;
@@ -473,90 +561,4 @@ footer {
     user-select: none;
 }
 
-/* --- التنسيق النهائي المعتمد لشريط الأخبار --- */
-.news-ticker-container {
-    flex: 1;
-    max-width: 600px;
-    margin: 0 15px;
-    background-color: #ffffff; /* خلفية بيضاء كما في الصورة */
-    border: 2px solid #c5a059; /* لون ذهبي */
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    height: 40px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    direction: rtl; /* اتجاه عربي */
-    position: relative;
-}
 
-.news-ticker-label {
-    background-color: #c5a059; /* ذهبي */
-    color: #001f3f; /* كحلي */
-    font-weight: bold;
-    padding: 0 15px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    font-size: 0.9rem;
-    z-index: 5;
-    border-left: 2px solid #001f3f;
-}
-
-.news-ticker-wrapper {
-    flex: 1;
-    overflow: hidden;
-    position: relative;
-    height: 100%;
-}
-
-.news-ticker {
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    position: absolute;
-    height: 100%;
-     /* جرب 15 للسرعة العالية أو 25 للسرعة المتوسطة */
-    animation: ticker-move-rtl 20s linear infinite; 
-    right: 0; /* لضمان البدء من اليمين في RTL */
-}
-
-.news-ticker:hover {
-    animation-play-state: paused;
-}
-
-.news-item {
-    padding: 0 20px;
-    color: #000000 !important; /* نص أسود حصرياً ليظهر بوضوح */
-    font-size: 0.9rem;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-     transition: color 0.3s ease; /* تنعيم تغيير اللون */
-}
-
-.news-separator {
-    color: #c5a059;
-    font-weight: bold;
-    margin: 0 10px;
-}
-
-/* --- أنيميشن الحركة الصحيحة للغة العربية --- */
-@keyframes ticker-move-rtl {
-    0% { transform: translateX(0%); } /* يبدأ من اليمين */
-    100% { transform: translateX(-100%); } /* ينتهي في اليسار */
-}
-
-/* التجاوب مع الجوال */
-@media (max-width: 768px) {
-    .news-ticker-container {
-        max-width: 100%;
-        margin: 5px 0;
-    }
-}
-
-.news-item:hover {
-    color: #c5a059 !important; /* تغيير لون الخط من الأسود إلى الذهبي مع مرور الماوس */
-}
