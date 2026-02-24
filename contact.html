@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title class="notranslate">مدار - Madar</title>
+    <!-- خط Amiri من Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <!-- ربط ملف CSS -->
     <link rel="stylesheet" href="style.css">
+    <!-- ملف JavaScript -->
     <script src="script.js"></script>
 </head>
 <body>
@@ -23,20 +26,22 @@
                     </h1>
                 </div>
             </div>
-            
-            <!-- قائمة ترجمة جوجل -->
-            <div id="google_translate_element" class="google-translate"></div>
-        </header>
 
-        <!-- شريط أخبار RSS -->
-        <div class="news-ticker-container">
-            <div class="news-ticker-label"> آخر الأخبار 🌎</div>
-            <div class="news-ticker-wrapper">
-                <div class="news-ticker" id="news-ticker">
-                    <span class="news-item">جاري تحميل آخر الأخبار العاجلة...💫</span>
-                </div>
-            </div>
+    
+ <!-- شريط أخبار RSS الموحد -->
+<div class="news-ticker-container">
+    <div class="news-ticker-label"> آخر الأخبار 🌎</div>
+    <div class="news-ticker-wrapper">
+        <!-- هذا هو المعرف الوحيد الذي سيستخدمه JavaScript -->
+        <div class="news-ticker" id="news-ticker">
+            <span class="news-item">جاري تحميل آخر الأخبار العاجلة...💫</span>
         </div>
+    </div>
+</div>
+    
+    <!-- قائمة ترجمة جوجل -->
+    <div id="google_translate_element" class="google-translate"></div>
+  </header>
 
         <!-- القائمة الثابتة -->
         <nav class="sticky-nav">
@@ -55,6 +60,41 @@
             </div>
         </nav>
 
+        <!-- المحتوى الرئيسي -->
+        <main>
+            <h1>مرحباً بكم في صحيفة مدار</h1>
+            <p>هذه مساحة حرة للحريات العامة والنقاش العام. المحتوى سيتم تحديثه لاحقاً حسب كل صفحة.</p>
+            
+            <!-- أقسام إضافية للصفحة الرئيسية -->
+            <section class="featured-articles">
+                <h2>أبرز المقالات</h2>
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <h3>الحريات العامة في الوطن العربي</h3>
+                        <p>مقالة تناقش واقع الحريات العامة والتحديات التي تواجهها في المنطقة العربية.</p>
+                        <a href="#">اقرأ المزيد</a>
+                    </article>
+                    <article class="article-card">
+                        <h3>مستقبل الإعلام الرقمي</h3>
+                        <p>كيف غيّرت التكنولوجيا شكل الإعلام وأثرت على حرية التعبير.</p>
+                        <a href="#">اقرأ المزيد</a>
+                    </article>
+                    <article class="article-card">
+                        <h3>دور المجتمع المدني</h3>
+                        <p>منظمات المجتمع المدني ودورها في تعزيز الديمقراطية وحقوق الإنسان.</p>
+                        <a href="#">اقرأ المزيد</a>
+                    </article>
+                </div>
+            </section>
+            
+            <section class="opinion-section">
+                <h2>رأي الحرية</h2>
+                <div class="opinion-content">
+                    <p>نؤمن بأن حرية الرأي والتعبير هي أساس المجتمعات المتقدمة. منصتنا مفتوحة للجميع للمساهمة بأفكارهم وآرائهم بشرط احترام الاختلافات والتنوع.</p>
+                </div>
+            </section>
+        </main>
+
         <!-- التذييل -->
         <footer>
             <div class="copyright notranslate">© 2026 مدار - Madar. جميع الحقوق محفوظة.</div>
@@ -63,21 +103,27 @@
                 <a href="#">شروط الخدمة</a>
             </div>
         </footer>
-    </div> <!-- نهاية main-container -->
+    </div>
 
-    <!-- سكربت الترجمة -->
+    <!-- أكواد Google Translate -->
     <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'ar',
-                includedLanguages: 'ar,en,fr,de,es,tr,fa,ur',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false,
-                multilanguagePage: true
-            }, 'google_translate_element');
-        }
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'ar',
+            includedLanguages: 'ar,en,fr,de,es,tr,fa,ur',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true
+        }, 'google_translate_element');
+    }
+        
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
+
+
+
+
+
 
