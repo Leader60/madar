@@ -6,48 +6,46 @@ const rssFeeds = [
 
 async function loadNews() {
     const ticker = document.getElementById('news-ticker');
-    if (!ticker) return; // حماية في حال عدم وجود العنصر
+    if (!ticker) return;
 
     try {
-        const allNews = [];
-        
-        // جلب البيانات من المصادر
+        let allNews = [];
+
         for (const url of rssFeeds) {
-            const apiUrl = `https://api.rss2json.com{encodeURIComponent(url)}`;
-            const response = await fetch(apiUrl);
+            // استخدام وسيط AllOrigins لتجاوز حظر المتصفح (CORS)
+            const proxyUrl = `https://api.allorigins.win{encodeURIComponent(url)}`;
+            const response = await fetch(proxyUrl);
             const data = await response.json();
             
-            if (data.status === 'ok') {
-                allNews.push(...data.items);
-            }
-        }
+            // تحويل نص XML إلى كائنات JSON يدوياً
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(data.contents, "text/xml");
+            const items = xmlDoc.querySelectorAll("item");
 
-        // ترتيب الأخبار حسب الأحدث
-        allNews.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-
-        if (allNews.length > 0) {
-            ticker.innerHTML = ''; // مسح رسالة التحميل
-            
-            allNews.forEach(item => {
-                const newsItem = document.createElement('span');
-                newsItem.className = 'news-item';
-                
-                // تمييز المصدر
-                const sourceIcon = item.link.includes('alarabiya') ? '🔴 العربية:' : '🔵 الجزيرة:';
-                
-                // إضافة النص مع رابط للمقال الأصلي (اختياري)
-                newsItem.innerHTML = ` ${sourceIcon} ${item.title} &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp; `;
-                ticker.appendChild(newsItem);
+            items.forEach(item => {
+                allNews.push({
+                    title: item.querySelector("title")?.textContent,
+                    link: item.querySelector("link")?.textContent,
+                    source: url.includes('alarabiya') ? 'العربية' : 'الجزيرة'
+                });
             });
         }
+
+        if (allNews.length > 0) {
+            ticker.innerHTML = ''; 
+            // دمج الأخبار وعرضها
+            const content = allNews.slice(0, 15).map(item => 
+                `<span class="news-item"> ⚡ <strong>[${item.source}]</strong> ${item.title}</span>`
+            ).join(' <span class="news-separator">•</span> ');
+
+            // تكرار المحتوى لضمان انسيابية الحركة في الـ CSS
+            ticker.innerHTML = content + ' <span class="news-separator">•</span> ' + content;
+        }
     } catch (error) {
-        console.error("تعذر جلب الأخبار:", error);
-        ticker.innerHTML = '<span class="news-item">⚠️ تعذر تحديث الأخبار حالياً.. تابعنا لاحقاً</span>';
+        console.error("فشل الجلب:", error);
+        ticker.innerHTML = '<span class="news-item">🔴 متابعة مستمرة لأهم الأخبار العاجلة من الجزيرة والعربية...</span>';
     }
 }
 
-// تشغيل الوظيفة عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', loadNews);
-
-// تحديث الأخبار تلقائياً كل 15 دقيقة دون إعادة تحميل الصفحة
-setInterval(loadNews, 900000);
+setInterval(loadNews, 600000); 
