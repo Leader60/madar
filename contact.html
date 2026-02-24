@@ -1,129 +1,439 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title class="notranslate">مدار - Madar</title>
-    <!-- خط Amiri من Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
-    <!-- ربط ملف CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- ملف JavaScript -->
-    <script src="script.js"></script>
+    <title>اتصل بنا - مدار</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f0f2f5 0%, #e6e9f0 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* تصميم بطاقة شبيهة بمدار - بسيط، نظيف، ظل خفيف */
+        .contact-card {
+            background-color: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(2px);
+        }
+
+        /* الجانب الأيمن: معلومات الاتصال */
+        .info-panel {
+            background: #1e2b3c;  /* لون أزرق داكن أنيق يشبه مدار */
+            color: white;
+            padding: 48px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-panel::before {
+            content: "";
+            position: absolute;
+            top: -20%;
+            right: -20%;
+            width: 250px;
+            height: 250px;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .info-panel::after {
+            content: "";
+            position: absolute;
+            bottom: -10%;
+            left: -10%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .info-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .info-panel h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .info-panel h2::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #f7b731;
+            margin-top: 8px;
+            border-radius: 4px;
+        }
+
+        .contact-details {
+            margin: 40px 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 30px;
+            font-size: 18px;
+            transition: transform 0.2s;
+        }
+
+        .contact-item:hover {
+            transform: translateX(-5px);
+        }
+
+        .contact-item i {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #f7b731;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-item .text {
+            line-height: 1.6;
+        }
+
+        .contact-item .text .label {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .contact-item .text .value {
+            font-weight: 500;
+            font-size: 18px;
+            word-break: break-all;
+        }
+
+        .faq-section {
+            margin-top: auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .faq-section h3 {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-section h3 i {
+            color: #f7b731;
+        }
+
+        .faq-question {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 18px 20px;
+            margin-bottom: 12px;
+            cursor: default;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-question p {
+            font-weight: 500;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-question p i {
+            color: #f7b731;
+            font-size: 14px;
+        }
+
+        /* الجانب الأيسر: نموذج المراسلة */
+        .form-panel {
+            background: white;
+            padding: 48px 40px;
+            direction: rtl;
+        }
+
+        .form-panel h2 {
+            font-size: 28px;
+            color: #1e2b3c;
+            margin-bottom: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-panel h2 i {
+            color: #f7b731;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+            font-size: 15px;
+        }
+
+        .form-group label i {
+            color: #f7b731;
+            margin-left: 6px;
+            width: 20px;
+        }
+
+        .form-control, .form-select {
+            width: 100%;
+            padding: 15px 18px;
+            border: 2px solid #e9ecef;
+            border-radius: 18px;
+            font-size: 16px;
+            transition: all 0.2s;
+            background-color: #f8fafc;
+            font-family: inherit;
+        }
+
+        .form-control:focus, .form-select:focus {
+            outline: none;
+            border-color: #f7b731;
+            background-color: white;
+            box-shadow: 0 0 0 4px rgba(247, 183, 49, 0.15);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .btn-submit {
+            background: #1e2b3c;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 40px;
+            font-size: 18px;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-top: 15px;
+        }
+
+        .btn-submit:hover {
+            background: #2c3e50;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -10px rgba(30, 43, 60, 0.4);
+        }
+
+        .btn-submit i {
+            font-size: 20px;
+        }
+
+        .required-note {
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        /* استجابة للجوال */
+        @media (max-width: 800px) {
+            .contact-card {
+                grid-template-columns: 1fr;
+                border-radius: 24px;
+            }
+            .info-panel {
+                padding: 36px 28px;
+            }
+            .form-panel {
+                padding: 36px 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .contact-item i {
+                width: 42px;
+                height: 42px;
+            }
+        }
+
+        /* تأثيرات بسيطة */
+        .fa-chevron-left {
+            font-size: 12px;
+            margin-right: auto;
+            opacity: 0.5;
+        }
+    </style>
 </head>
 <body>
-    <div class="main-container">
-        <!-- الهيدر -->
-        <header class="header">
-            <div class="logo-area">
-                <div class="logo-circle notranslate" role="img" aria-label="شعار الصحيفة"></div>
-                <div class="newspaper-name notranslate">
-                    <h1>
-                        <span class="arabic">مـدار</span>
-                        <span class="english">Madar</span>
-                    </h1>
+    <div class="container">
+        <div class="contact-card">
+            <!-- الجانب الأيمن: معلومات الاتصال + الأسئلة المتكررة -->
+            <div class="info-panel">
+                <div class="info-content">
+                    <h2>يسعدنا تواصلكم معنا</h2>
+                    
+                    <div class="contact-details">
+                        <!-- الموقع -->
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="text">
+                                <span class="label">الموقع</span>
+                                <div class="value">المتفرج الرئيسي - الجامعة - النخبة - الدور 22</div>
+                                <div class="value" style="margin-top: 5px;">المكتب رقم: 10</div>
+                            </div>
+                        </div>
+                        
+                        <!-- الهاتف -->
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div class="text">
+                                <span class="label">الهاتف</span>
+                                <div class="value" dir="ltr">0096560986551</div>
+                            </div>
+                        </div>
+                        
+                        <!-- البريد الإلكتروني -->
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="text">
+                                <span class="label">البريد الإلكتروني</span>
+                                <div class="value" dir="ltr">rdx.pv@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- قسم الأسئلة المتكررة -->
+                    <div class="faq-section">
+                        <h3>
+                            <i class="fas fa-question-circle"></i>
+                            أسئلة متكررة
+                        </h3>
+                        <div class="faq-question">
+                            <p>
+                                <i class="fas fa-question"></i>
+                                كيف يمكننا مساعدتك؟
+                                <i class="fas fa-chevron-left" style="margin-right: auto;"></i>
+                            </p>
+                        </div>
+                        <!-- يمكن إضافة المزيد من الأسئلة لاحقاً -->
+                    </div>
                 </div>
             </div>
-
-    
- <!-- شريط أخبار RSS الموحد -->
-<div class="news-ticker-container">
-    <div class="news-ticker-label"> آخر الأخبار 🌎</div>
-    <div class="news-ticker-wrapper">
-        <!-- هذا هو المعرف الوحيد الذي سيستخدمه JavaScript -->
-        <div class="news-ticker" id="news-ticker">
-            <span class="news-item">جاري تحميل آخر الأخبار العاجلة...💫</span>
+            
+            <!-- الجانب الأيسر: نموذج إرسال الرسالة -->
+            <div class="form-panel">
+                <h2>
+                    <i class="fas fa-paper-plane"></i>
+                    إرسال الرسالة
+                </h2>
+                
+                <form action="#" method="post">
+                    <!-- الاسم الكامل -->
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> الاسم الكامل</label>
+                        <input type="text" class="form-control" placeholder="أدخل اسمك" required>
+                    </div>
+                    
+                    <!-- البريد الإلكتروني -->
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
+                        <input type="email" class="form-control" placeholder="example@domain.com" required>
+                    </div>
+                    
+                    <!-- القائمة المنسدلة (الموضوع) -->
+                    <div class="form-group">
+                        <label><i class="fas fa-tag"></i> الموضوع</label>
+                        <select class="form-select" required>
+                            <option value="" disabled selected>-- اختر الموضوع --</option>
+                            <option value="manage">تواصل مع إدارة الصحيفة</option>
+                            <option value="editorial">تواصل مع قسم التحرير</option>
+                            <option value="editor">تواصل مع رئيس التحرير</option>
+                            <option value="inquiry">استفسر عن ...❓</option>
+                        </select>
+                    </div>
+                    
+                    <!-- الرسالة -->
+                    <div class="form-group">
+                        <label><i class="fas fa-comment"></i> الرسالة</label>
+                        <textarea class="form-control" placeholder="اكتب رسالتك هنا..." required></textarea>
+                    </div>
+                    
+                    <!-- زر الإرسال -->
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        إرسال الرسالة
+                    </button>
+                    
+                    <div class="required-note">
+                        <i class="fas fa-asterisk" style="font-size: 8px; color: #f7b731;"></i>
+                        جميع الحقول مطلوبة
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-    
-    <!-- قائمة ترجمة جوجل -->
-    <div id="google_translate_element" class="google-translate"></div>
-  </header>
-
-        <!-- القائمة الثابتة -->
-        <nav class="sticky-nav">
-            <div class="nav-container">
-                <ul class="nav-menu">
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="politic.html">سياسة</a></li>
-                    <li><a href="economy.html">اقتصاد</a></li>
-                    <li><a href="community.html">مجتمع</a></li>
-                    <li><a href="technology.html">تكنولـوجيا</a></li>
-                    <li><a href="misc.html">متفرقات</a></li>
-                    <li><a href="about.html">المـدار</a></li>
-                    <li><a href="contact.html">تواصل معنا</a></li>
-                </ul>
-                <div class="nav-brand notranslate">مـدار - Madar</div>
-            </div>
-        </nav>
-
-        <!-- المحتوى الرئيسي -->
-        <main>
-            <h1>مرحباً بكم في صحيفة مدار</h1>
-            <p>هذه مساحة حرة للحريات العامة والنقاش العام. المحتوى سيتم تحديثه لاحقاً حسب كل صفحة.</p>
-            
-            <!-- أقسام إضافية للصفحة الرئيسية -->
-            <section class="featured-articles">
-                <h2>أبرز المقالات</h2>
-                <div class="articles-grid">
-                    <article class="article-card">
-                        <h3>الحريات العامة في الوطن العربي</h3>
-                        <p>مقالة تناقش واقع الحريات العامة والتحديات التي تواجهها في المنطقة العربية.</p>
-                        <a href="#">اقرأ المزيد</a>
-                    </article>
-                    <article class="article-card">
-                        <h3>مستقبل الإعلام الرقمي</h3>
-                        <p>كيف غيّرت التكنولوجيا شكل الإعلام وأثرت على حرية التعبير.</p>
-                        <a href="#">اقرأ المزيد</a>
-                    </article>
-                    <article class="article-card">
-                        <h3>دور المجتمع المدني</h3>
-                        <p>منظمات المجتمع المدني ودورها في تعزيز الديمقراطية وحقوق الإنسان.</p>
-                        <a href="#">اقرأ المزيد</a>
-                    </article>
-                </div>
-            </section>
-            
-            <section class="opinion-section">
-                <h2>رأي الحرية</h2>
-                <div class="opinion-content">
-                    <p>نؤمن بأن حرية الرأي والتعبير هي أساس المجتمعات المتقدمة. منصتنا مفتوحة للجميع للمساهمة بأفكارهم وآرائهم بشرط احترام الاختلافات والتنوع.</p>
-                </div>
-            </section>
-        </main>
-
-        <!-- التذييل -->
-        <footer>
-            <div class="copyright notranslate">© 2026 مدار - Madar. جميع الحقوق محفوظة.</div>
-            <div class="footer-links">
-                <a href="#">سياسة الخصوصية</a>
-                <a href="#">شروط الخدمة</a>
-            </div>
-        </footer>
-    </div>
-
-    <!-- أكواد Google Translate -->
-    <script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'ar',
-            includedLanguages: 'ar,en,fr,de,es,tr,fa,ur',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false,
-            multilanguagePage: true
-        }, 'google_translate_element');
-    }
-        
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
-
-
-
-
-
-
