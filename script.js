@@ -88,11 +88,11 @@ async function loadNews() {
             // تكرار المحتوى لضمان انسيابية الحركة في الـ CSS
             ticker.innerHTML = content + ' <span class="news-separator">•</span> ' + content;
         } else {
-            ticker.innerHTML = '<span class="news-item">🔴 لا توجد أخبار حالياً، جاري التحديث...</span>';
+            ticker.innerHTML = '<span class="news-item">🔴 لا توجد أخبار حالياً، جاري التحديث...🤔</span>';
         }
     } catch (error) {
         console.error("فشل الجلب الرئيسي:", error);
-        ticker.innerHTML = '<span class="news-item">🔴 متابعة مستمرة لأهم الأخبار العاجلة من الجزيرة والعربية...</span>';
+        ticker.innerHTML = '<span class="news-item">🔴 متابعة مستمرة لأهم الأخبار العاجلة من الجزيرة والعربية...🔊</span>';
     }
 }
 
@@ -108,5 +108,5 @@ function shuffleArray(array) {
 // بدء التحميل عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', loadNews);
 
-// تحديث الأخبار كل 10 دقائق
+// تحديث الأخبار كل 5 دقائق
 setInterval(loadNews, 600000);
