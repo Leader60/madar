@@ -370,24 +370,41 @@ main h1, main h2, main h3 {
 
 /* تنسيق صفحة تواصل معنا - نسخ من تطبيف آخر */
 body {
-    background-color: #001f3f; /* لون الخلفية الكحلي الداكن */
+     background-color: #f0f0f0;  /* خلفية رمادية فاتحة خارج الإطار */
     font-family: 'Amiri', serif;
     margin: 0;
     padding: 0;
+      box-sizing: border-box;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.contact-info {
+    background: var(--navy-light);
+    padding: 30px;
+    border-radius: 20px;
+    border-right: 5px solid var(--gold);
     color: white;
 }
-
-.container {
-    max-width: 1100px;
-    margin: 50px auto;
-    padding: 20px;
-}
-
 .section-title {
     text-align: center;
-    color: #d4af37; /* اللون الذهبي */
+    color: #c5a028; /* اللون الذهبي */
     margin-bottom: 40px;
     font-size: 2.2em;
+}
+
+.contact-info h3 {
+    color: var(--gold);
+    margin-bottom: 25px;
+}
+
+.info-item {
+    margin-bottom: 20px;
 }
 
 /* توزيع المحتوى ليكون جنبًا إلى جنب */
@@ -402,35 +419,27 @@ body {
 .contact-form {
     background: white;
     padding: 30px;
-    border-radius: 15px;
-    flex: 1;
-    min-width: 350px;
-    color: #333;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .form-group {
-    margin-bottom: 20px;
-    text-align: right;
+    margin-bottom: 15px;
 }
 
 .form-group label {
     display: block;
+    color: var(--navy-dark);
     font-weight: bold;
     margin-bottom: 8px;
-    color: #001f3f;
 }
 
-.form-group input, 
-.form-group select, 
-.form-group textarea {
+.form-group input, .form-group select, .form-group textarea {
     width: 100%;
     padding: 12px;
-    background: #001f3f; /* لون الحقول الداكن */
-    border: 2px solid #d4af37;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    color: white;
-    font-family: 'Amiri', serif;
-    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
 }
 
 .form-group input::placeholder, 
@@ -439,21 +448,20 @@ body {
 }
 
 .submit-btn {
-    width: 100%;
-    padding: 15px;
-    background: #001f3f;
-    color: #d4af37;
-    border: 2px solid #d4af37;
+    background: var(--navy-dark);
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    padding: 12px 30px;
     border-radius: 8px;
-    font-size: 1.1em;
-    font-weight: bold;
     cursor: pointer;
+    font-weight: bold;
     transition: 0.3s;
+    width: 100%;
 }
 
 .submit-btn:hover {
-    background: #d4af37;
-    color: #001f3f;
+    background: var(--gold);
+    color: var(--navy-dark);
 }
 
 /* تنسيق معلومات الاتصال (اليمين) */
@@ -473,14 +481,10 @@ body {
     padding-bottom: 10px;
 }
 
-.info-item {
-    margin-bottom: 20px;
-}
-
 .info-item span {
-    color: #d4af37;
-    font-weight: bold;
     display: block;
+    color: var(--gold);
+    font-weight: bold;
     margin-bottom: 5px;
 }
 
@@ -494,18 +498,16 @@ body {
 .social-links {
     display: flex;
     gap: 10px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .social-btn {
     flex: 1;
-    padding: 12px;
+    padding: 10px;
     border: none;
     border-radius: 8px;
-    font-weight: bold;
     cursor: pointer;
-    color: #001f3f;
-    transition: 0.3s;
+    font-weight: bold;
 }
 
 .whatsapp { background: #25d366; color: white; }
