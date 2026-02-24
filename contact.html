@@ -60,41 +60,60 @@
             </div>
         </nav>
 
-        <!-- المحتوى الرئيسي -->
-        <main>
-            <h1>مرحباً بكم في صحيفة مدار</h1>
-            <p>هذه مساحة حرة للحريات العامة والنقاش العام. المحتوى سيتم تحديثه لاحقاً حسب كل صفحة.</p>
-            
-            <!-- أقسام إضافية للصفحة الرئيسية -->
-            <section class="featured-articles">
-                <h2>أبرز المقالات</h2>
-                <div class="articles-grid">
-                    <article class="article-card">
-                        <h3>الحريات العامة في الوطن العربي</h3>
-                        <p>مقالة تناقش واقع الحريات العامة والتحديات التي تواجهها في المنطقة العربية.</p>
-                        <a href="#">اقرأ المزيد</a>
-                    </article>
-                    <article class="article-card">
-                        <h3>مستقبل الإعلام الرقمي</h3>
-                        <p>كيف غيّرت التكنولوجيا شكل الإعلام وأثرت على حرية التعبير.</p>
-                        <a href="#">اقرأ المزيد</a>
-                    </article>
-                    <article class="article-card">
-                        <h3>دور المجتمع المدني</h3>
-                        <p>منظمات المجتمع المدني ودورها في تعزيز الديمقراطية وحقوق الإنسان.</p>
-                        <a href="#">اقرأ المزيد</a>
-                    </article>
+       <div class="container">
+        <h2 class="section-title">يسعدنا تواصلكم معنا</h2>
+        
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>معلومات الاتصال</h3>
+                <div class="info-item">
+                    <span>📍 الموقع:</span>
+                    <p>المقر الرئيسي - العاصمة - مجمع النخبة - الدور 22 - المكتب رقم: 10</p>
                 </div>
-            </section>
-            
-            <section class="opinion-section">
-                <h2>رأي الحرية</h2>
-                <div class="opinion-content">
-                    <p>نؤمن بأن حرية الرأي والتعبير هي أساس المجتمعات المتقدمة. منصتنا مفتوحة للجميع للمساهمة بأفكارهم وآرائهم بشرط احترام الاختلافات والتنوع.</p>
+                <div class="info-item">
+                    <span>📞 الهاتف:</span>
+                    <p dir="ltr">0096560986551</p>
                 </div>
-            </section>
-        </main>
+                <div class="info-item">
+                    <span>✉️ البريد الإلكتروني:</span>
+                    <p>rdx.prv@gmail.com</p>
+                </div>
+                <div class="social-links">
+                    <button class="social-btn whatsapp" onclick="window.open('https://wa.me/96560986551')">واتساب</button>
+                    <button class="social-btn phone" onclick="window.location.href='tel:0096560986551'">اتصال مباشر</button>
+                </div>
+            </div>
 
+            <div class="contact-form">
+                <form action="https://formspree.io/f/mzdabogg" method="POST">
+                    <div class="form-group">
+                        <label>الاسم من فضلك</label>
+                        <input type="text" name="الاسم" placeholder="اكتب الاسم هنا" required>
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الجوال</label>
+                        <input type="tel" name="الهاتف" placeholder="00965..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>نوع الخدمة المطلوبة</label>
+                        <select name="نوع الخدمة">
+                            <option value="تصميم معماري">تصميم معماري</option>
+                            <option value="دراسات إنشائية">دراسات إنشائية</option>
+                            <option value="دراسات كهربائية">دراسات كهربائية</option>
+                            <option value="دراسات بيئية">دراسات بيئية</option>
+                            <option value="إشراف وتنفيذ">إشراف وتنفيذ</option>
+                            <option value="استشارة هندسية">استشارة هندسية</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>رسالتكم</label>
+                        <textarea name="الرسالة" rows="5" placeholder="كيف يمكننا مساعدتكم؟"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </div>
         <!-- التذييل -->
         <footer>
             <div class="copyright notranslate">© 2026 مدار - Madar. جميع الحقوق محفوظة.</div>
@@ -121,6 +140,7 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
+
 
 
 
