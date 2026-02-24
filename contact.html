@@ -60,76 +60,70 @@
             </div>
         </nav>
 
-    <div class="container">
-        <h2 class="section-title">يسعدنا تواصلكم معنا</h2>
-        
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <h3>معلومات الاتصال</h3>
-                <div class="info-item">
-                    <span>📍 الموقع:</span>
-                    <p>المقر الرئيسي - العاصمة - مجمع النخبة - الدور 22 - المكتب رقم: 10</p>
+        <!-- المحتوى الرئيسي -->
+        <main>
+            <h1>مرحباً بكم في صحيفة مدار</h1>
+            <p>هذه مساحة حرة للحريات العامة والنقاش العام. المحتوى سيتم تحديثه لاحقاً حسب كل صفحة.</p>
+            
+            <!-- أقسام إضافية للصفحة الرئيسية -->
+            <section class="featured-articles">
+                <h2>أبرز المقالات</h2>
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <h3>الحريات العامة في الوطن العربي</h3>
+                        <p>مقالة تناقش واقع الحريات العامة والتحديات التي تواجهها في المنطقة العربية.</p>
+                        <a href="#">اقرأ المزيد</a>
+                    </article>
+                    <article class="article-card">
+                        <h3>مستقبل الإعلام الرقمي</h3>
+                        <p>كيف غيّرت التكنولوجيا شكل الإعلام وأثرت على حرية التعبير.</p>
+                        <a href="#">اقرأ المزيد</a>
+                    </article>
+                    <article class="article-card">
+                        <h3>دور المجتمع المدني</h3>
+                        <p>منظمات المجتمع المدني ودورها في تعزيز الديمقراطية وحقوق الإنسان.</p>
+                        <a href="#">اقرأ المزيد</a>
+                    </article>
                 </div>
-                <div class="info-item">
-                    <span>📞 الهاتف:</span>
-                    <p dir="ltr">0044+00000000</p>
+            </section>
+            
+            <section class="opinion-section">
+                <h2>رأي الحرية</h2>
+                <div class="opinion-content">
+                    <p>نؤمن بأن حرية الرأي والتعبير هي أساس المجتمعات المتقدمة. منصتنا مفتوحة للجميع للمساهمة بأفكارهم وآرائهم بشرط احترام الاختلافات والتنوع.</p>
                 </div>
-                <div class="info-item">
-                    <span>✉️ البريد الإلكتروني:</span>
-                    <p>rdx.prv@gmail.com</p>
-                </div>
-                <div class="social-links">
-                    <button class="social-btn whatsapp" onclick="window.open('https://wa.me/96560986551')">واتساب</button>
-                    <button class="social-btn phone" onclick="window.location.href='tel:0096560986551'">اتصال مباشر</button>
-                </div>
-            </div>
+            </section>
+        </main>
 
-            <div class="contact-form">
-                <form action="https://formspree.io/f/mzdabogg" method="POST">
-                    <div class="form-group">
-                        <label>الاسم من فضلك</label>
-                        <input type="text" name="الاسم" placeholder="اكتب الاسم هنا" required>
-                    </div>
-                    <div class="form-group">
-                        <label>رقم الجوال</label>
-                        <input type="tel" name="الهاتف" placeholder="0044..." required>
-                    </div>
-                    <div class="form-group">
-                        <label>نوع الخدمة المطلوبة</label>
-                        <select name="نوع الخدمة">
-                            <option value="تصميم معماري">تواصل مع فسم التحرير</option>
-                            <option value="دراسات إنشائية">تواصل مع قسم الإعلانات</option>
-                            <option value="دراسات كهربائية">استفسار عن شروط النشر</option>
-                            <option value="دراسات بيئية">إرسال مقال</option>
-                            <option value="إشراف وتنفيذ">تواصل مع رئيس التحرير</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>رسالتكم</label>
-                        <textarea name="الرسالة" rows="5" placeholder="كيف يمكننا مساعدتكم؟"></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
-                </form>
+        <!-- التذييل -->
+        <footer>
+            <div class="copyright notranslate">© 2026 مدار - Madar. جميع الحقوق محفوظة.</div>
+            <div class="footer-links">
+                <a href="#">سياسة الخصوصية</a>
+                <a href="#">شروط الخدمة</a>
             </div>
-        </div>
+        </footer>
     </div>
 
-    <footer style="text-align: center; padding: 20px; background: var(--navy-dark); color: white; margin-top: 50px; font-size: 0.9em;">
-    <p>© 2026 جميع الحقوق محفوظة لموقع Engineering Guide</p>
-    <a href="privacy.html" style="color: var(--gold); margin-left: 15px;">سياسة الخصوصية</a>
-    <a href="disclaimer.html" style="color: var(--gold);">إخلاء المسؤولية</a>
-</footer>
-    <div class="side-social-bar" style="
-    position: fixed; 
-    left: calc(50% + 610px); /* تعتمد على المنتصف لضمان الدقة */
-    top: 50%; 
-    transform: translateY(-50%); 
-    display: flex; 
-    flex-direction: column; 
-    gap: 15px; 
-    z-index: 9999;
-    margin: 0; 
-    padding: 0;
-">
+    <!-- أكواد Google Translate -->
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'ar',
+            includedLanguages: 'ar,en,fr,de,es,tr,fa,ur',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true
+        }, 'google_translate_element');
+    }
+        
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+
+
+
+
 
 
