@@ -169,7 +169,7 @@ body {
     text-decoration: none;
     font-size: 1.2rem;
     padding: 5px 12px;
-    border-radius: 20px;
+    border-radius: 100px;
     transition: background-color 0.3s, color 0.3s;
     white-space: nowrap;
 }
