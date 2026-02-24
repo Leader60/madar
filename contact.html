@@ -438,3 +438,122 @@
 </body>
 </html>
 
+<!-- أزرار التواصل العائمة -->
+<!-- الأزرار العائمة الجانبية -->
+<div style="position: fixed; 
+            top: 50%; 
+            right: calc(50% - 600px + 40px); /* 600px = نصف عرض الصفحة (1200/2) + 40px من اليمين */
+            transform: translateY(-50%);
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+            z-index: 9999;">
+    
+    <!-- زر الإعجاب -->
+    <button onclick="toggleLikeSide()" id="sideLikeBtn" style="background: white; border: 2px solid #d4af37; color: #d4af37; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+        <i class="far fa-heart" id="sideHeartIcon"></i>
+    </button>
+
+    <!-- زر واتساب -->
+    <a href="https://wa.me/96560896551?text=مرحباً%2C%20أود%20الاستفسار%20عن%20خدماتكم" target="_blank" style="background: #25d366; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.3s ease;">
+        <i class="fab fa-whatsapp" style="font-size: 22px;"></i>
+    </a>
+
+    <!-- زر المشاركة -->
+    <button onclick="shareWebsite()" style="background: #d4af37; color: #001f3f; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.3s ease;">
+        <i class="fas fa-share-alt"></i>
+    </button>
+</div>
+
+<script>
+function toggleLikeSide() {
+    const icon = document.getElementById('sideHeartIcon');
+    const btn = document.getElementById('sideLikeBtn');
+    
+    icon.classList.toggle('fas');
+    icon.classList.toggle('far');
+    
+    if(icon.classList.contains('fas')) {
+        icon.style.color = '#e74c3c';
+        btn.style.borderColor = '#e74c3c';
+        btn.style.transform = 'scale(0.95)';
+        localStorage.setItem('madar_liked', 'true');
+    } else {
+        icon.style.color = '#d4af37';
+        btn.style.borderColor = '#d4af37';
+        btn.style.transform = 'scale(1)';
+        localStorage.setItem('madar_liked', 'false');
+    }
+    
+    setTimeout(() => {
+        btn.style.transform = 'scale(1)';
+    }, 200);
+}
+
+function shareWebsite() {
+    const shareData = {
+        title: 'مدار - للهندسة والاستشارات',
+        text: 'خدمات هندسية متكاملة واستشارات احترافية',
+        url: window.location.href
+    };
+    
+    if (navigator.share) {
+        navigator.share(shareData)
+            .catch(() => console.log('تم إلغاء المشاركة'));
+    } else {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('✅ تم نسخ الرابط! شاركه مع أصدقائك');
+        }).catch(() => {
+            alert('انسخ الرابط: ' + window.location.href);
+        });
+    }
+}
+
+// استعادة حالة الإعجاب
+document.addEventListener('DOMContentLoaded', function() {
+    const liked = localStorage.getItem('madar_liked');
+    const icon = document.getElementById('sideHeartIcon');
+    const btn = document.getElementById('sideLikeBtn');
+    
+    if (liked === 'true' && icon && btn) {
+        icon.classList.remove('far');
+        icon.classList.add('fas');
+        icon.style.color = '#e74c3c';
+        btn.style.borderColor = '#e74c3c';
+    }
+});
+
+// تحديث موضع الأزرار عند تغيير حجم النافذة
+window.addEventListener('resize', function() {
+    const container = document.querySelector('[style*="position: fixed"]');
+    if (container) {
+        if (window.innerWidth < 1300) {
+            // على الشاشات الصغيرة، ثبت الأزرار على الحافة اليمنى
+            container.style.right = '20px';
+            container.style.left = 'auto';
+        } else {
+            // على الشاشات الكبيرة، حافظ على الموضع المحدد
+            container.style.right = 'calc(50% - 600px + 40px)';
+        }
+    }
+});
+</script>
+
+<!-- إضافة ميديا كويري للشاشات الصغيرة -->
+<style>
+@media (max-width: 1300px) {
+    div[style*="position: fixed"] {
+        right: 20px !important;
+        left: auto !important;
+    }
+}
+
+/* تأثيرات تحسين إضافية */
+button:hover, a:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25) !important;
+}
+</style>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
