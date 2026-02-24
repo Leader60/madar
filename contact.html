@@ -1,30 +1,93 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>مدار</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا | Engineering Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="page-wrapper">
+        
+ <nav style="background: #001f3f; border-bottom: 2px solid #d4af37; padding: 10px 0; position: sticky; top: 0; z-index: 1000;">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+        
+       <ul style="list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; direction: rtl;">
+            <li><a href="index.html" style="color: #ffffff; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#ffffff'">الرئيسية</a></li>
+            <li><a href="about.html" style="color: #ffffff; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#ffffff'">من نحن</a></li>
+            <li><a href="#services" style="color: #ffffff; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#ffffff'">خدماتنا</a></li>
+            <li><a href="history.html" style="color: #ffffff; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#ffffff'">الأرشيف</a></li>
+            <li><a href="contact.html" style="background: #d4af37; color: #001f3f; padding: 6px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">تواصل معنا</a></li>
+        </ul>
 
-<header>
-  <h1>مدار</h1>
-  <nav>
-    <a href="index.html">الرئيسية</a>
-    <a href="news.html">الأخبار</a>
-    <a href="opinion.html">الرأي</a>
-    <a href="analysis.html">التحليل</a>
-    <a href="culture.html">الثقافة</a>
-    <a href="writers.html">الكتّاب</a>
-    <a href="ai.html">الذكاء الاصطناعي</a>
-    <a href="contact.html">تواصل</a>
-  </nav>
-</header>
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none;">
+                <span style="color: #d4af37; font-weight: bold; font-size: 1.4rem;">ENGINEERING</span>
+                <span style="color: #ffffff; font-weight: bold; font-size: 1.4rem;">GUIDE</span>
+            </a>
+        </div>
+    </div>
+</nav>
 
-<main>
-  <h2>هذه صفحة تجريبية</h2>
-  <p>سيتم استبدال هذا المحتوى لاحقًا.</p>
-</main>
+    <div class="container">
+        <h2 class="section-title">يسعدنا تواصلكم معنا</h2>
+        
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>معلومات الاتصال</h3>
+                <div class="info-item">
+                    <span>📍 الموقع:</span>
+                    <p>المقر الرئيسي - العاصمة - مجمع النخبة - الدور 22 - المكتب رقم: 10</p>
+                </div>
+                <div class="info-item">
+                    <span>📞 الهاتف:</span>
+                    <p dir="ltr">0096560986551</p>
+                </div>
+                <div class="info-item">
+                    <span>✉️ البريد الإلكتروني:</span>
+                    <p>rdx.prv@gmail.com</p>
+                </div>
+                <div class="social-links">
+                    <button class="social-btn whatsapp" onclick="window.open('https://wa.me/96560986551')">واتساب</button>
+                    <button class="social-btn phone" onclick="window.location.href='tel:0096560986551'">اتصال مباشر</button>
+                </div>
+            </div>
 
+            <div class="contact-form">
+                <form action="https://formspree.io/f/mzdabogg" method="POST">
+                    <div class="form-group">
+                        <label>الاسم من فضلك</label>
+                        <input type="text" name="الاسم" placeholder="اكتب الاسم هنا" required>
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الجوال</label>
+                        <input type="tel" name="الهاتف" placeholder="00965..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>نوع الخدمة المطلوبة</label>
+                        <select name="نوع الخدمة">
+                            <option value="تصميم معماري">تصميم معماري</option>
+                            <option value="دراسات إنشائية">دراسات إنشائية</option>
+                            <option value="دراسات كهربائية">دراسات كهربائية</option>
+                            <option value="دراسات بيئية">دراسات بيئية</option>
+                            <option value="إشراف وتنفيذ">إشراف وتنفيذ</option>
+                            <option value="استشارة هندسية">استشارة هندسية</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>رسالتكم</label>
+                        <textarea name="الرسالة" rows="5" placeholder="كيف يمكننا مساعدتكم؟"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer style="text-align: center; padding: 20px; background: var(--navy-dark); color: white; margin-top: 50px; font-size: 0.9em;">
+    <p>© 2026 جميع الحقوق محفوظة لموقع Engineering Guide</p>
+    <a href="privacy.html" style="color: var(--gold); margin-left: 15px;">سياسة الخصوصية</a>
+    <a href="disclaimer.html" style="color: var(--gold);">إخلاء المسؤولية</a>
+</footer>
 </body>
 </html>
