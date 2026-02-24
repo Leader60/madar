@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title class="notranslate">مدار - Madar</title>
-    <!-- خط Amiri من Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
-    <!-- ربط ملف CSS -->
     <link rel="stylesheet" href="style.css">
-    <!-- ملف JavaScript -->
     <script src="script.js"></script>
 </head>
 <body>
@@ -26,22 +23,20 @@
                     </h1>
                 </div>
             </div>
-     </div>
-    
- <!-- شريط أخبار RSS الموحد -->
-<div class="news-ticker-container">
-    <div class="news-ticker-label"> آخر الأخبار 🌎</div>
-    <div class="news-ticker-wrapper">
-        <!-- هذا هو المعرف الوحيد الذي سيستخدمه JavaScript -->
-        <div class="news-ticker" id="news-ticker">
-            <span class="news-item">جاري تحميل آخر الأخبار العاجلة...💫</span>
+            
+            <!-- قائمة ترجمة جوجل -->
+            <div id="google_translate_element" class="google-translate"></div>
+        </header>
+
+        <!-- شريط أخبار RSS -->
+        <div class="news-ticker-container">
+            <div class="news-ticker-label"> آخر الأخبار 🌎</div>
+            <div class="news-ticker-wrapper">
+                <div class="news-ticker" id="news-ticker">
+                    <span class="news-item">جاري تحميل آخر الأخبار العاجلة...💫</span>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-    
-    <!-- قائمة ترجمة جوجل -->
-    <div id="google_translate_element" class="google-translate"></div>
-  </header>
 
         <!-- القائمة الثابتة -->
         <nav class="sticky-nav">
@@ -60,9 +55,10 @@
             </div>
         </nav>
 
-       <div class="container">
-        <h2 class="section-title">يسعدنا تواصلكم معنا</h2>
-         <div class="contact-wrapper">
+        <!-- محتوى التواصل -->
+        <div class="container">
+            <h2 class="section-title">يسعدنا تواصلكم معنا</h2>
+            <div class="contact-wrapper">
                 <div class="contact-info">
                     <h3>معلومات الاتصال</h3>
                     <div class="info-item">
@@ -112,9 +108,8 @@
                     </form>
                 </div>
             </div>
-        </div> <!-- إغلاق الـ container -->
-    </div> <!-- إغلاق الـ page-wrapper -->
-       
+        </div>
+
         <!-- التذييل -->
         <footer>
             <div class="copyright notranslate">© 2026 مدار - Madar. جميع الحقوق محفوظة.</div>
@@ -123,22 +118,20 @@
                 <a href="#">شروط الخدمة</a>
             </div>
         </footer>
-    </div>
+    </div> <!-- نهاية main-container -->
 
-    <!-- أكواد Google Translate -->
+    <!-- سكربت الترجمة -->
     <script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'ar',
-            includedLanguages: 'ar,en,fr,de,es,tr,fa,ur',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false,
-            multilanguagePage: true
-        }, 'google_translate_element');
-    }
-        
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ar',
+                includedLanguages: 'ar,en,fr,de,es,tr,fa,ur',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false,
+                multilanguagePage: true
+            }, 'google_translate_element');
+        }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
-
