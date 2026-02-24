@@ -1,4 +1,4 @@
-// روابط RSS الرسمية (الجزيرة والعربية)
+// روابط RSS الرسمية
 const rssFeeds = [
     'https://www.aljazeera.net',
     'https://www.alarabiya.net'
@@ -6,12 +6,12 @@ const rssFeeds = [
 
 async function loadNews() {
     const ticker = document.getElementById('news-ticker');
-    ticker.innerHTML = 'جاري تحميل الأخبار...';
+    if (!ticker) return; // حماية في حال عدم وجود العنصر
 
     try {
-        // تحميل البيانات من المصدرين ودمجهما
         const allNews = [];
         
+        // جلب البيانات من المصادر
         for (const url of rssFeeds) {
             const apiUrl = `https://api.rss2json.com{encodeURIComponent(url)}`;
             const response = await fetch(apiUrl);
@@ -22,7 +22,7 @@ async function loadNews() {
             }
         }
 
-        // ترتيب الأخبار حسب الأحدث (اختياري)
+        // ترتيب الأخبار حسب الأحدث
         allNews.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
         if (allNews.length > 0) {
@@ -31,31 +31,23 @@ async function loadNews() {
             allNews.forEach(item => {
                 const newsItem = document.createElement('span');
                 newsItem.className = 'news-item';
-                // تم إضافة اسم المصدر تلقائياً لتمييز الخبر
-                const source = item.link.includes('alarabiya') ? 'العربية' : 'الجزيرة';
-                newsItem.innerHTML = ` ⚡ <b style="color: #ff4500;">[${source}]</b> ${item.title} &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp; `;
+                
+                // تمييز المصدر
+                const sourceIcon = item.link.includes('alarabiya') ? '🔴 العربية:' : '🔵 الجزيرة:';
+                
+                // إضافة النص مع رابط للمقال الأصلي (اختياري)
+                newsItem.innerHTML = ` ${sourceIcon} ${item.title} &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp; `;
                 ticker.appendChild(newsItem);
             });
-        } else {
-            throw new Error("لم يتم العثور على أخبار");
         }
-
     } catch (error) {
-        console.error("تعذر تحميل الأخبار:", error);
-        // عرض أخبار احتياطية في حال فشل الـ API
-        displayBackupNews();
+        console.error("تعذر جلب الأخبار:", error);
+        ticker.innerHTML = '<span class="news-item">⚠️ تعذر تحديث الأخبار حالياً.. تابعنا لاحقاً</span>';
     }
 }
 
-function displayBackupNews() {
-    const ticker = document.getElementById('news-ticker');
-    const backupData = [
-        "عاجل: تحديثات إخبارية مستمرة من المصادر الرسمية",
-        "تابعوا آخر المستجدات عبر شريطنا الإخباري",
-        "خطأ في الاتصال: يرجى التحقق من جودة الإنترنت"
-    ];
-    ticker.innerHTML = backupData.map(text => ` ⚠️ ${text} &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp; `).join('');
-}
-
-// تشغيل الوظيفة
+// تشغيل الوظيفة عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', loadNews);
+
+// تحديث الأخبار تلقائياً كل 15 دقيقة دون إعادة تحميل الصفحة
+setInterval(loadNews, 900000);
