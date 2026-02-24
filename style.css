@@ -415,7 +415,7 @@ footer {
     position: absolute;
     height: 100%;
      /* جرب 15 للسرعة العالية أو 25 للسرعة المتوسطة */
-    animation: ticker-move-rtl 10s linear infinite; 
+    animation: ticker-move-rtl 40s linear infinite; 
     right: 0; /* لضمان البدء من اليمين في RTL */
 }
 
