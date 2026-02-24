@@ -1,43 +1,61 @@
-// رابط يحول أخبار الجزيرة إلى تنسيق JSON ليعمل مباشرة
-const newsUrl = 'https://api.rss2json.com';
+// روابط RSS الرسمية (الجزيرة والعربية)
+const rssFeeds = [
+    'https://www.aljazeera.net',
+    'https://www.alarabiya.net'
+];
 
 async function loadNews() {
-    try {
-        const response = await fetch(newsUrl);
-        const data = await response.json();
-        
-        // ربط المعرف الموجود في الـ HTML الخاص بك
-        const ticker = document.getElementById('news-ticker'); 
+    const ticker = document.getElementById('news-ticker');
+    ticker.innerHTML = 'جاري تحميل الأخبار...';
 
-        if (data.status === 'ok') {
-            ticker.innerHTML = ''; // مسح جملة "جاري التحميل"
+    try {
+        // تحميل البيانات من المصدرين ودمجهما
+        const allNews = [];
+        
+        for (const url of rssFeeds) {
+            const apiUrl = `https://api.rss2json.com{encodeURIComponent(url)}`;
+            const response = await fetch(apiUrl);
+            const data = await response.json();
             
-            data.items.forEach(item => {
+            if (data.status === 'ok') {
+                allNews.push(...data.items);
+            }
+        }
+
+        // ترتيب الأخبار حسب الأحدث (اختياري)
+        allNews.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+
+        if (allNews.length > 0) {
+            ticker.innerHTML = ''; // مسح رسالة التحميل
+            
+            allNews.forEach(item => {
                 const newsItem = document.createElement('span');
                 newsItem.className = 'news-item';
-                // عرض العنوان مع أيقونة جذابة
-                newsItem.innerHTML = ` ⚡ ${item.title} &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp; `;
+                // تم إضافة اسم المصدر تلقائياً لتمييز الخبر
+                const source = item.link.includes('alarabiya') ? 'العربية' : 'الجزيرة';
+                newsItem.innerHTML = ` ⚡ <b style="color: #ff4500;">[${source}]</b> ${item.title} &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp; `;
                 ticker.appendChild(newsItem);
             });
+        } else {
+            throw new Error("لم يتم العثور على أخبار");
         }
+
     } catch (error) {
-        console.error("تعذر جلب الأخبار:", error);
-        document.getElementById('news-ticker').innerText = "حدث خطأ أثناء تحميل الأخبار.";
+        console.error("تعذر تحميل الأخبار:", error);
+        // عرض أخبار احتياطية في حال فشل الـ API
+        displayBackupNews();
     }
 }
 
-function getBackupNews() {
-    return [
-        { title: 'عاجل: تطورات جديدة في غزة', source: 'العربية', icon: '📺', link: '#' },
-        { title: 'مستجدات الأزمة الأوكرانية', source: 'الجزيرة', icon: '🌊', link: '#' },
-        { title: 'اجتماع طارئ لمجلس الأمن', source: 'العربية', icon: '📺', link: '#' },
-        { title: 'مفاوضات وقف إطلاق النار', source: 'الجزيرة', icon: '🌊', link: '#' }
+function displayBackupNews() {
+    const ticker = document.getElementById('news-ticker');
+    const backupData = [
+        "عاجل: تحديثات إخبارية مستمرة من المصادر الرسمية",
+        "تابعوا آخر المستجدات عبر شريطنا الإخباري",
+        "خطأ في الاتصال: يرجى التحقق من جودة الإنترنت"
     ];
+    ticker.innerHTML = backupData.map(text => ` ⚠️ ${text} &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp; `).join('');
 }
 
-// تشغيل الوظيفة فور تحميل الصفحة
+// تشغيل الوظيفة
 document.addEventListener('DOMContentLoaded', loadNews);
-
-
-
-
