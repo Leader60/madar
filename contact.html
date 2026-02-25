@@ -84,6 +84,11 @@
             gap: 5px;
         }
 
+         /* الرموز تأخذ نفس لون النص */
+           .nav-menu li a i {
+            font-size: 16px;        /* حجم مناسب للرمز */
+         }
+        
         .nav-menu li a:hover {
             background: rgba(255, 155, 255, 0.1);
             transform: translateY(-2px);
@@ -247,10 +252,10 @@
     background: linear-gradient(135deg, #001f3f, #003366);
     color: white;
     border: none;
-    padding: 12px 25px;        /* حجم أصغر */
-    border-radius: 20px;
+    padding: 12px 30px;        /* حجم أصغر */
+    border-radius: 12px;
     font-size: 16px;           /* خط أصغر */
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     width: 100%;
     transition: all 0.4s ease; /* حركة أبطأ قليلاً */
@@ -567,6 +572,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     </script>
 </body>
 </html>
+
 
 
 
