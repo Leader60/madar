@@ -191,8 +191,8 @@ body {
 }
 
 .nav-menu a:hover {
-    background-color: var(--gold);
-    color: var(--navy);
+    background: rgba(255,255,255,0.1);
+     color: #d4af37;           /* النص يتحول للذهبي */
      border-radius: 12px;
 }
 
