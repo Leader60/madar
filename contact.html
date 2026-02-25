@@ -3,446 +3,451 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اتصل بنا - مدار</title>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>تواصل معنا - مدار</title>
+    
+    <!-- الخطوط والأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: linear-gradient(145deg, #f0f2f5 0%, #e6e9f0 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1100px;
-            width: 100%;
-        }
-
-        /* تصميم بطاقة شبيهة بمدار - بسيط، نظيف، ظل خفيف */
-        .contact-card {
-            background-color: #ffffff;
-            border-radius: 32px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(2px);
-        }
-
-        /* الجانب الأيمن: معلومات الاتصال */
-        .info-panel {
-            background: #1e2b3c;  /* لون أزرق داكن أنيق يشبه مدار */
-            color: white;
-            padding: 48px 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .info-panel::before {
-            content: "";
-            position: absolute;
-            top: -20%;
-            right: -20%;
-            width: 250px;
-            height: 250px;
-            background: rgba(255, 215, 0, 0.05);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .info-panel::after {
-            content: "";
-            position: absolute;
-            bottom: -10%;
-            left: -10%;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .info-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .info-panel h2 {
-            font-size: 32px;
-            font-weight: 600;
-            margin-bottom: 40px;
-            letter-spacing: -0.5px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .info-panel h2::after {
-            content: "";
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: #f7b731;
-            margin-top: 8px;
-            border-radius: 4px;
-        }
-
-        .contact-details {
-            margin: 40px 0;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            margin-bottom: 30px;
-            font-size: 18px;
-            transition: transform 0.2s;
-        }
-
-        .contact-item:hover {
-            transform: translateX(-5px);
-        }
-
-        .contact-item i {
-            width: 48px;
-            height: 48px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            color: #f7b731;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .contact-item .text {
+            font-family: 'Amiri', serif;
+            background-color: #f8f9fa;
+            color: #333;
             line-height: 1.6;
         }
 
-        .contact-item .text .label {
-            font-size: 14px;
-            opacity: 0.7;
-            margin-bottom: 4px;
-            display: block;
+        /* ===== القائمة الثابتة (محدثة) ===== */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-bottom: 2px solid #d4af37;
         }
 
-        .contact-item .text .value {
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        .nav-menu li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 30px;
             font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-menu li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu li a:hover::before {
+            width: 80%;
+        }
+
+        .nav-menu li a:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-menu li a.active {
+            background: #d4af37;
+            color: #001f3f;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-menu li a.active::before {
+            display: none;
+        }
+
+        .nav-brand {
+            font-size: 26px;
+            font-weight: 800;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #d4af37, #f5e6b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== باقي تنسيقات صفحة تواصل معنا ===== */
+        .contact-header {
+            background: linear-gradient(rgba(0,31,63,0.9), rgba(0,51,102,0.9));
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+
+        .contact-header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: #d4af37;
+        }
+
+        .contact-header p {
             font-size: 18px;
-            word-break: break-all;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
         }
 
-        .faq-section {
-            margin-top: auto;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.15);
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
         }
 
-        .faq-section h3 {
-            font-size: 22px;
-            font-weight: 500;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .faq-section h3 i {
-            color: #f7b731;
-        }
-
-        .faq-question {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 18px 20px;
-            margin-bottom: 12px;
-            cursor: default;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: background 0.2s;
-        }
-
-        .faq-question:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .faq-question p {
-            font-weight: 500;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .faq-question p i {
-            color: #f7b731;
-            font-size: 14px;
-        }
-
-        /* الجانب الأيسر: نموذج المراسلة */
-        .form-panel {
+        /* معلومات الاتصال */
+        .contact-info {
             background: white;
-            padding: 48px 40px;
-            direction: rtl;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        .form-panel h2 {
-            font-size: 28px;
-            color: #1e2b3c;
-            margin-bottom: 30px;
-            font-weight: 600;
+        .info-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
         }
 
-        .form-panel h2 i {
-            color: #f7b731;
-            font-size: 28px;
+        .info-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: #001f3f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+            font-size: 24px;
+        }
+
+        .info-text h3 {
+            color: #001f3f;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .info-text p, .info-text a {
+            color: #666;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .info-text a:hover {
+            color: #d4af37;
+        }
+
+        /* نموذج الاتصال */
+        .contact-form {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 25px;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 500;
-            color: #2c3e50;
-            font-size: 15px;
+            color: #001f3f;
+            font-weight: 600;
         }
 
-        .form-group label i {
-            color: #f7b731;
-            margin-left: 6px;
-            width: 20px;
-        }
-
-        .form-control, .form-select {
+        .form-group input,
+        .form-group textarea {
             width: 100%;
-            padding: 15px 18px;
-            border: 2px solid #e9ecef;
-            border-radius: 18px;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Cairo', sans-serif;
             font-size: 16px;
-            transition: all 0.2s;
-            background-color: #f8fafc;
-            font-family: inherit;
+            transition: all 0.3s ease;
         }
 
-        .form-control:focus, .form-select:focus {
+        .form-group input:focus,
+        .form-group textarea:focus {
             outline: none;
-            border-color: #f7b731;
-            background-color: white;
-            box-shadow: 0 0 0 4px rgba(247, 183, 49, 0.15);
+            border-color: #d4af37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
         }
 
-        textarea.form-control {
+        .form-group textarea {
+            height: 150px;
             resize: vertical;
-            min-height: 130px;
         }
 
-        .btn-submit {
-            background: #1e2b3c;
+        .submit-btn {
+            background: linear-gradient(135deg, #001f3f, #003366);
             color: white;
             border: none;
-            padding: 16px 32px;
-            border-radius: 40px;
+            padding: 15px 30px;
+            border-radius: 50px;
             font-size: 18px;
             font-weight: 600;
-            width: 100%;
             cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            border: 1px solid rgba(255,255,255,0.1);
-            margin-top: 15px;
+            width: 100%;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
 
-        .btn-submit:hover {
-            background: #2c3e50;
+        .submit-btn:hover {
+            background: #d4af37;
+            color: #001f3f;
             transform: translateY(-2px);
-            box-shadow: 0 15px 30px -10px rgba(30, 43, 60, 0.4);
+            box-shadow: 0 10px 20px rgba(212,175,55,0.3);
         }
 
-        .btn-submit i {
-            font-size: 20px;
+        /* الخريطة */
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
         }
 
-        .required-note {
-            font-size: 13px;
-            color: #7f8c8d;
-            margin-top: 15px;
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* فوتر الصفحة */
+        .footer {
+            background: #001f3f;
+            color: white;
             text-align: center;
+            padding: 30px;
+            border-top: 3px solid #d4af37;
         }
 
-        /* استجابة للجوال */
-        @media (max-width: 800px) {
-            .contact-card {
-                grid-template-columns: 1fr;
-                border-radius: 24px;
-            }
-            .info-panel {
-                padding: 36px 28px;
-            }
-            .form-panel {
-                padding: 36px 28px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .contact-item {
+        /* استجابة للشاشات الصغيرة */
+        @media (max-width: 992px) {
+            .nav-container {
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
+                height: auto;
+                padding: 15px;
             }
-            .contact-item i {
-                width: 42px;
-                height: 42px;
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
             }
         }
 
-        /* تأثيرات بسيطة */
-        .fa-chevron-left {
-            font-size: 12px;
-            margin-right: auto;
-            opacity: 0.5;
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 2px;
+            }
+
+            .nav-menu li a {
+                padding: 6px 10px;
+                font-size: 13px;
+            }
+
+            .contact-header h1 {
+                font-size: 36px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="contact-card">
-            <!-- الجانب الأيمن: معلومات الاتصال + الأسئلة المتكررة -->
-            <div class="info-panel">
-                <div class="info-content">
-                    <h2>يسعدنا تواصلكم معنا</h2>
-                    
-                    <div class="contact-details">
-                        <!-- الموقع -->
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="text">
-                                <span class="label">الموقع</span>
-                                <div class="value">المتفرج الرئيسي - الجامعة - النخبة - الدور 22</div>
-                                <div class="value" style="margin-top: 5px;">المكتب رقم: 10</div>
-                            </div>
-                        </div>
-                        
-                        <!-- الهاتف -->
-                        <div class="contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <div class="text">
-                                <span class="label">الهاتف</span>
-                                <div class="value" dir="ltr">0096560986551</div>
-                            </div>
-                        </div>
-                        
-                        <!-- البريد الإلكتروني -->
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div class="text">
-                                <span class="label">البريد الإلكتروني</span>
-                                <div class="value" dir="ltr">rdx.pv@gmail.com</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- قسم الأسئلة المتكررة -->
-                    <div class="faq-section">
-                        <h3>
-                            <i class="fas fa-question-circle"></i>
-                            أسئلة متكررة
-                        </h3>
-                        <div class="faq-question">
-                            <p>
-                                <i class="fas fa-question"></i>
-                                كيف يمكننا مساعدتك؟
-                                <i class="fas fa-chevron-left" style="margin-right: auto;"></i>
-                            </p>
-                        </div>
-                        <!-- يمكن إضافة المزيد من الأسئلة لاحقاً -->
-                    </div>
+
+    <!-- القائمة الرئيسية (مضافة) -->
+    <nav class="sticky-nav">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                <li><a href="politic.html"><i class="fas fa-landmark"></i> سياسة</a></li>
+                <li><a href="economy.html"><i class="fas fa-chart-line"></i> اقتصاد</a></li>
+                <li><a href="community.html"><i class="fas fa-users"></i> مجتمع</a></li>
+                <li><a href="technology.html"><i class="fas fa-microchip"></i> تكنولـوجيا</a></li>
+                <li><a href="misc.html"><i class="fas fa-ellipsis-h"></i> متفرقات</a></li>
+                <li><a href="about.html"><i class="fas fa-star"></i> المـدار</a></li>
+                <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+            </ul>
+            <div class="nav-brand notranslate">مـدار - Madar</div>
+        </div>
+    </nav>
+
+    <!-- هيدر صفحة الاتصال -->
+    <header class="contact-header">
+        <h1>تواصل معنا</h1>
+        <p>نحن هنا للإجابة على استفساراتك ومساعدتك في أي وقت</p>
+    </header>
+
+    <!-- محتوى صفحة الاتصال -->
+    <div class="contact-container">
+        <!-- معلومات الاتصال -->
+        <div class="contact-info">
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="info-text">
+                    <h3>العنوان</h3>
+                    <p>الكويت - مدينة الكويت<br>شارع الخليج العربي</p>
                 </div>
             </div>
-            
-            <!-- الجانب الأيسر: نموذج إرسال الرسالة -->
-            <div class="form-panel">
-                <h2>
-                    <i class="fas fa-paper-plane"></i>
-                    إرسال الرسالة
-                </h2>
-                
-                <form action="#" method="post">
-                    <!-- الاسم الكامل -->
-                    <div class="form-group">
-                        <label><i class="fas fa-user"></i> الاسم الكامل</label>
-                        <input type="text" class="form-control" placeholder="أدخل اسمك" required>
-                    </div>
-                    
-                    <!-- البريد الإلكتروني -->
-                    <div class="form-group">
-                        <label><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
-                        <input type="email" class="form-control" placeholder="example@domain.com" required>
-                    </div>
-                    
-                    <!-- القائمة المنسدلة (الموضوع) -->
-                    <div class="form-group">
-                        <label><i class="fas fa-tag"></i> الموضوع</label>
-                        <select class="form-select" required>
-                            <option value="" disabled selected>-- اختر الموضوع --</option>
-                            <option value="manage">تواصل مع إدارة الصحيفة</option>
-                            <option value="editorial">تواصل مع قسم التحرير</option>
-                            <option value="editor">تواصل مع رئيس التحرير</option>
-                            <option value="inquiry">استفسر عن - ❓ ...</option>
-                        </select>
-                    </div>
-                    
-                    <!-- الرسالة -->
-                    <div class="form-group">
-                        <label><i class="fas fa-comment"></i> الرسالة</label>
-                        <textarea class="form-control" placeholder="اكتب رسالتك هنا..." required></textarea>
-                    </div>
-                    
-                    <!-- زر الإرسال -->
-                    <button type="submit" class="btn-submit">
-                        <i class="fas fa-paper-plane"></i>
-                        إرسال الرسالة
-                    </button>
-                    
-                    <div class="required-note">
-                        <i class="fas fa-asterisk" style="font-size: 8px; color: #f7b731;"></i>
-                        جميع الحقول مطلوبة
-                    </div>
-                </form>
+
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="info-text">
+                    <h3>الهاتف</h3>
+                    <a href="tel:+96560896551">+965 6089 6551</a>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="info-text">
+                    <h3>البريد الإلكتروني</h3>
+                    <a href="rdx.prv@gmail.com">info@madar.com</a>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="info-text">
+                    <h3>ساعات العمل</h3>
+                    <p>السبت - الخميس: 9:00 ص - 6:00 م</p>
+                </div>
             </div>
         </div>
-    </div>
-</body>
-</html>
 
-<!-- أزرار التواصل العائمة -->
-<!-- الأزرار العائمة الجانبية -->
+        <!-- نموذج الاتصال -->
+        <div class="contact-form">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label>الاسم الكامل</label>
+                    <input type="text" placeholder="أدخل اسمك الكامل من فضلك." required>
+                </div>
+
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" placeholder="البريد الإلكتروني" required>
+                </div>
+
+                <div class="form-group">
+                    <label>رقم الهاتف</label>
+                    <input type="tel" placeholder="رقم الهاتف أو الجوال">
+                </div>
+
+                <div class="form-group">
+                    <label>الموضوع</label>
+                    <input type="text" placeholder="موضوع الرسالة" required>
+                </div>
+
+                <div class="form-group">
+                    <label>الرسالة</label>
+                    <textarea placeholder="اكتب رسالتك هنا من فضلك..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>
+                    إرسال
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- الخريطة -->
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3477.8!2d47.9!3d29.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDE4JzAwLjAiTiA0N8KwNTQnMDAuMCJF!5e0!3m2!1sar!2skw!4v1234567890" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+
+    <!-- فوتر الصفحة -->
+    <footer class="footer">
+        <p>جميع الحقوق محفوظة © 2026 مدار - Madar</p>
+    </footer>
+
+    <!-- سكريبت نموذج الاتصال -->
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // هنا يمكن إضافة كود إرسال النموذج
+        alert('شكراً لتواصلك معنا! سنرد عليك في أقرب وقت ممكن.');
+        this.reset();
+    });
+    </script>
+
+    <!-- الأزرار الجانبية (اختياري - إذا كنت تريد إضافتها) -->
+    <!-- الأزرار العائمة الجانبية -->
 <div style="position: fixed; 
             top: 50%; 
-            right: calc(50% - 600px - 50px); /* 600px = نصف عرض الصفحة (1200/2) - 50 px من اليمين */
+            right: calc(50% - 600px - 40px); /* 600px = نصف عرض الصفحة (1200/2) - 40px من اليمين */
             transform: translateY(-50%);
             display: flex; 
             flex-direction: column; 
@@ -493,7 +498,7 @@ function toggleLikeSide() {
 function shareWebsite() {
     const shareData = {
         title: 'مدار - صحيفة رأي حر',
-        text: 'نؤمن بحق الجميع في إبداء أرائهم بمنطق سليم وعقلاني ضمن حدود الآداب العامة ولغة الحوار الراقي والمساهمة في تطوير الأنظمة والقوانين التي ترتقي بالمجتمعات وتحقق رفاهية الإنسان ',
+        text: 'نؤمن بحق الجميع في إبدء آرائهم بشكل موضوعي ولغة حوار راقية بعيدة عن التجريح والتشهير بما يساعد في تطوير الأنظمة والقوانين بهدف ترقية حياة الإنسان وتأمين أقصى حد ممكن من السعادة والرفاهية',
         url: window.location.href
     };
     
@@ -533,7 +538,7 @@ window.addEventListener('resize', function() {
             container.style.left = 'auto';
         } else {
             // على الشاشات الكبيرة، حافظ على الموضع المحدد
-            container.style.right = 'calc(50% - 600px - 50px)';
+            container.style.right = 'calc(50% - 600px - 40px)';
         }
     }
 });
@@ -558,8 +563,5 @@ button:hover, a:hover {
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-
-
-
-
-
+</body>
+</html>
