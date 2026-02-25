@@ -164,6 +164,22 @@ body {
     margin: 0;
 }
 
+.nav-menu li a {
+    display: flex;           /* لعرض الرمز والنص في سطر واحد */
+    align-items: center;     /* لتوسيط الرمز عمودياً مع النص */
+    gap: 5px;               /* مسافة بين الرمز والنص */
+}
+
+/* الرموز تأخذ نفس لون النص */
+.nav-menu li a i {
+    font-size: 16px;        /* حجم مناسب للرمز */
+}
+
+.nav-menu li a:hover i {
+    color: #d4af37;  /* الرمز يتحول للذهبي عند المرور */
+    transition: color 0.3s ease;
+}
+
 .nav-menu a {
     color: var(--white);
     text-decoration: none;
