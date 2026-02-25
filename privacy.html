@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="notranslate">مدار - Madar | سياسة الخصوصية</title>
+    <!-- خط Amiri من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <!-- ربط ملف CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- تنسيقات إضافية خاصة بصفحة سياسة الخصوصية -->
+    <style>
+        /* تنسيقات محسنة لصفحة الخصوصية */
+        .privacy-content {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+        }
+        
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 3px solid var(--gold);
+            position: relative;
+        }
+        
+        .privacy-header h1 {
+            color: var(--navy);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            border-right: none;
+            padding-right: 0;
+            text-align: center;
+        }
+        
+        .privacy-header h2 {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            border-right: none;
+            padding-right: 0;
+            text-align: center;
+            font-weight: normal;
+        }
+        
+        .privacy-header h3 {
+            color: var(--navy);
+            font-size: 1.3rem;
+            font-weight: normal;
+            margin-bottom: 20px;
+            border-right: none;
+            padding-right: 0;
+            text-align: center;
+            opacity: 0.8;
+        }
+        
+        .privacy-header::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--navy);
+        }
+        
+        .privacy-section {
+            margin-bottom: 35px;
+            padding-right: 0;
+        }
+        
+        .privacy-section h3 {
+            color: var(--navy);
+            font-size: 1.8rem;
+            border-right: 8px solid var(--gold);
+            padding-right: 20px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+        
+        .privacy-section h3:first-of-type {
+            margin-top: 0;
+        }
+        
+        .privacy-section h4 {
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin: 20px 0 15px 0;
+            padding-right: 15px;
+            border-right: 4px solid var(--gold);
+        }
+        
+        .privacy-section p {
+            color: #333;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .privacy-list {
+            list-style: none;
+            padding-right: 30px;
+            margin: 15px 0;
+        }
+        
+        .privacy-list li {
+            color: #333;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 35px;
+            text-align: justify;
+        }
+        
+        .privacy-list li::before {
+            content: "●";
+            color: var(--gold);
+            font-size: 1.5rem;
+            position: absolute;
+            right: 0;
+            top: -2px;
+        }
+        
+        .nested-list {
+            padding-right: 50px;
+            margin: 10px 0;
+            list-style: none;
+        }
+        
+        .nested-list li {
+            padding-right: 25px;
+            position: relative;
+        }
+        
+        .nested-list li::before {
+            content: "○";
+            color: var(--navy);
+            font-size: 1.2rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        
+        .highlight-box {
+            background-color: #fcf9f0;
+            padding: 25px 40px 25px 25px;
+            border-radius: 12px;
+            border-right: 5px solid var(--gold);
+            margin: 20px 0;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 10px;
+        }
+        
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .emphasis-box {
+            background-color: #eef4f9;
+            padding: 25px;
+            border-radius: 12px;
+            border-right: 5px solid var(--navy);
+            margin: 25px 0;
+            font-style: italic;
+        }
+        
+        .contact-email {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin: 30px 0 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            direction: ltr;
+        }
+        
+        .contact-email a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .contact-email a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-note {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 2px dashed var(--gold);
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .footer-note i {
+            color: var(--gold);
+            margin: 0 5px;
+        }
+        
+        .last-updated {
+            text-align: left;
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (max-width: 768px) {
+            .privacy-content {
+                padding: 20px;
+            }
+            
+            .privacy-header h1 {
+                font-size: 2rem;
+            }
+            
+            .privacy-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .privacy-section h3 {
+                font-size: 1.5rem;
+            }
+            
+            .privacy-list {
+                padding-right: 15px;
+            }
+            
+            .nested-list {
+                padding-right: 30px;
+            }
+            
+            .contact-email {
+                font-size: 1.2rem;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- الهيدر -->
+        <header class="header">
+            <div class="logo-area">
+                <div class="logo-circle notranslate" role="img" aria-label="شعار الصحيفة"></div>
+                <div class="newspaper-name notranslate">
+                    <h1>
+                        <span class="arabic">مـدار</span>
+                        <span class="english">Madar</span>
+                    </h1>
+                </div>
+            </div>
+
+            <!-- شريط أخبار RSS الموحد -->
+            <div class="news-ticker-container">
+                <div class="news-ticker-label"> آخر الأخبار 🌎</div>
+                <div class="news-ticker-wrapper">
+                    <div class="news-ticker" id="news-ticker">
+                        <span class="news-item">جاري تحميل آخر الأخبار العاجلة...💫</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قائمة ترجمة جوجل -->
+            <div id="google_translate_element" class="google-translate"></div>
+        </header>
+
+        <!-- القائمة الرئيسية -->
+        <nav class="sticky-nav">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="politic.html"><i class="fas fa-landmark"></i> سياسة</a></li>
+                    <li><a href="economy.html"><i class="fas fa-chart-line"></i> اقتصاد</a></li>
+                    <li><a href="community.html"><i class="fas fa-users"></i> المجتمع</a></li>
+                    <li><a href="technology.html"><i class="fas fa-microchip"></i> تكنولوجيا</a></li>
+                    <li><a href="misc.html"><i class="fas fa-globe"></i> من العالم</a></li>
+                    <li><a href="about.html"><i class="fas fa-star"></i> المدار</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+                </ul>
+                <div class="nav-brand notranslate">مدار - Madar</div>
+            </div>
+        </nav>
+
+        <!-- المحتوى الرئيسي - سياسة الخصوصية -->
+        <main class="page-content">
+            <div class="container">
+                <div class="privacy-content">
+                    <!-- رأس الصفحة -->
+                    <div class="privacy-header">
+                        <h1>سياسة الخصوصية</h1>
+                        <h2>صحيفة "Madar - مـدار"</h2>
+                        <h3>📋 حماية خصوصيتك هي أولويتنا 📋</h3>
+                    </div>
+                    
+                    <!-- المقدمة -->
+                    <div class="privacy-section">
+                        <p>تلتزم صحيفة <strong>"Madar - مـدار"</strong> بحماية الخصوصية والبيانات الشخصية لجميع مستخدمي منصاتها الرقمية، وتعتبر ذلك جزءًا أساسيًا من التزامها بالمعايير الصحفية العالمية وحقوق الإنسان وحرية التعبير.</p>
+                        
+                        <div class="emphasis-box">
+                            <p>تهدف هذه السياسة إلى توضيح كيفية جمع البيانات، استخدامَها، حفظَها، وحماية حقوقكم القانونية المتعلقة بها.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 1. نطاق وجمع البيانات -->
+                    <div class="privacy-section">
+                        <h3>1. نطاق وجمع البيانات</h3>
+                        <p>تجمع صحيفة <strong>"Madar - مـدار"</strong> البيانات الشخصية والغير شخصية فقط بالحد الأدنى الضروري لأداء وظائفها الصحفية والإعلامية، وتشمل:</p>
+                        
+                        <h4>البيانات الشخصية</h4>
+                        <ul class="privacy-list">
+                            <li>الاسم، البريد الإلكتروني، ومعلومات الاتصال الأخرى عند الاشتراك في النشرات البريدية أو التواصل عبر نماذج الاتصال الرسمية.</li>
+                        </ul>
+                        
+                        <h4>البيانات التقنية والتصفح</h4>
+                        <ul class="privacy-list">
+                            <li>عنوان بروتوكول الإنترنت (IP)، نوع المتصفح، نظام التشغيل، صفحات الموقع التي يتم زيارتها، ووقت التصفح.</li>
+                            <li>تُستخدم هذه البيانات حصريًا لأغراض تحليلية وتقنية لضمان الأداء الأمثل للموقع وحماية الأمن السيبراني.</li>
+                        </ul>
+                        
+                        <h4>المحتوى المقدم للنشر</h4>
+                        <ul class="privacy-list">
+                            <li>التعليقات، المقالات، أو المواد الصحفية التي يقدمها المستخدم للنشر، وفقًا لشروط وأحكام النشر المعتمدة.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 2. استخدام البيانات -->
+                    <div class="privacy-section">
+                        <h3>2. استخدام البيانات</h3>
+                        <p>تُستخدم البيانات التي نجمعها للأغراض القانونية والمهنية المشروعة التالية:</p>
+                        <ul class="privacy-list">
+                            <li>إرسال النشرات البريدية والتنبيهات الإعلامية فقط للمشتركين.</li>
+                            <li>تحسين جودة المحتوى الصحفي وتخصيص تجربة المستخدم.</li>
+                            <li>ضمان أمن الموقع ومنع الاستخدام غير القانوني أو الهجمات الإلكترونية.</li>
+                            <li>الرد على الاستفسارات أو طلبات التواصل الرسمية.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 3. حماية المصادر وسرية المعلومات -->
+                    <div class="privacy-section">
+                        <h3>3. حماية المصادر وسرية المعلومات</h3>
+                        <p>تلتزم صحيفة <strong>"Madar - مـدار"</strong> التزامًا صارمًا بالحفاظ على سرية:</p>
+                        <ul class="privacy-list">
+                            <li><strong>المصادر الصحفية والمبلغين عن الانتهاكات:</strong> لا يتم الكشف عن أي بيانات شخصية إلا بناءً على أمر قضائي ملزم.</li>
+                            <li><strong>المعلومات الشخصية للمستخدمين:</strong> لا تُباع أو تُؤجر أو تُشارك مع أي طرف ثالث لأغراض تجارية أو دعائية.</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <p>🔒 <strong>تعهد بالسرية التامة:</strong> نضمن لك حماية معلوماتك الشخصية والمصادر الصحفية بموجب القانون والمعايير المهنية.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 4. ملفات تعريف الارتباط (Cookies) -->
+                    <div class="privacy-section">
+                        <h3>4. ملفات تعريف الارتباط (Cookies)</h3>
+                        <ul class="privacy-list">
+                            <li>تُستخدم ملفات تعريف الارتباط لتحسين تجربة المستخدم وتسهيل الخدمات التقنية.</li>
+                            <li>يمكن للمستخدم التحكم في قبول أو رفض ملفات تعريف الارتباط من خلال إعدادات المتصفح، مع العلم أن تعطيلها قد يحد من بعض وظائف الموقع.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 5. الروابط الخارجية -->
+                    <div class="privacy-section">
+                        <h3>5. الروابط الخارجية</h3>
+                        <p>قد يحتوي موقع الصحيفة على روابط لمواقع أخرى.<br>
+                        صحيفة <strong>"Madar - مـدار"</strong> <strong>ليست مسؤولة</strong> عن محتوى هذه المواقع أو ممارسات الخصوصية المعتمدة فيها، ويخضع استخدام هذه المواقع لشروطها وسياساتها الخاصة.</p>
+                    </div>
+                    
+                    <!-- 6. حقوق المستخدمين -->
+                    <div class="privacy-section">
+                        <h3>6. حقوق المستخدمين</h3>
+                        <p>وفقًا للقوانين الدولية والمحلية لحماية البيانات، يحق للمستخدمين:</p>
+                        <ul class="privacy-list">
+                            <li>طلب الاطلاع على البيانات الشخصية التي تحتفظ بها الصحيفة.</li>
+                            <li>طلب تصحيح، تحديث، أو حذف البيانات غير الدقيقة أو غير الضرورية.</li>
+                            <li>سحب الموافقة على أي مراسلات أو اشتراكات بريدية في أي وقت دون قيود.</li>
+                        </ul>
+                        <p>يتم تلبية هذه الطلبات ضمن فترة زمنية معقولة، وفقًا للمتطلبات القانونية.</p>
+                    </div>
+                    
+                    <!-- 7. التعديلات على السياسة -->
+                    <div class="privacy-section">
+                        <h3>7. التعديلات على السياسة</h3>
+                        <ul class="privacy-list">
+                            <li>تحتفظ صحيفة <strong>"Madar - مـدار"</strong> بالحق في تعديل هذه السياسة لضمان الامتثال للقوانين والأنظمة المعمول بها أو لمواكبة التطورات التقنية.</li>
+                            <li>تُنشر أي تعديلات على هذه الصفحة مع تحديث تاريخ "آخر تعديل" لتكون مرجعًا دائمًا للمستخدمين.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 8. الاتصال -->
+                    <div class="privacy-section">
+                        <h3>8. الاتصال</h3>
+                        <p>لأي استفسارات أو طلبات تتعلق بالخصوصية وحماية البيانات، يرجى التواصل عبر البريد الإلكتروني الرسمي:</p>
+                        
+                        <div class="contact-email">
+                            📧 <a href="mailto:rdx.prv@gmail.com">rdx.prv@gmail.com</a> 📧
+                        </div>
+                    </div>
+                    
+                    <!-- تذييل الصفحة -->
+                    <div class="footer-note">
+                        <i class="fas fa-shield-alt"></i> سياسة معتمدة رسميًا لصحيفة "مدار" الإلكترونية <i class="fas fa-shield-alt"></i>
+                    </div>
+                    
+                    <div class="last-updated">
+                        آخر تحديث: 26 فبراير 2026
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- التذييل (الفوتر) -->
+        <footer>
+            <div class="copyright notranslate">© 2026 مدار - Madar. جميع الحقوق محفوظة.</div>
+            <div class="footer-links">
+                <a href="privacy.html">سياسة الخصوصية</a>
+                <a href="terms.html">شروط الخدمة</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- أكواد Google Translate -->
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'ar',
+            includedLanguages: 'ar,en,fr,de,es,tr,fa,ur',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true
+        }, 'google_translate_element');
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <!-- ملف JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
