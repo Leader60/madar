@@ -77,7 +77,7 @@
             padding: 8px 16px;
             border-radius: 20px;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 18px;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -86,7 +86,10 @@
 
         .nav-menu li a:hover {
             background: rgba(212, 175, 55, 0.2);
-            transform: translateY(-4px);
+            transform: translateY(-8px);
+            color: #d4af37;  /* يتحول للذهبي عند المرور */
+             color: #d4af37;  /* الأيقونة تتحول للذهبي */
+              transition: color 0.3s ease;
         }
 
         .nav-menu li a.active {
@@ -560,6 +563,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     </script>
 </body>
 </html>
+
 
 
 
