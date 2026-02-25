@@ -207,6 +207,16 @@ body {
     letter-spacing: 1px;
 }
 
+.nav-menu a.active,
+.footer-links a.active {
+    color: var(--gold) !important;
+    font-weight: bold;
+}
+
+.footer-links a.active {
+    text-decoration: underline;
+}
+
 /* المحتوى الرئيسي */
 main {
     background-color: var(--white);
