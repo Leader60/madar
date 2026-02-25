@@ -486,4 +486,29 @@ footer {
     user-select: none;
 }
 
+/* هذا الكود يوضع في style.css */
+.formspee-button {
+    display: inline-block;
+    background-color: var(--gold);
+    color: var(--navy) !important;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid var(--navy);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
 
+.formspee-button i {
+    margin: 0 8px;
+}
+
+.formspee-button:hover {
+    background-color: var(--navy);
+    color: var(--gold) !important;
+    border-color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
