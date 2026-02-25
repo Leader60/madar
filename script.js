@@ -1,4 +1,4 @@
-// روابط RSS الرسمية المصححة
+// روابط RSS الرسمية
 const rssFeeds = [
     {
         url: 'https://www.aljazeera.net/aljazeerarss/ae73c9e3-2c8c-46e6-9cb3-6d645a74e506/73d50210-2aae-4dbe-907b-8017f475fe3f',
@@ -19,7 +19,6 @@ async function loadNews() {
 
         for (const feed of rssFeeds) {
             try {
-                // استخدام وسيط AllOrigins لتجاوز حظر المتصفح (CORS)
                 const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`;
                 const response = await fetch(proxyUrl);
                 
@@ -30,17 +29,14 @@ async function loadNews() {
                 
                 const data = await response.json();
                 
-                // تحقق من وجود المحتوى
                 if (!data.contents) {
                     console.warn(`لا يوجد محتوى من ${feed.name}`);
                     continue;
                 }
 
-                // تحويل نص XML إلى كائنات JSON
                 const parser = new DOMParser();
                 const xmlDoc = parser.parseFromString(data.contents, "text/xml");
                 
-                // التحقق من وجود أخطاء في الـ XML
                 const parserError = xmlDoc.querySelector('parsererror');
                 if (parserError) {
                     console.warn(`خطأ في تحليل XML من ${feed.name}`);
@@ -53,7 +49,7 @@ async function loadNews() {
                     const title = item.querySelector("title")?.textContent;
                     const link = item.querySelector("link")?.textContent;
                     
-                    if (title && link) { // التأكد من وجود العنوان والرابط
+                    if (title && link) {
                         allNews.push({
                             title: title.trim(),
                             link: link.trim(),
@@ -66,37 +62,32 @@ async function loadNews() {
                 
             } catch (feedError) {
                 console.error(`خطأ في جلب أخبار ${feed.name}:`, feedError);
-                // استمر في جلب الأخبار من المصادر الأخرى
                 continue;
             }
         }
 
         if (allNews.length > 0) {
-            // خلط الأخبار (اختياري)
             allNews = shuffleArray(allNews);
             
-            // عرض الأخبار
             ticker.innerHTML = ''; 
             
-            // دمج الأخبار وعرضها
             const content = allNews.slice(0, 20).map(item => 
                 `<a href="${item.link}" target="_blank" rel="noopener noreferrer" class="news-item">
                     ⚡ <strong>[${item.source}]</strong> ${item.title}
                 </a>`
             ).join(' <span class="news-separator">•</span> ');
 
-            // تكرار المحتوى لضمان انسيابية الحركة في الـ CSS
             ticker.innerHTML = content + ' <span class="news-separator">•</span> ' + content;
         } else {
             ticker.innerHTML = '<span class="news-item">🔴 لا توجد أخبار حالياً، جاري التحديث...🤔</span>';
         }
     } catch (error) {
         console.error("فشل الجلب الرئيسي:", error);
-        ticker.innerHTML = '<span class="news-item">🔴 متابعة مستمرة لأهم الأخبار العاجلة من الجزيرة والعربية...🔊</span>';
+        ticker.innerHTML = '<span class="news-item">🔴 متابعة مستمرة لأهم الأخبار العاجلة...🔊</span>';
     }
 }
 
-// دالة مساعدة لخلط الأخبار
+// دالة خلط الأخبار
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -105,8 +96,42 @@ function shuffleArray(array) {
     return array;
 }
 
-// بدء التحميل عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', loadNews);
+// دالة محسنة لتفعيل الرابط النشط
+function setActiveNavLink() {
+    // الحصول على اسم الصفحة الحالية
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // إزالة كلاس active من جميع الروابط أولاً
+    document.querySelectorAll('.nav-menu a, .footer-links a').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // تفعيل الروابط في القائمة الرئيسية
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === currentPage) {
+            link.classList.add('active');
+        }
+    });
+    
+    // تفعيل الروابط في الفوتر
+    const footerLinks = document.querySelectorAll('.footer-links a');
+    footerLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === currentPage) {
+            link.classList.add('active');
+        }
+    });
+    
+    console.log('تم تفعيل الرابط النشط للصفحة:', currentPage); // للتأكد من العمل
+}
 
-// تحديث الأخبار كل 5 دقائق
+// بدء التحميل عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', () => {
+    loadNews();
+    setActiveNavLink();
+});
+
+// تحديث الأخبار كل 10 دقائق
 setInterval(loadNews, 600000);
