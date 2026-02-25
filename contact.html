@@ -242,26 +242,29 @@
             resize: vertical;
         }
 
-        .submit-btn {
-            background: linear-gradient(135deg, #001f3f, #003366);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
+/*  الزر الأساسي - تواصل معنا */
+.submit-btn {
+    background: linear-gradient(135deg, #001f3f, #003366);
+    color: white;
+    border: none;
+    padding: 12px 25px;        /* حجم أصغر */
+    border-radius: 20px;
+    font-size: 16px;           /* خط أصغر */
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.4s ease; /* حركة أبطأ قليلاً */
+    border: 2px solid transparent;
+    letter-spacing: 0.5px;     /* تباعد بسيط بين الحروف */
+}
 
-        .submit-btn:hover {
-            background: #d4af37;
-            color: #001f3f;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(212,175,55,0.3);
-        }
+/* الخيار 3: تأثير متدرج */
+.submit-btn:hover {
+    background: linear-gradient(135deg, #d4af37, #f5e6b3);
+    color: #001f3f;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
 
         /* فوتر الصفحة */
         .footer {
@@ -564,6 +567,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     </script>
 </body>
 </html>
+
 
 
 
