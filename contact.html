@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تواصل معنا - مدار</title>
+    <title>تواصل معنا - مـدار</title>
     
     <!-- الخطوط والأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,6 +21,9 @@
             background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
+            /* إطار ذهبي لكامل الصفحة */
+            border: 6px solid #d4af37;
+            min-height: 100vh;
         }
 
         /* ===== القائمة الثابتة (محدثة) ===== */
@@ -31,16 +34,19 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             z-index: 1000;
             border-bottom: 2px solid #d4af37;
+              display: flex;
+            align-items: center;
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1200px; /* تم تعديل العرض إلى 1200px */
+            width: 100%;
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 70px;
+            height: 40px;
         }
 
         .nav-menu {
@@ -53,7 +59,7 @@
             color: #fff;
             text-decoration: none;
             padding: 8px 16px;
-            border-radius: 30px;
+            border-radius: 20px;
             font-weight: 500;
             font-size: 15px;
             transition: all 0.3s ease;
@@ -334,7 +340,7 @@
     <!-- هيدر صفحة الاتصال -->
     <header class="contact-header">
         <h1>تواصل معنا</h1>
-        <p>نحن هنا للإجابة على استفساراتك ومساعدتك في أي وقت</p>
+        <p>نحن هنا للإجابة على استفساراتك ومساعدتك في أي وقت 👋</p>
     </header>
 
     <!-- محتوى صفحة الاتصال -->
@@ -367,7 +373,7 @@
                 </div>
                 <div class="info-text">
                     <h3>البريد الإلكتروني</h3>
-                    <a href="rdx.prv@gmail.com">info@madar.com</a>
+                    <a href="rdx.prv@gmail.com">rdx.prv@gmail.com</a>
                 </div>
             </div>
 
@@ -376,8 +382,8 @@
                     <i class="fas fa-clock"></i>
                 </div>
                 <div class="info-text">
-                    <h3>ساعات العمل</h3>
-                    <p>السبت - الخميس: 9:00 ص - 6:00 م</p>
+                    <h3>ساعات التواصل</h3>
+                    <p>الأثنين - الجمعة: 10:00 ص - 4:00 م</p>
                 </div>
             </div>
         </div>
@@ -438,12 +444,12 @@
         e.preventDefault();
         
         // هنا يمكن إضافة كود إرسال النموذج
-        alert('شكراً لتواصلك معنا! سنرد عليك في أقرب وقت ممكن.');
+        alert('شكراً لتواصلك معنا! سنتواصل معكم في أقرب وقت ممكن.');
         this.reset();
     });
     </script>
 
-    <!-- الأزرار الجانبية (اختياري - إذا كنت تريد إضافتها) -->
+    <!-- الأزرار الجانبية (واتساب - مشاركة - إعجاب) -->
     <!-- الأزرار العائمة الجانبية -->
 <div style="position: fixed; 
             top: 50%; 
@@ -565,3 +571,4 @@ button:hover, a:hover {
 
 </body>
 </html>
+
