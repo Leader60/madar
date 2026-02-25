@@ -172,7 +172,7 @@ body {
 
 /* الرموز تأخذ نفس لون النص */
 .nav-menu li a i {
-    font-size: 16px;        /* حجم مناسب للرمز */
+    font-size: 12px;        /* حجم مناسب للرمز */
 }
 
 .nav-menu li a:hover i {
