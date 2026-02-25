@@ -390,5 +390,50 @@
     
     <!-- ملف JavaScript -->
     <script src="script.js"></script>
+<script>
+    // هذا الكود سيعمل حتى لو كان هناك تعارضات
+    (function() {
+        // دالة لتطبيق التنسيق بشكل قوي
+        function forceActivateLink() {
+            // البحث عن جميع الروابط
+            var links = document.querySelectorAll('.footer-links a');
+            
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i];
+                
+                // إذا كان الرابط هو terms.html
+                if (link.getAttribute('href') === 'terms.html') {
+                    // تطبيق التنسيق بقوة
+                    link.style.setProperty('color', '#c5a028', 'important');
+                    link.style.setProperty('font-weight', 'bold', 'important');
+                    link.style.setProperty('text-decoration', 'underline', 'important');
+                    link.style.setProperty('background-color', 'transparent', 'important');
+                    
+                    // إضافة كلاس active أيضاً
+                    link.classList.add('active');
+                    
+                    console.log('✅ تم تفعيل رابط شروط الخدمة');
+                } else {
+                    // إزالة أي تنسيق سابق من الروابط الأخرى
+                    link.style.color = '';
+                    link.style.fontWeight = '';
+                    link.style.textDecoration = '';
+                }
+            }
+        }
+        
+        // تنفيذ الدالة بعد تحميل الصفحة
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', forceActivateLink);
+        } else {
+            forceActivateLink();
+        }
+        
+        // تنفيذها مرة أخرى بعد تأخير صغير
+        setTimeout(forceActivateLink, 100);
+        setTimeout(forceActivateLink, 500);
+    })();
+</script>
+    
 </body>
 </html>
