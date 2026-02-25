@@ -486,29 +486,131 @@ footer {
     user-select: none;
 }
 
-/* هذا الكود يوضع في style.css */
-.formspee-button {
-    display: inline-block;
-    background-color: var(--gold);
-    color: var(--navy) !important;
+/* تنسيقات نموذج الاتصال Formspree */
+.contact-form-section {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 15px;
+    margin: 30px 0;
+    border: 1px solid var(--gold);
+}
+
+.contact-form-section h3 {
+    color: var(--navy);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 15px;
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--navy);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.form-group .required {
+    color: #c00;
+    margin-right: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    background-color: var(--white);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 10px rgba(197, 160, 40, 0.2);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+    font-size: 1rem;
+}
+
+.submit-btn {
+    background-color: var(--navy);
+    color: var(--gold);
+    border: 2px solid var(--gold);
     padding: 15px 30px;
-    border-radius: 50px;
     font-size: 1.3rem;
     font-weight: bold;
-    text-decoration: none;
-    border: 2px solid var(--navy);
+    border-radius: 50px;
+    cursor: pointer;
     transition: all 0.3s ease;
+    display: inline-block;
+    width: 100%;
+    font-family: 'Amiri', serif;
+}
+
+.submit-btn i {
+    margin-left: 10px;
+}
+
+.submit-btn:hover {
+    background-color: var(--gold);
+    color: var(--navy);
+    border-color: var(--navy);
+    transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.formspee-button i {
-    margin: 0 8px;
+/* رسالة نجاح/خطأ Formspree */
+.form-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-right: 5px solid #28a745;
 }
 
-.formspee-button:hover {
-    background-color: var(--navy);
-    color: var(--gold) !important;
-    border-color: var(--gold);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+.form-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-right: 5px solid #dc3545;
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .contact-form-section {
+        padding: 20px;
+    }
+    
+    .contact-form-section h3 {
+        font-size: 1.6rem;
+    }
+    
+    .submit-btn {
+        font-size: 1.1rem;
+        padding: 12px 20px;
+    }
 }
