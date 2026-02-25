@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="notranslate">مدار - Madar | شروط الخدمة وميثاق الشرف</title>
+    <!-- خط Amiri من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <!-- ربط ملف CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- تنسيقات إضافية خاصة بصفحة شروط الخدمة -->
+    <style>
+        /* تنسيقات محسنة لصفحة الشروط */
+        .terms-content {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+        }
+        
+        .terms-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 3px solid var(--gold);
+            position: relative;
+        }
+        
+        .terms-header h1 {
+            color: var(--navy);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            border-right: none;
+            padding-right: 0;
+            text-align: center;
+        }
+        
+        .terms-header h2 {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: normal;
+            margin-bottom: 20px;
+            border-right: none;
+            padding-right: 0;
+            text-align: center;
+        }
+        
+        .terms-header::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--navy);
+        }
+        
+        .terms-section {
+            margin-bottom: 35px;
+            padding-right: 0;
+        }
+        
+        .terms-section h3 {
+            color: var(--navy);
+            font-size: 1.8rem;
+            border-right: 8px solid var(--gold);
+            padding-right: 20px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            transition: border-right-width 0.3s;
+        }
+        
+        .terms-section h3:first-of-type {
+            margin-top: 0;
+        }
+        
+        .terms-section p {
+            color: #333;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .terms-list {
+            list-style: none;
+            padding-right: 30px;
+            margin: 15px 0;
+        }
+        
+        .terms-list li {
+            color: #333;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 35px;
+            text-align: justify;
+        }
+        
+        .terms-list li::before {
+            content: "●";
+            color: var(--gold);
+            font-size: 1.5rem;
+            position: absolute;
+            right: 0;
+            top: -2px;
+        }
+        
+        .prohibited-list {
+            background-color: #fcf9f0;
+            padding: 25px 40px 25px 25px;
+            border-radius: 12px;
+            border-right: 5px solid var(--gold);
+            margin: 20px 0;
+        }
+        
+        .prohibited-list li {
+            list-style: none;
+            margin-bottom: 15px;
+            position: relative;
+            padding-right: 30px;
+        }
+        
+        .prohibited-list li::before {
+            content: "✕";
+            color: #c00;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        
+        .emphasis-box {
+            background-color: #eef4f9;
+            padding: 25px;
+            border-radius: 12px;
+            border-right: 5px solid var(--navy);
+            margin: 25px 0;
+            font-style: italic;
+        }
+        
+        .emphasis-box p {
+            margin-bottom: 0;
+        }
+        
+        .legal-note {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin: 30px 0 20px;
+            text-align: center;
+        }
+        
+        .legal-note p {
+            color: var(--white) !important;
+            margin-bottom: 0;
+            font-size: 1.3rem;
+        }
+        
+        .legal-note strong {
+            color: var(--gold);
+        }
+        
+        .footer-note {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 2px dashed var(--gold);
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .footer-note i {
+            color: var(--gold);
+            margin: 0 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .terms-content {
+                padding: 20px;
+            }
+            
+            .terms-header h1 {
+                font-size: 2rem;
+            }
+            
+            .terms-section h3 {
+                font-size: 1.5rem;
+            }
+            
+            .terms-list {
+                padding-right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- الهيدر -->
+        <header class="header">
+            <div class="logo-area">
+                <div class="logo-circle notranslate" role="img" aria-label="شعار الصحيفة"></div>
+                <div class="newspaper-name notranslate">
+                    <h1>
+                        <span class="arabic">مـدار</span>
+                        <span class="english">Madar</span>
+                    </h1>
+                </div>
+            </div>
+
+            <!-- شريط أخبار RSS الموحد -->
+            <div class="news-ticker-container">
+                <div class="news-ticker-label"> آخر الأخبار 🌎</div>
+                <div class="news-ticker-wrapper">
+                    <div class="news-ticker" id="news-ticker">
+                        <span class="news-item">جاري تحميل آخر الأخبار العاجلة...💫</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قائمة ترجمة جوجل -->
+            <div id="google_translate_element" class="google-translate"></div>
+        </header>
+
+        <!-- القائمة الرئيسية -->
+        <nav class="sticky-nav">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="politic.html"><i class="fas fa-landmark"></i> سياسة</a></li>
+                    <li><a href="economy.html"><i class="fas fa-chart-line"></i> اقتصاد</a></li>
+                    <li><a href="community.html"><i class="fas fa-users"></i> المجتمع</a></li>
+                    <li><a href="technology.html"><i class="fas fa-microchip"></i> تكنولوجيا</a></li>
+                    <li><a href="misc.html"><i class="fas fa-globe"></i> من العالم</a></li>
+                    <li><a href="about.html"><i class="fas fa-star"></i> المدار</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+                </ul>
+                <div class="nav-brand notranslate">مدار - Madar</div>
+            </div>
+        </nav>
+
+        <!-- المحتوى الرئيسي - شروط الخدمة -->
+        <main class="page-content">
+            <div class="container">
+                <div class="terms-content">
+                    <!-- رأس الصفحة -->
+                    <div class="terms-header">
+                        <h1>السياسة التحريرية وشروط الاستخدام وميثاق الشرف</h1>
+                        <h2>📜 (وثيقة مؤسسية موحّدة) 📜</h2>
+                    </div>
+                    
+                    <!-- المقدمة -->
+                    <div class="terms-section">
+                        <p>يُعدّ هذا الموقع منصّة إعلامية مستقلة تُعنى بنشر الأخبار، التحليل، والرأي، وتلتزم بأعلى معايير العمل الصحفي، وبالقيم الأخلاقية والإنسانية التي تحكم الخطاب العام المسؤول. تهدف هذه الوثيقة إلى تنظيم استخدام الموقع، وتحديد قواعد النشر، وترسيخ ميثاق شرف مهني يضمن حرية التعبير ضمن إطار المسؤولية.</p>
+                        
+                        <div class="emphasis-box">
+                            <p>إن استخدام الموقع، أو تصفّحه، أو المساهمة فيه بأي شكل، يُعدّ إقرارًا بالاطلاع على هذه الوثيقة والالتزام بما ورد فيها.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- أولاً -->
+                    <div class="terms-section">
+                        <h3>أولًا: نطاق الاستخدام وطبيعة المنصّة</h3>
+                        <ul class="terms-list">
+                            <li>يتيح الموقع محتوى إخباريًا وتحليليًا وآراء فكرية تعبّر عن وجهة نظر كُتّابها.</li>
+                            <li>لا تعبّر المواد المنشورة بالضرورة عن رأي إدارة الموقع أو فريقه التحريري.</li>
+                            <li>يلتزم الموقع بالفصل الواضح بين الخبر والرأي، منعًا لأي لبس أو تضليل للقارئ.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- ثانياً -->
+                    <div class="terms-section">
+                        <h3>ثانيًا: حرية التعبير والمسؤولية</h3>
+                        <ul class="terms-list">
+                            <li>تكفل المنصّة حرية التعبير بوصفها حقًا أساسيًا.</li>
+                            <li>تُمارَس هذه الحرية ضمن حدود المسؤولية المهنية، واحترام الحقيقة، وكرامة الإنسان.</li>
+                            <li>لا تُعدّ حرية الرأي مبررًا للإساءة، التشهير، التحريض، أو توجيه اتهامات دون أدلة موثوقة وقابلة للتحقق.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- ثالثاً -->
+                    <div class="terms-section">
+                        <h3>ثالثًا: الدقة والتحقق والمصادر</h3>
+                        <ul class="terms-list">
+                            <li>يلتزم كل كاتب أو مساهم بالتحقق من صحة المعلومات قبل النشر.</li>
+                            <li>يجب أن تستند الوقائع، الاتهامات، أو التوصيفات النقدية إلى مصادر موثوقة أو وثائق علنية معترف بها مهنيًا.</li>
+                            <li>يُحظر نشر الشائعات، المعلومات المضللة، أو الأخبار غير المؤكدة، لا سيما في القضايا الحساسة.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- رابعاً - المحتوى المحظور -->
+                    <div class="terms-section">
+                        <h3>رابعًا: المحتوى المحظور</h3>
+                        <p>يُمنع نشر أي محتوى يتضمن، بشكل مباشر أو غير مباشر:</p>
+                        <ul class="prohibited-list">
+                            <li>تشهيرًا، تجريحًا، أو إساءة لأي شخص، جماعة، أو مؤسسة.</li>
+                            <li>خطاب كراهية، تحريضًا على العنف، أو تمييزًا على أي أساس ديني، طائفي، عرقي، قومي، سياسي، أو اجتماعي.</li>
+                            <li>انتهاكًا لخصوصية الأفراد أو استغلالًا للآلام الإنسانية لأغراض إثارية أو دعائية.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- خامساً -->
+                    <div class="terms-section">
+                        <h3>خامسًا: القيم الإنسانية وأخلاقيات النشر</h3>
+                        <p>تلتزم المنصّة والمواد المنشورة عبرها بما يلي:</p>
+                        <ul class="terms-list">
+                            <li>احترام الكرامة الإنسانية وحق الاختلاف.</li>
+                            <li>حماية الخصوصية، خصوصًا في القضايا الشخصية والإنسانية الحساسة.</li>
+                            <li>تجنّب الإثارة، التهويل، والتلاعب بالمشاعر العامة.</li>
+                            <li>تقديم النقد بوصفه أداة مساءلة بنّاءة لا وسيلة تشويه أو تصفية حسابات.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- سادساً - المسؤولية القانونية -->
+                    <div class="terms-section">
+                        <h3>سادسًا: المسؤولية القانونية والمهنية</h3>
+                        <ul class="terms-list">
+                            <li>يتحمّل الكاتب أو المساهم <strong>المسؤولية الكاملة والحصرية</strong> عن مضمون المادة المنشورة، بما في ذلك دقة المعلومات والآثار القانونية المترتبة عليها.</li>
+                            <li>يخلي المستخدم والكاتب مسؤولية الموقع وإدارته من أي تبعات قانونية ناتجة عن محتوى يخالف هذه الوثيقة أو القوانين النافذة.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- سابعاً -->
+                    <div class="terms-section">
+                        <h3>سابعًا: حقوق إدارة الموقع</h3>
+                        <ul class="terms-list">
+                            <li>يحتفظ الموقع بحقه الكامل في مراجعة، تعديل، تعليق، أو حذف أي محتوى يرى أنه يخالف هذه الوثيقة أو يضر بالمصلحة العامة، دون التزام ببيان الأسباب.</li>
+                            <li>يحق للموقع نشر تصويب، توضيح، أو اعتذار عند اكتشاف خطأ جوهري، بما يخدم الحقيقة وحق الجمهور في المعرفة.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- ثامناً -->
+                    <div class="terms-section">
+                        <h3>ثامنًا: حق الرد والتصويب</h3>
+                        <p>يضمن الموقع حق الرد والتصويب للأطراف المعنية، وفق ضوابط مهنية عادلة، وبما لا يمسّ استقلالية المنصّة أو حق الكاتب في التعبير المسؤول.</p>
+                    </div>
+                    
+                    <!-- تاسعاً - المرجعية الأخلاقية -->
+                    <div class="terms-section">
+                        <h3>تاسعًا: المرجعية الأخلاقية</h3>
+                        <p>تسترشد هذه الوثيقة بمواثيق أخلاقيات الصحافة المعتمدة عالميًا، ولا سيما مبادئ النزاهة، الدقة، والاستقلالية كما وردت في مواثيق <strong>Society of Professional Journalists</strong> و<strong>International Federation of Journalists</strong>.</p>
+                    </div>
+                    
+                    <!-- عاشراً - القبول والنفاذ -->
+                    <div class="terms-section">
+                        <h3>عاشرًا: القبول والنفاذ</h3>
+                        <div class="legal-note">
+                            <p>يُعدّ استخدام الموقع أو المساهمة في محتواه إقرارًا بالاطلاع على هذه الوثيقة وفهمها والالتزام بها، <strong>وتدخل أحكامها حيّز النفاذ فور نشرها</strong>.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- تذييل الصفحة -->
+                    <div class="footer-note">
+                        <i class="fas fa-check-circle"></i> وثيقة معتمدة رسميًا لصحيفة "مدار" الإلكترونية <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- التذييل (الفوتر) -->
+        <footer>
+            <div class="copyright notranslate">© 2026 مدار - Madar. جميع الحقوق محفوظة.</div>
+            <div class="footer-links">
+                <a href="privacy.html">سياسة الخصوصية</a>
+                <a href="terms.html" class="active">شروط الخدمة</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- أكواد Google Translate -->
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'ar',
+            includedLanguages: 'ar,en,fr,de,es,tr,fa,ur',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true
+        }, 'google_translate_element');
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <!-- ملف JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
