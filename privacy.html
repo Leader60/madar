@@ -489,21 +489,26 @@
                         <h3>8. الاتصال</h3>
                         <p>لأي استفسارات أو طلبات تتعلق بالخصوصية وحماية البيانات، يرجى التواصل عبر:</p>
                         
-                            <!-- البريد الإلكتروني يفتح في تبويب جديد -->
-                            <div class="contact-email">
+                        <!-- الجزء المعدل - البريد الإلكتروني مع أزرار -->
+                        <div class="contact-email">
+                            <div style="margin-bottom: 20px;">
                                 <i class="fas fa-envelope"></i> 
-                                <a href="#" onclick="window.open('mailto:rdx.prv@gmail.com', '_blank'); return false;" class="notranslate" translate="no">
-                                    rdx.prv@gmail.com
-                                </a>
+                                <span class="notranslate" translate="no" id="emailAddress" style="font-size: 1.5rem; color: var(--gold); font-weight: bold;">rdx.prv@gmail.com</span>
                                 <i class="fas fa-envelope"></i>
                             </div>
+                            
+                            <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                                <button onclick="window.location.href='mailto:rdx.prv@gmail.com'" class="submit-btn" style="width: auto; padding: 10px 20px;">
+                                    <i class="fas fa-paper-plane"></i> إرسال بريد
+                                </button>
                                 
-                                <button onclick="window.location.href='mailto:rdx.prv@gmail.com'" class="submit-btn" style="width: auto; margin: 0 auto; padding: 10px 25px;">
-                                    <i class="fas fa-paper-plane"></i> إرسال بريد إلكتروني
+                                <button onclick="copyEmail()" class="submit-btn" style="width: auto; padding: 10px 20px; background-color: var(--gold); color: var(--navy);">
+                                    <i class="fas fa-copy"></i> نسخ البريد
                                 </button>
                             </div>
-                                                    
-                        <!-- نموذج الاتصال -->
+                        </div>
+                        
+                        <!-- نموذج الاتصال - يبقى كما هو بدون تغيير -->
                         <div class="form-card">
                             <h2>أو أرسل لنا رسالة مباشرة</h2>
                             
@@ -516,22 +521,22 @@
                                     <label>الاسم الكامل *</label>
                                     <input type="text" name="name" placeholder="أدخل اسمك الكامل" required>
                                 </div>
-                                
+                    
                                 <div class="form-group">
                                     <label>البريد الإلكتروني *</label>
                                     <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
                                 </div>
-
+                    
                                 <div class="form-group">
                                     <label>الموضوع</label>
                                     <input type="text" name="subject" placeholder="موضوع الرسالة">
                                 </div>
-
+                    
                                 <div class="form-group">
                                     <label>الرسالة *</label>
                                     <textarea name="message" placeholder="اكتب رسالتك هنا..." required rows="5"></textarea>
                                 </div>
-
+                    
                                 <button type="submit" class="submit-btn">
                                     <i class="fas fa-paper-plane"></i>
                                     إرسال الرسالة
@@ -587,6 +592,17 @@
         });
     });
 </script>
+
+<script>
+function copyEmail() {
+    navigator.clipboard.writeText('rdx.prv@gmail.com').then(function() {
+        alert('✅ تم نسخ البريد الإلكتروني!');
+    }).catch(function() {
+        alert('❌ لم نتمكن من نسخ البريد، يمكنك نسخه يدوياً: rdx.prv@gmail.com');
+    });
+}
+</script>
+    
 </body>
 </html>
 
