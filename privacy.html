@@ -498,14 +498,22 @@
                             </div>
                             
                             <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                                <a href="mailto:rdx.prv@gmail.com" class="submit-btn" style="width: auto; padding: 10px 20px; text-decoration: none; display: inline-block;">
+                                <!-- زر إرسال عبر برنامج البريد الافتراضي -->
+                                <a href="mailto:rdx.prv@gmail.com?subject=استفسار%20من%20صحيفة%20مدار" class="submit-btn" style="width: auto; padding: 10px 20px; text-decoration: none; display: inline-block;">
                                     <i class="fas fa-paper-plane"></i> إرسال بريد
                                 </a>
                                 
+                                <!-- زر إرسال عبر Gmail (خيار إضافي) -->
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rdx.prv@gmail.com&su=استفسار%20من%20صحيفة%20مدار" target="_blank" class="submit-btn" style="width: auto; padding: 10px 20px; text-decoration: none; display: inline-block; background-color: #DB4437; color: white;">
+                                    <i class="fab fa-google"></i> Gmail
+                                </a>
+                                
+                                <!-- زر نسخ البريد -->
                                 <button onclick="copyEmail()" class="submit-btn" style="width: auto; padding: 10px 20px; background-color: var(--gold); color: var(--navy);">
                                     <i class="fas fa-copy"></i> نسخ البريد
                                 </button>
                             </div>
+                        </div>
                         
                         <!-- نموذج الاتصال - يبقى كما هو بدون تغيير -->
                         <div class="form-card">
