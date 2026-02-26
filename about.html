@@ -1,30 +1,517 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html dir="rtl" lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>مدار</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="notranslate">مدار - Madar | من نحن</title>
+    <!-- خط Amiri من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <!-- ربط ملف CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- تنسيقات إضافية خاصة بصفحة من نحن -->
+    <style>
+        /* تنسيقات صفحة من نحن */
+        .about-page {
+            background-color: var(--white);
+            padding: 40px;
+        }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 25px;
+            border-bottom: 3px solid var(--gold);
+            position: relative;
+        }
+        
+        .about-header h1 {
+            color: var(--navy);
+            font-size: 3rem;
+            margin-bottom: 15px;
+            border-right: none;
+            padding-right: 0;
+        }
+        
+        .about-header h2 {
+            color: var(--gold);
+            font-size: 1.8rem;
+            font-weight: normal;
+            margin-bottom: 10px;
+            border-right: none;
+            padding-right: 0;
+        }
+        
+        .about-header::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--navy);
+        }
+        
+        /* قسم الرؤية */
+        .vision-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+        
+        .vision-content {
+            padding: 20px;
+        }
+        
+        .vision-content h3 {
+            color: var(--navy);
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            border-right: 8px solid var(--gold);
+            padding-right: 20px;
+        }
+        
+        .vision-content p {
+            color: #333;
+            font-size: 1.3rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .vision-icon {
+            text-align: center;
+            font-size: 8rem;
+            color: var(--gold);
+            opacity: 0.8;
+        }
+        
+        /* بطاقات القيم */
+        .values-section {
+            margin-bottom: 60px;
+        }
+        
+        .values-section h3 {
+            color: var(--navy);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .value-card {
+            background-color: #f9f9f9;
+            padding: 30px 20px;
+            border-radius: 15px;
+            border: 1px solid var(--gold);
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--navy);
+        }
+        
+        .value-icon {
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .value-card:hover .value-icon {
+            color: var(--navy);
+        }
+        
+        .value-card h4 {
+            color: var(--navy);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .value-card p {
+            color: #555;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+        
+        /* قسم المبادئ */
+        .principles-section {
+            background: linear-gradient(135deg, #f9f9f9 0%, #fff 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            border: 2px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .principles-section::before {
+            content: '"';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            font-size: 15rem;
+            color: var(--gold);
+            opacity: 0.1;
+            font-family: serif;
+        }
+        
+        .principles-section h3 {
+            color: var(--navy);
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .principles-list {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .principles-list li {
+            color: #333;
+            font-size: 1.3rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            padding-right: 35px;
+            position: relative;
+        }
+        
+        .principles-list li::before {
+            content: "★";
+            color: var(--gold);
+            font-size: 1.5rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        
+        /* قسم التعهد */
+        .commitment-section {
+            text-align: center;
+            padding: 50px;
+            background-color: var(--navy);
+            border-radius: 20px;
+            color: var(--white);
+            margin-bottom: 40px;
+        }
+        
+        .commitment-section h3 {
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+        
+        .commitment-section p {
+            font-size: 1.4rem;
+            line-height: 2;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .commitment-icon {
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .signature {
+            font-size: 2rem;
+            color: var(--gold);
+            font-family: 'Amiri', serif;
+            margin-top: 20px;
+        }
+        
+        /* قسم الإحصائيات (اختياري) */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 60px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            color: var(--gold);
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: var(--navy);
+            font-size: 1.3rem;
+        }
+        
+        /* استجابة للشاشات الصغيرة */
+        @media (max-width: 992px) {
+            .vision-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-page {
+                padding: 20px;
+            }
+            
+            .about-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .vision-content h3 {
+                font-size: 1.8rem;
+            }
+            
+            .vision-content p {
+                font-size: 1.2rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .principles-section {
+                padding: 25px;
+            }
+            
+            .principles-list li {
+                font-size: 1.1rem;
+            }
+            
+            .commitment-section {
+                padding: 30px 20px;
+            }
+            
+            .commitment-section p {
+                font-size: 1.2rem;
+            }
+            
+            .stats-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="main-container">
+        <!-- الهيدر -->
+        <header class="header">
+            <div class="logo-area">
+                <div class="logo-circle notranslate" role="img" aria-label="شعار الصحيفة"></div>
+                <div class="newspaper-name notranslate">
+                    <h1>
+                        <span class="arabic">مـدار</span>
+                        <span class="english">Madar</span>
+                    </h1>
+                </div>
+            </div>
 
-<header>
-  <h1>مدار</h1>
-  <nav>
-    <a href="index.html">الرئيسية</a>
-    <a href="news.html">الأخبار</a>
-    <a href="opinion.html">الرأي</a>
-    <a href="analysis.html">التحليل</a>
-    <a href="culture.html">الثقافة</a>
-    <a href="writers.html">الكتّاب</a>
-    <a href="ai.html">الذكاء الاصطناعي</a>
-    <a href="contact.html">تواصل</a>
-  </nav>
-</header>
+            <!-- شريط أخبار RSS -->
+            <div class="news-ticker-container">
+                <div class="news-ticker-label"> آخر الأخبار 🌎</div>
+                <div class="news-ticker-wrapper">
+                    <div class="news-ticker" id="news-ticker">
+                        <span class="news-item">جاري تحميل آخر الأخبار العاجلة...💫</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قائمة ترجمة جوجل -->
+            <div id="google_translate_element" class="google-translate"></div>
+        </header>
 
-<main>
-  <h2>هذه صفحة تجريبية</h2>
-  <p>سيتم استبدال هذا المحتوى لاحقًا.</p>
-</main>
+        <!-- القائمة الرئيسية -->
+        <nav class="sticky-nav">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="politic.html"><i class="fas fa-landmark"></i> سياسة</a></li>
+                    <li><a href="economy.html"><i class="fas fa-chart-line"></i> اقتصاد</a></li>
+                    <li><a href="community.html"><i class="fas fa-users"></i> المجتمع</a></li>
+                    <li><a href="technology.html"><i class="fas fa-microchip"></i> تكنولوجيا</a></li>
+                    <li><a href="misc.html"><i class="fas fa-globe"></i> من العالم</a></li>
+                    <li><a href="about.html" class="active"><i class="fas fa-star"></i> المدار</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+                </ul>
+                <div class="nav-brand notranslate">مدار - Madar</div>
+            </div>
+        </nav>
 
+        <!-- المحتوى الرئيسي - صفحة من نحن -->
+        <main class="page-content about-page">
+            
+            <!-- الهيدر الداخلي -->
+            <div class="about-header">
+                <h1>من نحن</h1>
+                <h2>صحيفة "مدار" الإلكترونية</h2>
+            </div>
+
+            <!-- قسم الرؤية -->
+            <div class="vision-section">
+                <div class="vision-content">
+                    <h3>رؤيتنا</h3>
+                    <p>نحن في صحيفة "مدار" نؤمن بأن الإعلام الحر والمسؤول هو العمود الفقري لأي مجتمع راقٍ يتطلع إلى المستقبل بثقة ووعي. تأسست صحيفتنا لتكون منصة إعلامية مستقلة تجمع بين الأصالة والمعاصرة، وبين العمق التحليلي والطرح المبسط، وبين حرية الرأي والمسؤولية المهنية.</p>
+                    <p>نسعى لأن نكون صوت العقل والحكمة في زمن تتلاطم فيه الموجات الإعلامية، نقدم للقارئ العربي محتوى يثري الفكر، وينمي الوعي، ويعزز ثقته بوطنه وتاريخه، دون إقصاء أو تهميش.</p>
+                </div>
+                <div class="vision-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+            </div>
+
+            <!-- قيمنا الأساسية -->
+            <div class="values-section">
+                <h3>قيمنا الأساسية</h3>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-dove"></i>
+                        </div>
+                        <h4>الحرية المسؤولة</h4>
+                        <p>نؤمن بحق الجميع في التعبير عن آرائهم بحرية، ضمن إطار من المسؤولية الأخلاقية والمهنية، بعيداً عن الإساءة أو التنمر أو الابتذال.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h4>احترام الإنسان</h4>
+                        <p>الكرامة الإنسانية خط أحمر، ونرفض一切 أشجار الكراهية والتمييز والتشهير، ونؤمن بأن الاختلاف ثراء وليس سبباً للصراع.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h4>الموضوعية</h4>
+                        <p>نلتزم بالفصل الواضح بين الخبر والرأي، ونقدم المعلومات بدقة وحياد، مع احترام حق القارئ في تكوين رأيه بنفسه.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h4>الاعتزاز بالهوية</h4>
+                        <p>نعزز ثقة الإنسان بوطنه وتاريخه، ونستلهم من ماضينا المجد قوةً تنير طريق المستقبل.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4>الحوار الراقي</h4>
+                        <p>نفتح مساحة واسعة للحوار وتبادل الآراء بكل جدية ورقي، ونشجع النقد البناء الذي يرقى بالمجتمع.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>المهنية والأخلاق</h4>
+                        <p>نلتزم بأعلى المعايير المهنية والأخلاقية المعتمدة في أرقى المجتمعات الثقافية، ونرفض الابتذال والإثارة الرخيصة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- المبادئ الأخلاقية -->
+            <div class="principles-section">
+                <h3>ميثاقنا الأخلاقي</h3>
+                <ul class="principles-list">
+                    <li>نلتزم بالتحقق من دقة المعلومات قبل النشر، ونتحمل مسؤولية ما ننشر أمام الله ثم أمام القراء.</li>
+                    <li>نرفض بشكل قاطع خطاب الكراهية والتحريض على العنف والتمييز بجميع أشكاله.</li>
+                    <li>نحمي خصوصية الأفراد ولا ننتهك حرمات الناس تحت أي مبرر.</li>
+                    <li>نتجنب الإثارة والتهويل والتلاعب بالمشاعر العامة، ونقدم المحتوى بروح إنسانية راقية.</li>
+                    <li>نصحح أخطاءنا ونعتذر عندما نخطئ، ونفتح باب الرد والتصويب للجميع.</li>
+                    <li>نحترم حق الاختلاف، ونؤمن أن التعددية الفكرية والسياسية هي أساس المجتمعات المتطورة.</li>
+                </ul>
+            </div>
+
+            <!-- التعهد -->
+            <div class="commitment-section">
+                <div class="commitment-icon">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <h3>تعهدنا لقرائنا</h3>
+                <p>نعدكم بأن نبقى أوفياء لرسالتنا الإعلامية السامية، ننير لكم الطريق بحرف مسؤول، ونحمي مساحات الحوار من كل تشويه أو إساءة. "مدار" ليست مجرد صحيفة، بل هي فكرة وموقف وإنسان.</p>
+                <p>نرحب بكل رأي، ونصغي إلى كل نقد بناء، ونبقى معاً في رحلة البحث عن الحقيقة والجمال.</p>
+                <div class="signature">
+                    <i class="fas fa-feather-alt"></i> هيئة تحرير "مدار"
+                </div>
+            </div>
+
+            <!-- إحصائيات سريعة (اختياري) -->
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="stat-number">٢٠٢٦</div>
+                    <div class="stat-label">عام التأسيس</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">٢٤</div>
+                    <div class="stat-label">كاتب ومحرر</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">٥٠٠+</div>
+                    <div class="stat-label">مقال منشور</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">١٠٠٠٠+</div>
+                    <div class="stat-label">قارئ يومي</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- التذييل (الفوتر) -->
+        <footer>
+            <div class="copyright notranslate">© ٢٠٢٦ مدار - Madar. جميع الحقوق محفوظة.</div>
+            <div class="footer-links">
+                <a href="privacy.html">سياسة الخصوصية</a>
+                <a href="terms.html">شروط الخدمة</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- أكواد Google Translate -->
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'ar',
+            includedLanguages: 'ar,en,fr,de,es,tr,fa,ur',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true
+        }, 'google_translate_element');
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <!-- ملف JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
