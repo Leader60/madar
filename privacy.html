@@ -490,9 +490,10 @@
                         <p>لأي استفسارات أو طلبات تتعلق بالخصوصية وحماية البيانات، يرجى التواصل عبر:</p>
                         
                         <!-- البريد الإلكتروني -->
+                    <!-- البريد الإلكتروني مع منع الترجمة نهائياً -->
                         <div class="contact-email">
                             <i class="fas fa-envelope"></i> 
-                            <a href="mailto:rdx.prv@gmail.com">rdx.prv@gmail.com</a>
+                            <a href="mailto:rdx.prv@gmail.com" class="notranslate" translate="no" onclick="event.stopPropagation();">rdx.prv@gmail.com</a>
                             <i class="fas fa-envelope"></i>
                         </div>
                         
@@ -537,7 +538,6 @@
                     <div class="footer-note">
                         <i class="fas fa-shield-alt"></i> سياسة معتمدة رسميًا لصحيفة "مدار" الإلكترونية <i class="fas fa-shield-alt"></i>
                     </div>
-                    
                     <div class="last-updated">
                         آخر تحديث: 26 فبراير 2026
                     </div>
@@ -571,5 +571,16 @@
     
     <!-- ملف JavaScript -->
     <script src="script.js"></script>
+    <script>
+    // منع Google Translate من التدخل مع روابط البريد
+    document.addEventListener('DOMContentLoaded', function() {
+        var emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+        emailLinks.forEach(function(link) {
+            link.classList.add('notranslate');
+            link.setAttribute('translate', 'no');
+        });
+    });
+</script>
 </body>
 </html>
+
