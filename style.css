@@ -614,3 +614,10 @@ footer {
         padding: 12px 20px;
     }
 }
+
+/* تنسيق حجم الخط وتباعد الكلمات في النصوص */
+.stat-number {
+    font-size: 2rem;
+    line-height: 1.4;
+    word-spacing: 2px;
+}
