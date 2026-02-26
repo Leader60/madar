@@ -258,27 +258,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
         
-        .contact-email {
-            background-color: var(--navy);
-            color: var(--white);
-            padding: 20px 30px;
-            border-radius: 12px;
-            margin: 30px 0 20px;
-            text-align: center;
-            font-size: 1.5rem;
-            direction: ltr;
-        }
-        
-        .contact-email a {
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .contact-email a:hover {
-            text-decoration: underline;
-        }
-        
         .footer-note {
             margin-top: 40px;
             padding-top: 25px;
@@ -326,11 +305,6 @@
             .nested-list {
                 padding-right: 30px;
             }
-            
-            .contact-email {
-                font-size: 1.2rem;
-                padding: 15px;
-            }
         }
     </style>
 </head>
@@ -348,7 +322,7 @@
                 </div>
             </div>
 
-            <!-- شريط أخبار RSS الموحد -->
+            <!-- شريط أخبار RSS -->
             <div class="news-ticker-container">
                 <div class="news-ticker-label"> آخر الأخبار 🌎</div>
                 <div class="news-ticker-wrapper">
@@ -484,71 +458,14 @@
                         </ul>
                     </div>
                     
-                                            <!-- 8. الاتصال -->
-                        <div class="privacy-section">
-                            <h3>8. الاتصال</h3>
-                            <p>لأي استفسارات أو طلبات تتعلق بالخصوصية وحماية البيانات، يرجى التواصل عبر:</p>
-                            
-                            <!-- البريد الإلكتروني مع أزرار -->
-                            <div class="contact-email">
-                                <div style="margin-bottom: 20px;">
-                                    <i class="fas fa-envelope"></i> 
-                                    <span class="notranslate" translate="no" style="font-size: 1.5rem; color: var(--gold); font-weight: bold;">rdx.prv@gmail.com</span>
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                
-                                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                                    <!-- زر Gmail -->
-                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rdx.prv@gmail.com&su=استفسار%20من%20صحيفة%20مدار" target="_blank" style="background-color: #DB4437; color: white; padding: 8px 16px; text-decoration: none; border-radius: 12px; display: inline-block; font-size: 0.9rem;">
-                                        <i class="fab fa-google"></i> Gmail
-                                    </a>
-                                    
-                                    <!-- زر نسخ البريد -->
-                                    <button onclick="copyEmail()" style="background-color: #c5a028; color: #0a2f44; padding: 8px 16px; border: none; border-radius: 12px; cursor: pointer; font-size: 0.9rem; font-family: 'Amiri', serif;">
-                                        <i class="fas fa-copy"></i> نسخ البريد
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <!-- نموذج الاتصال - كما هو -->
-                            <div class="form-card">
-                                <h2>أو أرسل لنا رسالة مباشرة</h2>
-                                
-                                <form action="https://formspree.io/f/mzdabogg" method="POST">
-                                    <input type="hidden" name="_subject" value="رسالة جديدة من صفحة سياسة الخصوصية - مدار">
-                                    <input type="hidden" name="_language" value="ar">
-                                    
-                                    <div class="form-group">
-                                        <label>الاسم الكامل *</label>
-                                        <input type="text" name="name" placeholder="أدخل اسمك الكامل" required>
-                                    </div>
+                    <!-- 8. الاتصال - فقط نموذج Formspree -->
+                    <div class="privacy-section">
+                        <h3>8. الاتصال</h3>
+                        <p>لأي استفسارات أو طلبات تتعلق بالخصوصية وحماية البيانات، يرجى التواصل عبر نموذج الاتصال الرسمي:</p>
                         
-                                    <div class="form-group">
-                                        <label>البريد الإلكتروني *</label>
-                                        <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
-                                    </div>
-                        
-                                    <div class="form-group">
-                                        <label>الموضوع</label>
-                                        <input type="text" name="subject" placeholder="موضوع الرسالة">
-                                    </div>
-                        
-                                    <div class="form-group">
-                                        <label>الرسالة *</label>
-                                        <textarea name="message" placeholder="اكتب رسالتك هنا..." required rows="5"></textarea>
-                                    </div>
-                        
-                                    <button type="submit" class="submit-btn">
-                                        <i class="fas fa-paper-plane"></i>
-                                        إرسال الرسالة
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                        
-                        <!-- نموذج الاتصال - يبقى كما هو بدون تغيير -->
+                        <!-- نموذج الاتصال Formspree فقط -->
                         <div class="form-card">
-                            <h2>أو أرسل لنا رسالة مباشرة</h2>
+                            <h2>أرسل لنا رسالة</h2>
                             
                             <form action="https://formspree.io/f/mzdabogg" method="POST">
                                 <!-- حقول مخفية -->
@@ -559,22 +476,22 @@
                                     <label>الاسم الكامل *</label>
                                     <input type="text" name="name" placeholder="أدخل اسمك الكامل" required>
                                 </div>
-                    
+
                                 <div class="form-group">
                                     <label>البريد الإلكتروني *</label>
                                     <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
                                 </div>
-                    
+
                                 <div class="form-group">
                                     <label>الموضوع</label>
                                     <input type="text" name="subject" placeholder="موضوع الرسالة">
                                 </div>
-                    
+
                                 <div class="form-group">
                                     <label>الرسالة *</label>
                                     <textarea name="message" placeholder="اكتب رسالتك هنا..." required rows="5"></textarea>
                                 </div>
-                    
+
                                 <button type="submit" class="submit-btn">
                                     <i class="fas fa-paper-plane"></i>
                                     إرسال الرسالة
@@ -587,13 +504,14 @@
                     <div class="footer-note">
                         <i class="fas fa-shield-alt"></i> سياسة معتمدة رسميًا لصحيفة "مدار" الإلكترونية <i class="fas fa-shield-alt"></i>
                     </div>
+                    
                     <div class="last-updated">
                         آخر تحديث: 26 فبراير 2026
                     </div>
                 </div>
             </div>
         </main>
-  
+
         <!-- التذييل (الفوتر) -->
         <footer>
             <div class="copyright notranslate">© 2026 مدار - Madar. جميع الحقوق محفوظة.</div>
@@ -620,34 +538,5 @@
     
     <!-- ملف JavaScript -->
     <script src="script.js"></script>
-    <script>
-    // منع Google Translate من التدخل مع روابط البريد
-    document.addEventListener('DOMContentLoaded', function() {
-        var emailLinks = document.querySelectorAll('a[href^="mailto:"]');
-        emailLinks.forEach(function(link) {
-            link.classList.add('notranslate');
-            link.setAttribute('translate', 'no');
-        });
-    });
-</script>
-
-<script>
-function copyEmail() {
-    navigator.clipboard.writeText('rdx.prv@gmail.com').then(function() {
-        alert('✅ تم نسخ البريد الإلكتروني!');
-    }).catch(function() {
-        alert('❌ لم نتمكن من نسخ البريد، يمكنك نسخه يدوياً: rdx.prv@gmail.com');
-    });
-}
-</script>
-
-<script>
-function copyEmail() {
-    navigator.clipboard.writeText('rdx.prv@gmail.com');
-    alert('✅ تم نسخ البريد الإلكتروني');
-}
-</script>
-    
 </body>
 </html>
-
