@@ -469,29 +469,32 @@
                             
                             <form action="https://formspree.io/f/mzdabogg" method="POST">
                                 <!-- حقول مخفية -->
-                                <input type="hidden" name="_subject" value="رسالة جديدة من صفحة سياسة الخصوصية - مدار">
                                 <input type="hidden" name="_language" value="ar">
+                                <input type="hidden" name="_subject" value="رسالة جديدة من صفحة سياسة الخصوصية - مدار">
+                                
+                                <!-- حقل إعادة التوجيه بعد الإرسال -->
+                                <input type="hidden" name="_next" value="https://formspree.io/thanks?language=ar">
                                 
                                 <div class="form-group">
                                     <label>الاسم الكامل *</label>
                                     <input type="text" name="name" placeholder="أدخل اسمك الكامل" required>
                                 </div>
-
+                            
                                 <div class="form-group">
                                     <label>البريد الإلكتروني *</label>
                                     <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
                                 </div>
-
+                            
                                 <div class="form-group">
                                     <label>الموضوع</label>
                                     <input type="text" name="subject" placeholder="موضوع الرسالة">
                                 </div>
-
+                            
                                 <div class="form-group">
                                     <label>الرسالة *</label>
                                     <textarea name="message" placeholder="اكتب رسالتك هنا..." required rows="5"></textarea>
                                 </div>
-
+                            
                                 <button type="submit" class="submit-btn">
                                     <i class="fas fa-paper-plane"></i>
                                     إرسال الرسالة
