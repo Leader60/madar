@@ -135,3 +135,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // تحديث الأخبار كل 10 دقائق
 setInterval(loadNews, 600000);
+
+// التحقق من اتصال الإنترنت لجميع النماذج
+document.querySelectorAll('form').forEach(form => {
+  form.addEventListener('submit', e => {
+    if (!navigator.onLine) {
+      e.preventDefault();
+      alert('❌ تأكد من اتصالك بالإنترنت');
+    }
+  });
+});
