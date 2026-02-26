@@ -618,11 +618,11 @@ footer {
 /* تنسيق حجم الخط وتباعد الكلمات في النصوص */
 /* تصغير حجم خط الإحصائيات */
 .stat-number {
-    font-size: 1rem !important;  /* كان 2.2rem */
+    font-size: 1.4rem !important;  /* كان 2.2rem */
     margin-bottom: 5px;
 }
 
 .stat-label {
-    font-size: 0.8rem !important;    /* كان 1.3rem */
+    font-size: 1rem !important;    /* كان 1.3rem */
     color: var(--navy);
 }
