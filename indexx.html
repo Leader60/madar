@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="notranslate">مدار - Madar</title>
+    <!-- خط Amiri من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <!-- ربط ملف CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- الهيدر -->
+        <header class="header">
+            <div class="logo-area">
+                <div class="logo-circle notranslate" role="img" aria-label="شعار الصحيفة"></div>
+                <div class="newspaper-name notranslate">
+                    <h1>
+                        <span class="arabic">مـدار</span>
+                        <span class="english">Madar</span>
+                    </h1>
+                </div>
+            </div>
+
+            <!-- شريط أخبار RSS الموحد -->
+            <div class="news-ticker-container">
+                <div class="news-ticker-label"> آخر الأخبار 🌎</div>
+                <div class="news-ticker-wrapper">
+                    <div class="news-ticker" id="news-ticker">
+                        <span class="news-item">جاري تحميل آخر الأخبار العاجلة...💫</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قائمة ترجمة جوجل -->
+            <div id="google_translate_element" class="google-translate"></div>
+        </header>
+
+        <!-- القائمة الرئيسية -->
+        <nav class="sticky-nav">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="politic.html"><i class="fas fa-landmark"></i> سياسة</a></li>
+                    <li><a href="economy.html"><i class="fas fa-chart-line"></i> اقتصاد</a></li>
+                    <li><a href="community.html"><i class="fas fa-users"></i> المجتمع</a></li>
+                    <li><a href="technology.html"><i class="fas fa-microchip"></i> تكنولوجيا</a></li>
+                    <li><a href="misc.html"><i class="fas fa-globe"></i> من العالم</a></li>
+                    <li><a href="about.html"><i class="fas fa-star"></i> المدار</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+                </ul>
+                <div class="nav-brand notranslate">مدار - Madar</div>
+            </div>
+        </nav>
+
+        <!-- المحتوى الرئيسي - هذا الجزء فقط يتغير بين الصفحات -->
+        <main class="page-content">
+            <!-- محتوى الصفحة المخصص سيتم وضعه هنا -->
+            <!-- مثال لمحتوى الصفحة الرئيسية: -->
+            <div class="container">
+                <h1>مرحباً بكم في صحيفة مدار</h1>
+                <p>هذه مساحة حرة للحريات العامة والنقاش العام.</p>
+                
+                <!-- يمكنك إضافة أي محتوى هنا حسب الصفحة -->
+                <!-- سيتم تغيير هذا المحتوى في كل صفحة -->
+            </div>
+        </main>
+
+        <!-- التذييل (الفوتر) -->
+        <footer>
+            <div class="copyright notranslate">© 2026 مدار - Madar. جميع الحقوق محفوظة.</div>
+            <div class="footer-links">
+                <a href="privacy.html">سياسة الخصوصية</a>
+                <a href="terms.html">شروط الخدمة</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- أكواد Google Translate -->
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'ar',
+            includedLanguages: 'ar,en,fr,de,es,tr,fa,ur',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true
+        }, 'google_translate_element');
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <!-- ملف JavaScript في نهاية body -->
+    <script src="script.js"></script>
+</body>
+</html>
