@@ -8,9 +8,275 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
-    <!-- ربط ملف CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <!-- دمج التنسيقات في نفس الملف لتجنب مشكلة ربط CSS الخارجي -->
+    <style>
+        /* التنسيقات الأساسية */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Amiri', 'Traditional Arabic', 'Times New Roman', serif;
+            background-color: #f4f4f4;
+            color: #1e2b3a;
+            line-height: 1.7;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        /* الهيدر */
+        .header {
+            background: linear-gradient(135deg, #0b3b4b 0%, #1a4b5e 100%);
+            color: white;
+            padding: 25px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .logo-circle {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 30%, #e6b17e, #b68b7a);
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 3px solid #e9d6c0;
+        }
+
+        .newspaper-name h1 {
+            font-size: 3.2em;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 3px 3px 0 #1f2e3a;
+        }
+
+        .arabic {
+            display: block;
+            font-size: 1.2em;
+        }
+
+        .english {
+            display: block;
+            font-size: 0.5em;
+            letter-spacing: 3px;
+            color: #e9d6c0;
+        }
+
+        /* شريط الأخبار */
+        .news-ticker-container {
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 50px;
+            padding: 8px 15px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .news-ticker-label {
+            background-color: #e6b17e;
+            color: #1e2b3a;
+            padding: 5px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+
+        .news-ticker-wrapper {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .news-ticker {
+            white-space: nowrap;
+            animation: ticker 25s linear infinite;
+            font-size: 1.1em;
+        }
+
+        .news-item {
+            margin-left: 30px;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* ترجمة جوجل */
+        .google-translate {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 30px;
+        }
+
+        /* القائمة الرئيسية */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #1f4e5f;
+            border-bottom: 4px solid #e6b17e;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 18px;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 30px 30px 0 0;
+        }
+
+        .nav-menu li a:hover {
+            background-color: #e6b17e;
+            color: #1e2b3a;
+            transform: translateY(-3px);
+        }
+
+        .nav-brand {
+            color: #e9d6c0;
+            font-size: 1.2em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* المحتوى الرئيسي */
+        .page-content {
+            padding: 40px;
+            min-height: 600px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* تنسيقات المقال */
+        h1 {
+            font-size: 2.8em;
+            color: #0b3b4b;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #e6b17e;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #1f4e5f;
+            margin-top: 45px;
+            margin-bottom: 20px;
+            padding-right: 15px;
+            border-right: 6px solid #b68b7a;
+        }
+
+        h3 {
+            font-size: 1.6em;
+            color: #3b6b7a;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 25px;
+            font-size: 1.25em;
+            text-align: justify;
+        }
+
+        .highlight {
+            background-color: #f9f3ef;
+            padding: 25px;
+            border-radius: 8px;
+            border-right: 6px solid #b68b7a;
+            font-style: italic;
+            font-size: 1.4em;
+            color: #1f4e5f;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        /* الفوتر */
+        footer {
+            background-color: #1a2a33;
+            color: #e9d6c0;
+            padding: 30px;
+            text-align: center;
+            border-top: 5px solid #b68b7a;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: #e6b17e;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* تحسينات للجوال */
+        @media (max-width: 768px) {
+            .header { padding: 20px; }
+            .logo-circle { width: 60px; height: 60px; }
+            .newspaper-name h1 { font-size: 2.2em; }
+            .nav-container { flex-direction: column; padding: 10px; }
+            .nav-menu { justify-content: center; }
+            .nav-menu li a { padding: 10px 12px; font-size: 0.9em; }
+            .page-content { padding: 20px; }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.6em; }
+            .google-translate { position: static; margin-top: 15px; text-align: center; }
+        }
+    </style>
 </head>
 <body>
     <div class="main-container">
@@ -31,7 +297,10 @@
                 <div class="news-ticker-label"> آخر الأخبار 🌎</div>
                 <div class="news-ticker-wrapper">
                     <div class="news-ticker" id="news-ticker">
-                        <span class="news-item">جاري تحميل آخر الأخبار العاجلة...💫</span>
+                        <span class="news-item">📰 انعقاد القمة العربية في القاهرة وسط تحديات إقليمية</span>
+                        <span class="news-item">💻 الذكاء الاصطناعي يقتحم مجال الصحافة: بين الفوائد والمخاطر</span>
+                        <span class="news-item">⚖️ نقاشات حول قانون حرية المعلومات في البرلمان</span>
+                        <span class="news-item">🌍 تغير المناخ: مؤتمر دولي جديد يبحث حلولاً عاجلة</span>
                     </div>
                 </div>
             </div>
@@ -57,37 +326,30 @@
             </div>
         </nav>
 
-        <!-- المحتوى الرئيسي - هذا الجزء فقط يتغير بين الصفحات -->
+        <!-- المحتوى الرئيسي -->
         <main class="page-content">
-            <!-- محتوى الصفحة المخصص سيتم وضعه هنا -->
-            <!-- مثال لمحتوى الصفحة الرئيسية: -->
             <div class="container">
-                <h1>هل يوجد إعلام محايد؟ قراءة في حدود الموضوعية. </h1>
+                <h1>هل يوجد إعلام محايد؟ قراءة في حدود الموضوعية</h1>
                 
-                <h2>أزمة المصداقية في المؤسسات الإعلامية</h2>
-    <p>يواجه العالم المعاصر معضلة حتمية عندما يتحول الإعلام من دوره الحضاري كناقل للحقيقة وموسّع للوعي الجمعي، إلى أداة تجارية تُباع للأعلى مزايدة. هذا التحول الجوهري يؤدي إلى سقوط أخلاقي عميق، حيث تحل المصالح الضيقة محل البحث عن الحقيقة. تتجلى هذه الأزمة في تزايد الفجوة بين الواقع الموضوعي وما تقدمه المنصات الإعلامية، مما يعكس تأثيراً مدمراً يفوق في فتكه أدوات القوة التقليدية. إن المحرك الأساسي لتوجيه الرأي العام أصبح في أيدي جهات لا تضع الحقيقة في أولوياتها.</p>
+                <h2>المقدمة: أزمة المصداقية في المؤسسات الإعلامية</h2>
+                <p>يواجه العالم المعاصر معضلة حتمية عندما يتحول الإعلام من دوره الحضاري كناقل للحقيقة وموسّع للوعي الجمعي، إلى أداة تجارية تُباع للأعلى مزايدة. هذا التحول الجوهري يؤدي إلى سقوط أخلاقي عميق، حيث تحل المصالح الضيقة محل البحث عن الحقيقة. تتجلى هذه الأزمة في تزايد الفجوة بين الواقع الموضوعي وما تقدمه المنصات الإعلامية، مما يعكس تأثيراً مدمراً يفوق في فتكه أدوات القوة التقليدية. إن المحرك الأساسي لتوجيه الرأي العام أصبح في أيدي جهات لا تضع الحقيقة في أولوياتها.</p>
 
-    <!-- العنوان الفرعي الأول -->
-    <h2>الحياد الإعلامي: بين الفضيلة والخيانة</h2>
-    <p>يُثار سؤال جوهري حول متى يتحول الحياد من فضيلة مهنية إلى خيانة للحقيقة. المصطلح ذاته أصبح وهماً في كثير من الأحيان، لا سيما مع الممارسات المهنية الكارثية التي نشهدها يومياً. الحياد المطلق يبقى حلماً مستحيلاً لأن كل عملية إعلامية تنطوي على اختيارات: اختيار الخبر وطريقة تقديمه، اللغة المستخدمة، التوقيت، والسياق المرفق. هذه الاختيارات ذاتها تنتج انحيازاً طبيعياً، بغض النظر عن النوايا. السياسات التحريرية للمنصات تفرض قيوداً تحتم اختيار ما يُنشر وما يُتجاهل.</p>
+                <h2>الحياد الإعلامي: بين الفضيلة والخيانة</h2>
+                <p>يُثار سؤال جوهري حول متى يتحول الحياد من فضيلة مهنية إلى خيانة للحقيقة. المصطلح ذاته أصبح وهماً في كثير من الأحيان، لا سيما مع الممارسات المهنية الكارثية التي نشهدها يومياً. الحياد المطلق يبقى حلماً مستحيلاً لأن كل عملية إعلامية تنطوي على اختيارات: اختيار الخبر وطريقة تقديمه، اللغة المستخدمة، التوقيت، والسياق المرفق. هذه الاختيارات ذاتها تنتج انحيازاً طبيعياً، بغض النظر عن النوايا. السياسات التحريرية للمنصات تفرض قيوداً تحتم اختيار ما يُنشر وما يُتجاهل.</p>
 
-    <!-- عنوان فرعي من الدرجة الثالثة -->
-    <h3>تفريق جوهري: بين ثلاث مفاهيم متداخلة</h3>
-    <p>ينبغي التمييز الدقيق بين ثلاث مفاهيم غالباً ما يختلط فهمها لدى الجمهور. النزاهة الإعلامية تتطلب الدقة والتحقق من المصادر والفصل الواضح بين الخبر والرأي وعرض وجهات النظر بإنصاف. الموضوعية، من جانبها، تمثل الهدف الممكن الوحيد؛ فهي تقوم على الوعي الصريح بالانحياز ومحاولة تقليصه بشفافية منهجية. الإعلام الموضوعي لا يخفي موقفه بل يعلنه مباشرة مع الالتزام بمعايير الحقيقة.</p>
+                <h3>تفريق جوهري: بين ثلاث مفاهيم متداخلة</h3>
+                <p>ينبغي التمييز الدقيق بين ثلاث مفاهيم غالباً ما يختلط فهمها لدى الجمهور. <strong>النزاهة الإعلامية</strong> تتطلب الدقة والتحقق من المصادر والفصل الواضح بين الخبر والرأي وعرض وجهات النظر بإنصاف. <strong>الموضوعية</strong>، من جانبها، تمثل الهدف الممكن الوحيد؛ فهي تقوم على الوعي الصريح بالانحياز ومحاولة تقليصه بشفافية منهجية. الإعلام الموضوعي لا يخفي موقفه بل يعلنه مباشرة مع الالتزام بمعايير الحقيقة.</p>
 
-    <!-- عنوان فرعي ثالث آخر -->
-    <h3>أخطار وهم الحياد</h3>
-    <p>يتحول وهم الحياد إلى خطر حقيقي عندما تستخدمه المنصات لمساواة الجلاد بالضحية أو لتحويل قضايا أخلاقية وجودية إلى مجرد اختلافات رأي. هنا يصبح الحياد المزعوم انحيازاً مقنعاً يطمس البعد الإنساني للحقيقة ويرسّخ الظلم برداء الشرعية.</p>
+                <h3>أخطار وهم الحياد</h3>
+                <p>يتحول وهم الحياد إلى خطر حقيقي عندما تستخدمه المنصات لمساواة الجلاد بالضحية أو لتحويل قضايا أخلاقية وجودية إلى مجرد اختلافات رأي. هنا يصبح الحياد المزعوم انحيازاً مقنعاً يطمس البعد الإنساني للحقيقة ويرسّخ الظلم برداء الشرعية.</p>
 
-    <!-- الخاتمة -->
-    <h2>الخلاصة: نحو إعلام صادق</h2>
-    <p>السؤال الحقيقي لا يتعلق بوجود إعلام محايد، بل بوجود إعلام صادق ونزيه ومسؤول. يمكن تحقيق إعلام راقٍ لا يزيّف الحقائق وصحافة حرة بضمير مهني، تنحاز للحقيقة دون التنازل عن المعايير الأخلاقية.</p>
+                <h2>الخلاصة: نحو إعلام صادق</h2>
+                <p>السؤال الحقيقي لا يتعلق بوجود إعلام محايد، بل بوجود إعلام صادق ونزيه ومسؤول. يمكن تحقيق إعلام راقٍ لا يزيّف الحقائق وصحافة حرة بضمير مهني، تنحاز للحقيقة دون التنازل عن المعايير الأخلاقية.</p>
 
-    <!-- فقرة ختامية مميزة (اختيارية) -->
-    <p class="highlight">"الإعلام الحقيقي هو ذلك الذي يضع الحقيقة فوق المصلحة، والإنسانية فوق الانحياز."</p>
+                <p class="highlight">"الإعلام الحقيقي هو ذلك الذي يضع الحقيقة فوق المصلحة، والإنسانية فوق الانحياز."</p>
 
+                <p style="color: #3b6b7a; font-size: 1.2em; text-align: left; margin-top: 30px;">✍️ بقلم: هيئة التحرير</p>
             </div>
-           <p>هذه مساحة حرة للحريات العامة والنقاش العام.</p>
         </main>
 
         <!-- التذييل (الفوتر) -->
@@ -114,9 +376,16 @@
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
-    <!-- ملف JavaScript في نهاية body -->
-    <script src="script.js"></script>
+    <!-- JavaScript بسيط لتحريك الشريط إذا توقف -->
+    <script>
+    // تحديث شريط الأخبار كل 30 ثانية (محاكاة)
+    setInterval(function() {
+        const ticker = document.getElementById('news-ticker');
+        if (ticker) {
+            // يمكن استبدال هذا بطلب Ajax حقيقي
+            console.log('تحديث شريط الأخبار...');
+        }
+    }, 30000);
+    </script>
 </body>
 </html>
-
-
